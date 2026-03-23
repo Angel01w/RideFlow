@@ -10,4 +10,8 @@ public class RideFlowDbContext : DbContext
     }
 
     public DbSet<Driver> Drivers => Set<Driver>();
+    public DbSet<Employee> Employees => Set<Employee>();
+    public DbSet<Route> Routes => Set<Route>();
+    public DbSet<RouteAssignment> RouteAssignments => Set<RouteAssignment>();
+    public DbSet<Attendance> Attendances => Set<Attendance>();
 }
