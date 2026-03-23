@@ -1,33 +1,28 @@
-
-# Build results
-bin/
-obj/
-**/bin/
-**/obj/
-
-# Visual Studio files
 .vs/
-*.user
-*.suo
-*.userosscache
-*.sln.docstates
-
-# Rider
+.vscode/
 .idea/
 
-# Logs
-*.log
+bin/
+obj/
+out/
+dist/
 
-# OS files
-Thumbs.db
-.DS_Store
-
-# NuGet
-*.nupkg
-packages/
-
-# Publish
-publish/
-
-# Node
 node_modules/
+coverage/
+
+*.user
+*.rsuser
+*.suo
+*.cache
+*.bin
+*.v2
+*.log
+*.tmp
+*.temp
+
+**/DocumentLayout.json
+**/DocumentLayout.backup.json
+
+appsettings.Development.json
+.env
+.env.*
