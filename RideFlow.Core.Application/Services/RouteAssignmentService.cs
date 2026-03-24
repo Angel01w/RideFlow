@@ -18,11 +18,16 @@ public class RouteAssignmentService : IRouteAssignmentService
     public async Task<List<RouteAssignmentResponseDto>> GetAllAsync()
     {
         return await _context.RouteAssignments
+            .Where(x => x.IsActive)
+            .Include(x => x.Employee)
+            .Include(x => x.Route)
             .Select(x => new RouteAssignmentResponseDto
             {
                 Id = x.Id,
                 EmployeeId = x.EmployeeId,
+                EmployeeName = x.Employee.FullName,
                 RouteId = x.RouteId,
+                RouteName = x.Route.Origin + " - " + x.Route.Destination,
                 AssignedDate = x.AssignedDate,
                 IsActive = x.IsActive
             })
@@ -32,12 +37,16 @@ public class RouteAssignmentService : IRouteAssignmentService
     public async Task<RouteAssignmentResponseDto?> GetByIdAsync(int id)
     {
         return await _context.RouteAssignments
-            .Where(x => x.Id == id)
+            .Where(x => x.Id == id && x.IsActive)
+            .Include(x => x.Employee)
+            .Include(x => x.Route)
             .Select(x => new RouteAssignmentResponseDto
             {
                 Id = x.Id,
                 EmployeeId = x.EmployeeId,
+                EmployeeName = x.Employee.FullName,
                 RouteId = x.RouteId,
+                RouteName = x.Route.Origin + " - " + x.Route.Destination,
                 AssignedDate = x.AssignedDate,
                 IsActive = x.IsActive
             })
@@ -46,6 +55,20 @@ public class RouteAssignmentService : IRouteAssignmentService
 
     public async Task<RouteAssignmentResponseDto> CreateAsync(RouteAssignmentCreateDto dto)
     {
+        var route = await _context.Routes.FirstOrDefaultAsync(x => x.Id == dto.RouteId);
+        if (route == null || !route.IsActive)
+            throw new ArgumentException("Invalid or inactive route");
+
+        var employee = await _context.Employees.FirstOrDefaultAsync(x => x.Id == dto.EmployeeId);
+        if (employee == null || !employee.IsActive)
+            throw new ArgumentException("Invalid or inactive employee");
+
+        var exists = await _context.RouteAssignments
+            .AnyAsync(x => x.RouteId == dto.RouteId && x.EmployeeId == dto.EmployeeId && x.IsActive);
+
+        if (exists)
+            throw new ArgumentException("Employee already assigned to this route");
+
         var entity = new RouteAssignment
         {
             EmployeeId = dto.EmployeeId,
@@ -61,7 +84,9 @@ public class RouteAssignmentService : IRouteAssignmentService
         {
             Id = entity.Id,
             EmployeeId = entity.EmployeeId,
+            EmployeeName = employee.FullName,
             RouteId = entity.RouteId,
+            RouteName = route.Origin + " - " + route.Destination,
             AssignedDate = entity.AssignedDate,
             IsActive = entity.IsActive
         };
@@ -69,10 +94,28 @@ public class RouteAssignmentService : IRouteAssignmentService
 
     public async Task<bool> UpdateAsync(int id, RouteAssignmentUpdateDto dto)
     {
-        var entity = await _context.RouteAssignments.FirstOrDefaultAsync(x => x.Id == id);
+        var entity = await _context.RouteAssignments.FirstOrDefaultAsync(x => x.Id == id && x.IsActive);
 
         if (entity == null)
             return false;
+
+        var route = await _context.Routes.FirstOrDefaultAsync(x => x.Id == dto.RouteId);
+        if (route == null || !route.IsActive)
+            throw new ArgumentException("Invalid or inactive route");
+
+        var employee = await _context.Employees.FirstOrDefaultAsync(x => x.Id == dto.EmployeeId);
+        if (employee == null || !employee.IsActive)
+            throw new ArgumentException("Invalid or inactive employee");
+
+        var exists = await _context.RouteAssignments
+            .AnyAsync(x =>
+                x.Id != id &&
+                x.RouteId == dto.RouteId &&
+                x.EmployeeId == dto.EmployeeId &&
+                x.IsActive);
+
+        if (exists)
+            throw new ArgumentException("Employee already assigned to this route");
 
         entity.EmployeeId = dto.EmployeeId;
         entity.RouteId = dto.RouteId;
@@ -84,12 +127,13 @@ public class RouteAssignmentService : IRouteAssignmentService
 
     public async Task<bool> DeleteAsync(int id)
     {
-        var entity = await _context.RouteAssignments.FirstOrDefaultAsync(x => x.Id == id);
+        var entity = await _context.RouteAssignments.FirstOrDefaultAsync(x => x.Id == id && x.IsActive);
 
         if (entity == null)
             return false;
 
-        _context.RouteAssignments.Remove(entity);
+        entity.IsActive = false;
+
         await _context.SaveChangesAsync();
         return true;
     }

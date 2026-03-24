@@ -18,6 +18,7 @@ public class DriverService : IDriverService
     public async Task<List<DriverResponseDto>> GetAllAsync()
     {
         return await _context.Drivers
+            .Where(x => x.IsActive)
             .Select(x => new DriverResponseDto
             {
                 Id = x.Id,
@@ -32,7 +33,7 @@ public class DriverService : IDriverService
     public async Task<DriverResponseDto?> GetByIdAsync(int id)
     {
         return await _context.Drivers
-            .Where(x => x.Id == id)
+            .Where(x => x.Id == id && x.IsActive)
             .Select(x => new DriverResponseDto
             {
                 Id = x.Id,
@@ -70,7 +71,7 @@ public class DriverService : IDriverService
 
     public async Task<bool> UpdateAsync(int id, DriverUpdateDto dto)
     {
-        var entity = await _context.Drivers.FirstOrDefaultAsync(x => x.Id == id);
+        var entity = await _context.Drivers.FirstOrDefaultAsync(x => x.Id == id && x.IsActive);
 
         if (entity == null)
             return false;
@@ -86,12 +87,13 @@ public class DriverService : IDriverService
 
     public async Task<bool> DeleteAsync(int id)
     {
-        var entity = await _context.Drivers.FirstOrDefaultAsync(x => x.Id == id);
+        var entity = await _context.Drivers.FirstOrDefaultAsync(x => x.Id == id && x.IsActive);
 
         if (entity == null)
             return false;
 
-        _context.Drivers.Remove(entity);
+        entity.IsActive = false;
+
         await _context.SaveChangesAsync();
         return true;
     }

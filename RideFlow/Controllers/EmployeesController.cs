@@ -7,7 +7,7 @@ namespace RideFlow.Core.Presentation.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-[Authorize]
+[Authorize(Roles = "Admin")]
 public class EmployeesController : ControllerBase
 {
     private readonly IEmployeeService _service;
