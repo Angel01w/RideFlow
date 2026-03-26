@@ -20,12 +20,6 @@ public class RideFlowDbContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
 
-        modelBuilder.Entity<Route>()
-            .HasOne(r => r.Driver)
-            .WithMany(d => d.Routes)
-            .HasForeignKey(r => r.DriverId)
-            .OnDelete(DeleteBehavior.Restrict);
-
         modelBuilder.Entity<RouteAssignment>()
             .HasOne(ra => ra.Route)
             .WithMany(r => r.Assignments)

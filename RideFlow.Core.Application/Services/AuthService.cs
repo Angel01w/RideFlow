@@ -1,5 +1,4 @@
-﻿using BCrypt.Net;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using RideFlow.Core.Application.DTOs.Auth;
@@ -49,21 +48,34 @@ public class AuthService : IAuthService
         if (!isValidPassword)
             return null;
 
-        var jwtKey = _configuration["Jwt:Key"] ?? throw new InvalidOperationException("Jwt:Key not configured.");
+        var jwtKey = _configuration["Jwt:Key"];
+        var jwtIssuer = _configuration["Jwt:Issuer"];
+        var jwtAudience = _configuration["Jwt:Audience"];
         var expireHours = int.TryParse(_configuration["Jwt:ExpireHours"], out var hours) ? hours : 4;
+
+        if (string.IsNullOrWhiteSpace(jwtKey))
+            throw new InvalidOperationException("Jwt:Key not configured.");
+
+        if (string.IsNullOrWhiteSpace(jwtIssuer))
+            throw new InvalidOperationException("Jwt:Issuer not configured.");
+
+        if (string.IsNullOrWhiteSpace(jwtAudience))
+            throw new InvalidOperationException("Jwt:Audience not configured.");
 
         var claims = new List<Claim>
         {
             new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-            new Claim(ClaimTypes.Name, user.Username),
-            new Claim(ClaimTypes.Role, user.Role),
-            new Claim("FullName", user.FullName)
+            new Claim(ClaimTypes.Name, user.Username ?? string.Empty),
+            new Claim(ClaimTypes.Role, user.Role ?? string.Empty),
+            new Claim("FullName", user.FullName ?? string.Empty)
         };
 
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey));
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
         var token = new JwtSecurityToken(
+            issuer: jwtIssuer,
+            audience: jwtAudience,
             claims: claims,
             expires: DateTime.UtcNow.AddHours(expireHours),
             signingCredentials: creds
@@ -72,8 +84,8 @@ public class AuthService : IAuthService
         return new LoginResponseDto
         {
             Token = new JwtSecurityTokenHandler().WriteToken(token),
-            FullName = user.FullName,
-            Role = user.Role
+            FullName = user.FullName ?? string.Empty,
+            Role = user.Role ?? string.Empty
         };
     }
 }

@@ -23,9 +23,9 @@ public class RouteService : IRouteService
             {
                 Id = x.Id,
                 Origin = x.Origin,
+                Stops = x.Stops,
                 Destination = x.Destination,
                 DepartureTime = x.DepartureTime,
-                DriverId = x.DriverId,
                 IsActive = x.IsActive
             })
             .ToListAsync();
@@ -39,9 +39,9 @@ public class RouteService : IRouteService
             {
                 Id = x.Id,
                 Origin = x.Origin,
+                Stops = x.Stops,
                 Destination = x.Destination,
                 DepartureTime = x.DepartureTime,
-                DriverId = x.DriverId,
                 IsActive = x.IsActive
             })
             .FirstOrDefaultAsync();
@@ -51,12 +51,11 @@ public class RouteService : IRouteService
     {
         var entity = new Route
         {
-            Origin = dto.Origin,
-            Destination = dto.Destination,
+            Origin = dto.Origin.Trim(),
+            Stops = string.IsNullOrWhiteSpace(dto.Stops) ? null : dto.Stops.Trim(),
+            Destination = dto.Destination.Trim(),
             DepartureTime = dto.DepartureTime,
-            DriverId = dto.DriverId,
-            IsActive = true,
-            CreatedAt = DateTime.UtcNow
+            IsActive = true
         };
 
         _context.Routes.Add(entity);
@@ -66,9 +65,9 @@ public class RouteService : IRouteService
         {
             Id = entity.Id,
             Origin = entity.Origin,
+            Stops = entity.Stops,
             Destination = entity.Destination,
             DepartureTime = entity.DepartureTime,
-            DriverId = entity.DriverId,
             IsActive = entity.IsActive
         };
     }
@@ -76,15 +75,13 @@ public class RouteService : IRouteService
     public async Task<bool> UpdateAsync(int id, RouteUpdateDto dto)
     {
         var entity = await _context.Routes.FirstOrDefaultAsync(x => x.Id == id && x.IsActive);
-
-        if (entity == null)
+        if (entity is null)
             return false;
 
-        entity.Origin = dto.Origin;
-        entity.Destination = dto.Destination;
+        entity.Origin = dto.Origin.Trim();
+        entity.Stops = string.IsNullOrWhiteSpace(dto.Stops) ? null : dto.Stops.Trim();
+        entity.Destination = dto.Destination.Trim();
         entity.DepartureTime = dto.DepartureTime;
-        entity.DriverId = dto.DriverId;
-        entity.IsActive = dto.IsActive;
 
         await _context.SaveChangesAsync();
         return true;
@@ -93,12 +90,10 @@ public class RouteService : IRouteService
     public async Task<bool> DeleteAsync(int id)
     {
         var entity = await _context.Routes.FirstOrDefaultAsync(x => x.Id == id && x.IsActive);
-
-        if (entity == null)
+        if (entity is null)
             return false;
 
         entity.IsActive = false;
-
         await _context.SaveChangesAsync();
         return true;
     }

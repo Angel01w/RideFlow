@@ -8,6 +8,4 @@ public class Driver
     public string Phone { get; set; } = null!;
     public bool IsActive { get; set; } = true;
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-
-    public ICollection<Route> Routes { get; set; } = new List<Route>();
 }

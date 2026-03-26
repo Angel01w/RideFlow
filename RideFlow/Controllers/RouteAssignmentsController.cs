@@ -3,64 +3,65 @@ using Microsoft.AspNetCore.Mvc;
 using RideFlow.Core.Application.DTOs.Assignments;
 using RideFlow.Core.Application.Interfaces;
 
-namespace RideFlow.Core.Presentation.Controllers;
-
-[ApiController]
-[Route("api/[controller]")]
-[Authorize(Roles = "Admin")]
-public class RouteAssignmentsController : ControllerBase
+namespace RideFlow.Core.Presentation.Controllers
 {
-    private readonly IRouteAssignmentService _service;
-
-    public RouteAssignmentsController(IRouteAssignmentService service)
+    [ApiController]
+    [Route("api/Assignments")]
+    [Authorize(Roles = "Admin")]
+    public class RouteAssignmentsController : ControllerBase
     {
-        _service = service;
-    }
+        private readonly IRouteAssignmentService _service;
 
-    [HttpGet]
-    public async Task<IActionResult> GetAll()
-    {
-        var result = await _service.GetAllAsync();
-        return Ok(result);
-    }
+        public RouteAssignmentsController(IRouteAssignmentService service)
+        {
+            _service = service;
+        }
 
-    [HttpGet("{id:int}")]
-    public async Task<IActionResult> GetById(int id)
-    {
-        var result = await _service.GetByIdAsync(id);
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var result = await _service.GetAllAsync();
+            return Ok(result);
+        }
 
-        if (result == null)
-            return NotFound();
+        [HttpGet("{id:int}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var result = await _service.GetByIdAsync(id);
 
-        return Ok(result);
-    }
+            if (result == null)
+                return NotFound();
 
-    [HttpPost]
-    public async Task<IActionResult> Create(RouteAssignmentCreateDto dto)
-    {
-        var result = await _service.CreateAsync(dto);
-        return Ok(result);
-    }
+            return Ok(result);
+        }
 
-    [HttpPut("{id:int}")]
-    public async Task<IActionResult> Update(int id, RouteAssignmentUpdateDto dto)
-    {
-        var updated = await _service.UpdateAsync(id, dto);
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody] RouteAssignmentCreateDto dto)
+        {
+            var result = await _service.CreateAsync(dto);
+            return Ok(result);
+        }
 
-        if (!updated)
-            return NotFound();
+        [HttpPut("{id:int}")]
+        public async Task<IActionResult> Update(int id, [FromBody] RouteAssignmentUpdateDto dto)
+        {
+            var updated = await _service.UpdateAsync(id, dto);
 
-        return NoContent();
-    }
+            if (!updated)
+                return NotFound();
 
-    [HttpDelete("{id:int}")]
-    public async Task<IActionResult> Delete(int id)
-    {
-        var deleted = await _service.DeleteAsync(id);
+            return NoContent();
+        }
 
-        if (!deleted)
-            return NotFound();
+        [HttpDelete("{id:int}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var deleted = await _service.DeleteAsync(id);
 
-        return NoContent();
+            if (!deleted)
+                return NotFound();
+
+            return NoContent();
+        }
     }
 }

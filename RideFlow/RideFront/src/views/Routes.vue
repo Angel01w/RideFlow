@@ -52,38 +52,36 @@
                         <thead>
                             <tr>
                                 <th>Origen</th>
+                                <th>Paradas</th>
                                 <th>Destino</th>
                                 <th>Horario</th>
-                                <th>Conductor</th>
-                                <th>Capacidad</th>
-                                <th class="actions-col"></th>
+                                <th class="actions-col">Acciones</th>
                             </tr>
                         </thead>
 
                         <tbody>
                             <tr v-if="loading">
-                                <td colspan="6" class="empty-cell">Cargando rutas...</td>
+                                <td colspan="5" class="empty-cell">Cargando rutas...</td>
                             </tr>
 
                             <tr v-else-if="errorMessage">
-                                <td colspan="6" class="empty-cell error-cell">{{ errorMessage }}</td>
+                                <td colspan="5" class="empty-cell error-cell">{{ errorMessage }}</td>
                             </tr>
 
                             <tr v-else-if="routes.length === 0">
-                                <td colspan="6" class="empty-cell">No hay rutas registradas</td>
+                                <td colspan="5" class="empty-cell">No hay rutas registradas</td>
                             </tr>
 
                             <tr v-for="routeItem in routes" :key="routeItem.id">
                                 <td>{{ routeItem.origin }}</td>
+                                <td>{{ routeItem.stops || '-' }}</td>
                                 <td>{{ routeItem.destination }}</td>
                                 <td>{{ routeItem.schedule }}</td>
-                                <td>{{ routeItem.driver }}</td>
-                                <td>{{ routeItem.capacityLabel }}</td>
                                 <td class="row-actions">
                                     <button class="icon-btn edit" type="button" @click="editRoute(routeItem)">
                                         ✎
                                     </button>
-                                    <button class="icon-btn delete" type="button" @click="deleteRoute(routeItem)" :disabled="deletingId === routeItem.id">
+                                    <button class="icon-btn delete" type="button" @click="deleteRoute(routeItem)" :disabled="deletingId === routeItem.id || saving">
                                         {{ deletingId === routeItem.id ? '...' : '🗑' }}
                                     </button>
                                 </td>
@@ -99,28 +97,35 @@
                 <div class="route-modal" @click.stop>
                     <div class="modal-header">
                         <div class="modal-header-top">
-                            <h2>Nueva Ruta</h2>
+                            <h2>{{ isEditing ? 'Editar Ruta' : 'Nueva Ruta' }}</h2>
                             <button class="modal-close" type="button" @click="closeCreateModal">✕</button>
                         </div>
 
                         <div class="modal-subtitle-row">
                             <span class="header-line"></span>
-                            <p>Complete los datos de ruta de transporte</p>
+                            <p>{{ isEditing ? 'Actualiza los datos de la ruta' : 'Complete los datos de ruta de transporte' }}</p>
                             <span class="header-line"></span>
                         </div>
                     </div>
 
-                    <form class="route-form" @submit.prevent="createRoute">
+                    <form class="route-form" @submit.prevent="saveRoute">
                         <div class="form-group">
                             <label>Origen <span>*</span></label>
-                            <input v-model.trim="createForm.origin"
+                            <input v-model.trim="form.origin"
                                    type="text"
                                    placeholder="Punto de partida" />
                         </div>
 
                         <div class="form-group">
+                            <label>Paradas</label>
+                            <input v-model.trim="form.stops"
+                                   type="text"
+                                   placeholder="Opcional (ej: Av. Duarte, Lincoln)" />
+                        </div>
+
+                        <div class="form-group">
                             <label>Destino <span>*</span></label>
-                            <input v-model.trim="createForm.destination"
+                            <input v-model.trim="form.destination"
                                    type="text"
                                    placeholder="Punto de llegada" />
                         </div>
@@ -128,25 +133,10 @@
                         <div class="form-group">
                             <label>Horario de Salida <span>*</span></label>
                             <div class="time-input-wrap">
-                                <input v-model="createForm.schedule"
+                                <input v-model="form.schedule"
                                        type="time" />
                                 <span class="time-icon">🕘</span>
                             </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Conductor Asignado <span>*</span></label>
-                            <input v-model.trim="createForm.driver"
-                                   type="text"
-                                   placeholder="Nombre del conductor" />
-                        </div>
-
-                        <div class="form-group">
-                            <label>Capacidad <span>*</span></label>
-                            <input v-model.number="createForm.capacity"
-                                   type="number"
-                                   min="1"
-                                   placeholder="Número de pasajeros" />
                         </div>
 
                         <p v-if="formError" class="form-error">{{ formError }}</p>
@@ -155,8 +145,8 @@
                             <button class="btn-cancel" type="button" @click="closeCreateModal">
                                 Cancelar
                             </button>
-                            <button class="btn-create" type="submit" :disabled="creating">
-                                {{ creating ? 'Creando...' : 'Crear' }}
+                            <button class="btn-create" type="submit" :disabled="saving">
+                                {{ saving ? 'Guardando...' : isEditing ? 'Actualizar' : 'Crear' }}
                             </button>
                         </div>
                     </form>
@@ -215,32 +205,32 @@
     type RouteItem = {
         id: number | string
         origin: string
+        stops?: string | null
         destination: string
         schedule: string
-        driver: string
-        capacity: number
-        capacityLabel: string
+        isActive?: boolean
     }
 
     const route = useRoute()
     const router = useRouter()
 
     const loading = ref(false)
-    const creating = ref(false)
+    const saving = ref(false)
     const deletingId = ref<number | string | null>(null)
     const isUserMenuOpen = ref(false)
     const showCreateModal = ref(false)
+    const isEditing = ref(false)
+    const editingId = ref<number | string | null>(null)
     const formError = ref('')
     const errorMessage = ref('')
     const user = ref<StoredUser | null>(null)
     const routes = ref<RouteItem[]>([])
 
-    const createForm = reactive({
+    const form = reactive({
         origin: '',
+        stops: '',
         destination: '',
-        schedule: '',
-        driver: '',
-        capacity: null as number | null
+        schedule: ''
     })
 
     const displayName = computed(() => {
@@ -274,17 +264,33 @@
         router.push('/login')
     }
 
-    const normalizeRoute = (item: any, index = 0): RouteItem => {
-        const capacity = Number(item.capacity ?? item.capacidad ?? item.seats ?? item.cupo ?? 0)
+    const formatSchedule = (value: unknown) => {
+        if (!value) return '00:00'
 
+        if (typeof value === 'string') {
+            const hhmmss = value.match(/^(\d{2}):(\d{2}):(\d{2})$/)
+            if (hhmmss) return `${hhmmss[1]}:${hhmmss[2]}`
+
+            const hhmm = value.match(/^(\d{2}):(\d{2})$/)
+            if (hhmm) return `${hhmm[1]}:${hhmm[2]}`
+        }
+
+        return String(value)
+    }
+
+    const toTimeSpan = (value: string) => {
+        if (!value) return '00:00:00'
+        return /^\d{2}:\d{2}$/.test(value) ? `${value}:00` : value
+    }
+
+    const normalizeRoute = (item: any, index = 0): RouteItem => {
         return {
-            id: item.id ?? item.Id ?? item.routeId ?? item.IdRoute ?? index + 1,
-            origin: item.origin ?? item.origen ?? item.startLocation ?? item.from ?? item.puntoPartida ?? 'Sin origen',
-            destination: item.destination ?? item.destino ?? item.endLocation ?? item.to ?? item.puntoLlegada ?? 'Sin destino',
-            schedule: item.schedule ?? item.horario ?? item.time ?? item.departureTime ?? item.horaSalida ?? '00:00',
-            driver: item.driver ?? item.driverName ?? item.conductor ?? item.employeeName ?? item.nombreConductor ?? 'Sin conductor',
-            capacity,
-            capacityLabel: `${capacity} pasajeros`
+            id: item.id ?? item.Id ?? index + 1,
+            origin: item.origin ?? item.Origin ?? 'Sin origen',
+            stops: item.stops ?? item.Stops ?? null,
+            destination: item.destination ?? item.Destination ?? 'Sin destino',
+            schedule: formatSchedule(item.departureTime ?? item.DepartureTime),
+            isActive: item.isActive ?? item.IsActive ?? true
         }
     }
 
@@ -300,23 +306,27 @@
         return list.map((item: any, index: number) => normalizeRoute(item, index))
     }
 
-    const resetCreateForm = () => {
-        createForm.origin = ''
-        createForm.destination = ''
-        createForm.schedule = ''
-        createForm.driver = ''
-        createForm.capacity = null
+    const resetForm = () => {
+        form.origin = ''
+        form.stops = ''
+        form.destination = ''
+        form.schedule = ''
         formError.value = ''
     }
 
     const openCreateModal = () => {
-        resetCreateForm()
+        resetForm()
+        isEditing.value = false
+        editingId.value = null
         showCreateModal.value = true
     }
 
     const closeCreateModal = () => {
         showCreateModal.value = false
+        isEditing.value = false
+        editingId.value = null
         formError.value = ''
+        resetForm()
     }
 
     const parseErrorMessage = async (response: Response) => {
@@ -325,6 +335,12 @@
 
             if (contentType.includes('application/json')) {
                 const data = await response.json()
+
+                if (data?.errors) {
+                    const messages = Object.values(data.errors).flat().join(' ')
+                    if (messages) return messages
+                }
+
                 return data?.message || data?.title || data?.error || null
             }
 
@@ -341,79 +357,83 @@
 
         try {
             user.value = getUser()
-
             const response = await apiFetch('/Routes')
 
             if (!response.ok) {
                 const serverMessage = await parseErrorMessage(response)
-                console.error('GET /Routes error:', response.status, serverMessage)
-                errorMessage.value = 'No se pudieron cargar las rutas.'
+                errorMessage.value = serverMessage || 'Error cargando rutas'
                 routes.value = []
                 return
             }
 
             const data = await response.json()
             routes.value = normalizeRoutes(data)
-        } catch (error) {
-            console.error('loadRoutes exception:', error)
-            errorMessage.value = 'No se pudieron cargar las rutas.'
+        } catch {
+            errorMessage.value = 'Error cargando rutas'
             routes.value = []
         } finally {
             loading.value = false
         }
     }
 
-    const createRoute = async () => {
+    const saveRoute = async () => {
         formError.value = ''
 
-        if (!createForm.origin || !createForm.destination || !createForm.schedule || !createForm.driver || !createForm.capacity) {
+        if (!form.origin || !form.destination || !form.schedule) {
             formError.value = 'Completa todos los campos obligatorios.'
             return
         }
 
-        creating.value = true
-
-        const capacity = Number(createForm.capacity)
+        saving.value = true
 
         const payload = {
-            origin: createForm.origin,
-            destination: createForm.destination,
-            schedule: createForm.schedule,
-            driver: createForm.driver,
-            capacity,
-            origen: createForm.origin,
-            destino: createForm.destination,
-            horario: createForm.schedule,
-            conductor: createForm.driver,
-            capacidad: capacity
+            origin: form.origin.trim(),
+            stops: form.stops?.trim() || null,
+            destination: form.destination.trim(),
+            departureTime: toTimeSpan(form.schedule),
+            isActive: true
         }
 
         try {
-            const response = await apiFetch('/Routes', {
-                method: 'POST',
-                body: JSON.stringify(payload)
-            })
+            let response: Response
+
+            if (isEditing.value && editingId.value !== null) {
+                response = await apiFetch(`/Routes/${editingId.value}`, {
+                    method: 'PUT',
+                    body: JSON.stringify(payload)
+                })
+            } else {
+                response = await apiFetch('/Routes', {
+                    method: 'POST',
+                    body: JSON.stringify(payload)
+                })
+            }
 
             if (!response.ok) {
                 const serverMessage = await parseErrorMessage(response)
-                console.error('POST /Routes error:', response.status, serverMessage)
-                formError.value = serverMessage || 'No se pudo crear la ruta.'
+                formError.value = serverMessage || 'No se pudo guardar la ruta.'
                 return
             }
 
             await loadRoutes()
             closeCreateModal()
-            resetCreateForm()
-        } catch (error) {
-            console.error('createRoute exception:', error)
-            formError.value = 'No se pudo crear la ruta.'
+        } catch {
+            formError.value = 'No se pudo guardar la ruta.'
         } finally {
-            creating.value = false
+            saving.value = false
         }
     }
 
     const editRoute = (routeItem: RouteItem) => {
-        router.push(`/routes/${routeItem.id}`)
+        form.origin = routeItem.origin
+        form.stops = routeItem.stops || ''
+        form.destination = routeItem.destination
+        form.schedule = routeItem.schedule
+
+        isEditing.value = true
+        editingId.value = routeItem.id
+        formError.value = ''
+        showCreateModal.value = true
     }
 
     const deleteRoute = async (routeItem: RouteItem) => {
@@ -428,16 +448,10 @@
             })
 
             if (!response.ok) {
-                const serverMessage = await parseErrorMessage(response)
-                console.error('DELETE /Routes/{id} error:', response.status, serverMessage)
-                window.alert(serverMessage || 'No se pudo eliminar la ruta.')
                 return
             }
 
             await loadRoutes()
-        } catch (error) {
-            console.error('deleteRoute exception:', error)
-            window.alert('No se pudo eliminar la ruta.')
         } finally {
             deletingId.value = null
         }
@@ -450,7 +464,8 @@
     .routes-page {
         min-height: 100vh;
         position: relative;
-        overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: auto;
         background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.98), rgba(244, 245, 251, 0.96) 38%, rgba(232, 237, 248, 0.98) 100%);
         color: #24345f;
     }
@@ -637,9 +652,9 @@
     .routes-content {
         position: relative;
         z-index: 8;
-        max-width: 1180px;
+        width: min(100%, 1280px);
         margin: 0 auto;
-        padding: 24px 28px 120px;
+        padding: 24px 24px 120px;
     }
 
     .routes-hero {
@@ -650,21 +665,25 @@
         margin-bottom: 28px;
     }
 
-    .hero-copy h1 {
-        margin: 0 0 8px;
-        font-size: 46px;
-        line-height: 1.02;
-        font-weight: 800;
-        letter-spacing: -0.03em;
-        color: #253f82;
+    .hero-copy {
+        min-width: 0;
     }
 
-    .hero-copy p {
-        margin: 0;
-        font-size: 18px;
-        color: #617097;
-        font-weight: 500;
-    }
+        .hero-copy h1 {
+            margin: 0 0 8px;
+            font-size: 46px;
+            line-height: 1.02;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: #253f82;
+        }
+
+        .hero-copy p {
+            margin: 0;
+            font-size: 18px;
+            color: #617097;
+            font-weight: 500;
+        }
 
     .new-route-btn {
         height: 50px;
@@ -683,6 +702,7 @@
         background: linear-gradient(90deg, #2449c6 0%, #3f7df0 72%, #9ac861 100%);
         box-shadow: 0 10px 22px rgba(53, 86, 181, 0.22);
         transition: transform 0.2s ease, box-shadow 0.2s ease;
+        flex-shrink: 0;
     }
 
         .new-route-btn:hover {
@@ -697,24 +717,29 @@
 
     .routes-table-card {
         position: relative;
+        width: 100%;
         border-radius: 18px;
         background: rgba(255, 255, 255, 0.26);
         backdrop-filter: blur(4px);
     }
 
     .table-wrap {
+        width: 100%;
         overflow-x: auto;
+        overflow-y: hidden;
         border-radius: 16px;
         border: 1px solid rgba(198, 209, 242, 0.85);
         box-shadow: 0 14px 30px rgba(54, 72, 126, 0.14);
         background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(245, 247, 255, 0.88) 100%);
+        -webkit-overflow-scrolling: touch;
     }
 
     .routes-table {
         width: 100%;
+        min-width: 980px;
         border-collapse: separate;
         border-spacing: 0;
-        min-width: 880px;
+        table-layout: auto;
     }
 
         .routes-table thead th {
@@ -722,11 +747,11 @@
             padding: 14px 18px;
             text-align: left;
             font-size: 14px;
-            font-weight: 600;
+            font-weight: 700;
             color: rgba(255, 255, 255, 0.97);
             background: linear-gradient(180deg, rgba(138, 176, 255, 0.16) 0%, rgba(138, 176, 255, 0.02) 24%, rgba(138, 176, 255, 0) 40%), linear-gradient(90deg, #3159d2 0%, #426be0 30%, #527bea 65%, #618af1 100%);
             box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), inset 0 -1px 0 rgba(34, 63, 148, 0.18);
-            border-right: none;
+            white-space: nowrap;
         }
 
             .routes-table thead th:first-child {
@@ -744,26 +769,55 @@
                 right: 0;
                 width: 1px;
                 height: calc(100% - 24px);
-                background: linear-gradient( 180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.26) 20%, rgba(255, 255, 255, 0.32) 50%, rgba(255, 255, 255, 0.18) 80%, rgba(255, 255, 255, 0.04) 100% );
-            }
-
-            .routes-table thead th:not(:first-child)::before {
-                content: '';
-                position: absolute;
-                top: 12px;
-                left: 0;
-                width: 1px;
-                height: calc(100% - 24px);
-                background: linear-gradient( 180deg, rgba(39, 70, 159, 0.04) 0%, rgba(39, 70, 159, 0.14) 50%, rgba(39, 70, 159, 0.04) 100% );
+                background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.26) 20%, rgba(255, 255, 255, 0.32) 50%, rgba(255, 255, 255, 0.18) 80%, rgba(255, 255, 255, 0.04) 100%);
             }
 
         .routes-table tbody td {
-            padding: 13px 16px;
+            padding: 14px 16px;
             font-size: 16px;
             color: #42527e;
             background: rgba(255, 255, 255, 0.72);
             border-bottom: 1px solid rgba(209, 218, 241, 0.8);
+            vertical-align: middle;
         }
+
+            .routes-table tbody td:nth-child(1),
+            .routes-table tbody td:nth-child(2),
+            .routes-table tbody td:nth-child(3) {
+                white-space: normal;
+                word-break: break-word;
+            }
+
+            .routes-table thead th:nth-child(1),
+            .routes-table tbody td:nth-child(1) {
+                width: 28%;
+                min-width: 220px;
+            }
+
+            .routes-table thead th:nth-child(2),
+            .routes-table tbody td:nth-child(2) {
+                width: 26%;
+                min-width: 180px;
+            }
+
+            .routes-table thead th:nth-child(3),
+            .routes-table tbody td:nth-child(3) {
+                width: 24%;
+                min-width: 180px;
+            }
+
+            .routes-table thead th:nth-child(4),
+            .routes-table tbody td:nth-child(4) {
+                width: 12%;
+                min-width: 110px;
+                white-space: nowrap;
+            }
+
+            .routes-table thead th:nth-child(5),
+            .routes-table tbody td:nth-child(5) {
+                width: 10%;
+                min-width: 120px;
+            }
 
         .routes-table tbody tr:last-child td:first-child {
             border-bottom-left-radius: 14px;
@@ -778,21 +832,22 @@
         }
 
     .actions-col {
-        width: 108px;
+        text-align: center;
     }
 
     .row-actions {
         display: flex;
         align-items: center;
-        justify-content: flex-end;
+        justify-content: center;
         gap: 10px;
+        white-space: nowrap;
     }
 
     .icon-btn {
-        width: 32px;
-        height: 32px;
+        width: 34px;
+        height: 34px;
         border: none;
-        border-radius: 8px;
+        border-radius: 10px;
         display: inline-flex;
         align-items: center;
         justify-content: center;
@@ -800,6 +855,7 @@
         font-size: 15px;
         box-shadow: 0 6px 12px rgba(61, 79, 133, 0.18);
         transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+        flex-shrink: 0;
     }
 
         .icon-btn:hover {
@@ -1313,6 +1369,10 @@
 
         .routes-content {
             padding-bottom: 95px;
+        }
+
+        .routes-table {
+            min-width: 760px;
         }
 
         .bus-illustration {
