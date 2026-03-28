@@ -12,36 +12,38 @@ El sistema también incluye reportes básicos que permiten consultar la cantidad
 La aplicación cuenta con una interfaz amigable pensada para el administrador, quien tiene acceso a la gestión de rutas, colaboradores, asignaciones, asistencia y reportes dentro del sistema.
 
 # Tecnologías utilizadas
-# Backend
 
-ASP.NET Core Web API
-Entity Framework Core
-SQL Server
-JWT (JSON Web Token) para autenticación
-Swagger para documentación y pruebas de endpoints
-Arquitectura en capas
+Backend
+
+* ASP.NET Core Web API
+* Entity Framework Core
+* SQL Server
+* JWT (JSON Web Token) para autenticación
+* Swagger para documentación y pruebas de endpoints
+* Arquitectura en capas
 
 Frontend
 
-Vue 3 + Vite
-Vue Router
-Fetch API / Axios
-Bootstrap 5
-Composition API
-Diseño responsivo
+* Vue 3 + Vite
+* Vue Router
+* Fetch API / Axios
+* Bootstrap 5
+* Composition API
+* Diseño responsivo
 
-Instrucciones para correr la aplicación
+# Instrucciones para correr la aplicación
+
 Backend (.NET API)
 
-Abrir el proyecto en Visual Studio.
-Verificar que el archivo appsettings.json tenga configurada correctamente la cadena de conexión DefaultConnection.
-Asegurarse de que la base de datos esté creada y actualizada.
-Ejecutar la API presionando F5 o desde terminal: dotnet run
-Verificar que Swagger esté disponible en: https://localhost:7191/swagger
+1. Abrir el proyecto en Visual Studio.
+2. Verificar que el archivo appsettings.json tenga configurada correctamente la cadena de conexión DefaultConnection.
+3. Asegurarse de que la base de datos esté creada y actualizada.
+4. Ejecutar la API presionando F5 o desde terminal: dotnet run
+5. Verificar que Swagger esté disponible en: https://localhost:7191/swagger
 
 Frontend (Vue)
 
-Entrar a la carpeta del frontend: cd RideFlowFront
-Instalar dependencias: npm install
-Ejecutar el servidor de desarrollo: npm run dev
-Abrir el navegador en la URL generada por Vite, normalmente: http://localhost:5173
+1. Entrar a la carpeta del frontend: cd RideFront
+2. Instalar dependencias: npm install
+3. Ejecutar el servidor de desarrollo: npm run dev
+4. Abrir el navegador en la URL generada por Vite, normalmente: http://localhost:5173
