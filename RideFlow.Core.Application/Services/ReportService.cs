@@ -24,6 +24,7 @@ public class ReportService : IReportService
                 RouteId = g.Key,
                 TotalEmployees = g.Count()
             })
+            .OrderByDescending(x => x.TotalEmployees)
             .ToListAsync();
     }
 
@@ -37,6 +38,7 @@ public class ReportService : IReportService
                 TotalPresent = g.Count(x => x.Status == "Present"),
                 TotalAbsent = g.Count(x => x.Status == "Absent")
             })
+            .OrderByDescending(x => x.Date)
             .ToListAsync();
     }
 
@@ -51,6 +53,8 @@ public class ReportService : IReportService
                 TotalAttendances = g.Count()
             })
             .OrderByDescending(x => x.TotalAttendances)
+            .ThenBy(x => x.EmployeeId)
+            .Take(10)
             .ToListAsync();
     }
 }

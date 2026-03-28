@@ -2,7 +2,7 @@
     <div class="routes-page" @click="closeUserMenu">
         <header class="topbar">
             <div class="topbar-left">
-                <img src="../assets/images/RF.png" alt="RideFlow" class="brand-logo" />
+                <img src="../assets/images/RF.png" width="110" height="110" />
             </div>
 
             <nav class="topbar-nav">
@@ -55,21 +55,22 @@
                                 <th>Paradas</th>
                                 <th>Destino</th>
                                 <th>Horario</th>
+                                <th>Conductor</th>
                                 <th class="actions-col">Acciones</th>
                             </tr>
                         </thead>
 
                         <tbody>
                             <tr v-if="loading">
-                                <td colspan="5" class="empty-cell">Cargando rutas...</td>
+                                <td colspan="6" class="empty-cell">Cargando rutas...</td>
                             </tr>
 
                             <tr v-else-if="errorMessage">
-                                <td colspan="5" class="empty-cell error-cell">{{ errorMessage }}</td>
+                                <td colspan="6" class="empty-cell error-cell">{{ errorMessage }}</td>
                             </tr>
 
                             <tr v-else-if="routes.length === 0">
-                                <td colspan="5" class="empty-cell">No hay rutas registradas</td>
+                                <td colspan="6" class="empty-cell">No hay rutas registradas</td>
                             </tr>
 
                             <tr v-for="routeItem in routes" :key="routeItem.id">
@@ -77,6 +78,7 @@
                                 <td>{{ routeItem.stops || '-' }}</td>
                                 <td>{{ routeItem.destination }}</td>
                                 <td>{{ routeItem.schedule }}</td>
+                                <td>{{ routeItem.driverName }}</td>
                                 <td class="row-actions">
                                     <button class="icon-btn edit" type="button" @click="editRoute(routeItem)">
                                         ✎
@@ -136,6 +138,19 @@
                                 <input v-model="form.schedule"
                                        type="time" />
                                 <span class="time-icon">🕘</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Conductor <span>*</span></label>
+                            <div class="select-wrap">
+                                <select v-model="form.driverId">
+                                    <option value="">Seleccione conductor</option>
+                                    <option v-for="driver in drivers" :key="driver.id" :value="String(driver.id)">
+                                        {{ driver.fullName }}
+                                    </option>
+                                </select>
+                                <span class="select-arrow">⌄</span>
                             </div>
                         </div>
 
@@ -202,12 +217,19 @@
         userName?: string
     }
 
+    type DriverItem = {
+        id: number | string
+        fullName: string
+    }
+
     type RouteItem = {
         id: number | string
         origin: string
         stops?: string | null
         destination: string
         schedule: string
+        driverId: number
+        driverName: string
         isActive?: boolean
     }
 
@@ -225,12 +247,14 @@
     const errorMessage = ref('')
     const user = ref<StoredUser | null>(null)
     const routes = ref<RouteItem[]>([])
+    const drivers = ref<DriverItem[]>([])
 
     const form = reactive({
         origin: '',
         stops: '',
         destination: '',
-        schedule: ''
+        schedule: '',
+        driverId: ''
     })
 
     const displayName = computed(() => {
@@ -290,6 +314,8 @@
             stops: item.stops ?? item.Stops ?? null,
             destination: item.destination ?? item.Destination ?? 'Sin destino',
             schedule: formatSchedule(item.departureTime ?? item.DepartureTime),
+            driverId: item.driverId ?? item.DriverId ?? 0,
+            driverName: item.driverName ?? item.DriverName ?? 'Sin conductor',
             isActive: item.isActive ?? item.IsActive ?? true
         }
     }
@@ -306,11 +332,27 @@
         return list.map((item: any, index: number) => normalizeRoute(item, index))
     }
 
+    const normalizeDrivers = (data: any): DriverItem[] => {
+        const list = Array.isArray(data)
+            ? data
+            : Array.isArray(data?.items)
+                ? data.items
+                : Array.isArray(data?.data)
+                    ? data.data
+                    : []
+
+        return list.map((item: any, index: number) => ({
+            id: item.id ?? item.driverId ?? item.Id ?? index + 1,
+            fullName: item.fullName ?? item.FullName ?? item.name ?? 'Sin nombre'
+        }))
+    }
+
     const resetForm = () => {
         form.origin = ''
         form.stops = ''
         form.destination = ''
         form.schedule = ''
+        form.driverId = ''
         formError.value = ''
     }
 
@@ -376,10 +418,26 @@
         }
     }
 
+    const loadDrivers = async () => {
+        try {
+            const response = await apiFetch('/Drivers')
+
+            if (!response.ok) {
+                drivers.value = []
+                return
+            }
+
+            const data = await response.json()
+            drivers.value = normalizeDrivers(data)
+        } catch {
+            drivers.value = []
+        }
+    }
+
     const saveRoute = async () => {
         formError.value = ''
 
-        if (!form.origin || !form.destination || !form.schedule) {
+        if (!form.origin || !form.destination || !form.schedule || !form.driverId) {
             formError.value = 'Completa todos los campos obligatorios.'
             return
         }
@@ -391,6 +449,7 @@
             stops: form.stops?.trim() || null,
             destination: form.destination.trim(),
             departureTime: toTimeSpan(form.schedule),
+            driverId: Number(form.driverId),
             isActive: true
         }
 
@@ -429,6 +488,7 @@
         form.stops = routeItem.stops || ''
         form.destination = routeItem.destination
         form.schedule = routeItem.schedule
+        form.driverId = String(routeItem.driverId)
 
         isEditing.value = true
         editingId.value = routeItem.id
@@ -457,7 +517,10 @@
         }
     }
 
-    onMounted(loadRoutes)
+    onMounted(() => {
+        loadRoutes()
+        loadDrivers()
+    })
 </script>
 
 <style scoped>
@@ -736,7 +799,7 @@
 
     .routes-table {
         width: 100%;
-        min-width: 980px;
+        min-width: 1100px;
         border-collapse: separate;
         border-spacing: 0;
         table-layout: auto;
@@ -783,26 +846,27 @@
 
             .routes-table tbody td:nth-child(1),
             .routes-table tbody td:nth-child(2),
-            .routes-table tbody td:nth-child(3) {
+            .routes-table tbody td:nth-child(3),
+            .routes-table tbody td:nth-child(5) {
                 white-space: normal;
                 word-break: break-word;
             }
 
             .routes-table thead th:nth-child(1),
             .routes-table tbody td:nth-child(1) {
-                width: 28%;
-                min-width: 220px;
+                width: 20%;
+                min-width: 180px;
             }
 
             .routes-table thead th:nth-child(2),
             .routes-table tbody td:nth-child(2) {
-                width: 26%;
-                min-width: 180px;
+                width: 18%;
+                min-width: 160px;
             }
 
             .routes-table thead th:nth-child(3),
             .routes-table tbody td:nth-child(3) {
-                width: 24%;
+                width: 20%;
                 min-width: 180px;
             }
 
@@ -815,6 +879,12 @@
 
             .routes-table thead th:nth-child(5),
             .routes-table tbody td:nth-child(5) {
+                width: 20%;
+                min-width: 180px;
+            }
+
+            .routes-table thead th:nth-child(6),
+            .routes-table tbody td:nth-child(6) {
                 width: 10%;
                 min-width: 120px;
             }
@@ -1004,7 +1074,8 @@
             color: #eb5569;
         }
 
-    .form-group input {
+    .form-group input,
+    .form-group select {
         width: 100%;
         height: 42px;
         border-radius: 11px;
@@ -1018,16 +1089,23 @@
         box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8);
     }
 
-        .form-group input::placeholder {
-            color: #7c87a9;
-        }
+    .form-group select {
+        appearance: none;
+        padding-right: 40px;
+    }
 
-        .form-group input:focus {
-            border-color: #6d92f7;
-            box-shadow: 0 0 0 4px rgba(101, 137, 242, 0.14);
-        }
+    .form-group input::placeholder {
+        color: #7c87a9;
+    }
 
-    .time-input-wrap {
+    .form-group input:focus,
+    .form-group select:focus {
+        border-color: #6d92f7;
+        box-shadow: 0 0 0 4px rgba(101, 137, 242, 0.14);
+    }
+
+    .time-input-wrap,
+    .select-wrap {
         position: relative;
     }
 
@@ -1035,7 +1113,8 @@
             padding-right: 46px;
         }
 
-    .time-icon {
+    .time-icon,
+    .select-arrow {
         position: absolute;
         right: 14px;
         top: 50%;
@@ -1043,6 +1122,7 @@
         font-size: 16px;
         pointer-events: none;
         opacity: 0.75;
+        color: #7c87a9;
     }
 
     .form-error {
@@ -1372,7 +1452,7 @@
         }
 
         .routes-table {
-            min-width: 760px;
+            min-width: 920px;
         }
 
         .bus-illustration {
@@ -1416,7 +1496,8 @@
             font-size: 13px;
         }
 
-        .form-group input {
+        .form-group input,
+        .form-group select {
             height: 40px;
             font-size: 14px;
         }

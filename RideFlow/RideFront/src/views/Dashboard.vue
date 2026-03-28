@@ -25,7 +25,7 @@
 
                 <transition name="dropdown-fade">
                     <div v-if="isUserMenuOpen" class="user-dropdown">
-                        <button class="dropdown-item logout" type="button" @click="logout">
+                        <button class="dropdown-item logout" type="button" @click="handleLogout">
                             Cerrar sesión
                         </button>
                     </div>
@@ -47,7 +47,7 @@
                     </div>
 
                     <div class="stat-card-bottom">
-                        <span class="stat-trend">+ 12% este mes</span>
+                        <span class="stat-trend">Datos reales</span>
                         <span class="stat-dots">••••</span>
                     </div>
 
@@ -66,7 +66,7 @@
                     </div>
 
                     <div class="stat-card-bottom">
-                        <span class="stat-trend transparent">+ 0% este mes</span>
+                        <span class="stat-trend">Datos reales</span>
                         <span class="stat-dots">••••</span>
                     </div>
 
@@ -85,7 +85,7 @@
                     </div>
 
                     <div class="stat-card-bottom">
-                        <span class="stat-trend transparent">+ 0% este mes</span>
+                        <span class="stat-trend">Datos reales</span>
                         <span class="stat-dots">••••</span>
                     </div>
 
@@ -104,7 +104,7 @@
                     </div>
 
                     <div class="stat-card-bottom">
-                        <span class="stat-trend transparent">+ 0% este mes</span>
+                        <span class="stat-trend">{{ asistenciaResumen }}</span>
                         <span class="stat-dots">••••</span>
                     </div>
 
@@ -142,7 +142,7 @@
                             <span class="action-arrow">›</span>
                         </button>
 
-                        <button class="action-btn secondary" type="button">
+                        <button class="action-btn secondary" type="button" @click="goToAttendance">
                             <div class="action-left">
                                 <div class="action-icon blue">
                                     <span>☰</span>
@@ -163,12 +163,25 @@
                         <span class="menu-dots">•••</span>
                     </div>
 
-                    <div class="activity-list">
+                    <div class="activity-list" v-if="recentActivity">
+                        <div class="activity-item">
+                            <img :src="activityAvatarUrl" :alt="recentActivity.title" class="activity-avatar" />
+                            <div class="activity-text">
+                                <p>
+                                    <strong>{{ recentActivity.title }}</strong>
+                                    {{ recentActivity.description }}
+                                </p>
+                                <span>{{ recentActivity.meta }}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="activity-list" v-else>
                         <div class="activity-item">
                             <img :src="avatarUrl" :alt="displayName" class="activity-avatar" />
                             <div class="activity-text">
-                                <p><strong>{{ displayName }}</strong> asignado a Ruta Norte</p>
-                                <span>3 asistencias registradas hoy · hace 1 h</span>
+                                <p><strong>{{ displayName }}</strong> aún no tiene actividad reciente</p>
+                                <span>Empieza creando rutas, asignaciones o asistencias</span>
                             </div>
                         </div>
                     </div>
@@ -189,13 +202,47 @@
     import { computed, onMounted, ref } from 'vue'
     import { useRoute, useRouter } from 'vue-router'
     import { apiFetch } from '../services/api'
-    import { getUser } from '../services/auth.service'
+    import { getUser, logout } from '../services/auth.service'
 
     type StoredUser = {
         name?: string
         username?: string
         userName?: string
         fullName?: string
+    }
+
+    type RouteItem = {
+        id: number | string
+        origin: string
+        destination: string
+        schedule?: string
+    }
+
+    type AssignmentItem = {
+        id: number | string
+        employeeId: number | string
+        employeeName: string
+        routeId: number | string
+        routeName: string
+        assignedDate: string
+        isActive: boolean
+    }
+
+    type AttendanceItem = {
+        id: number | string
+        employeeId: number | string
+        routeId: number | string
+        attendanceDate: string
+        status: string
+        markedAt?: string
+    }
+
+    type RecentActivityItem = {
+        type: 'attendance' | 'assignment'
+        title: string
+        description: string
+        meta: string
+        when: Date
     }
 
     const route = useRoute()
@@ -207,6 +254,11 @@
     const asistencia = ref(0)
     const user = ref<StoredUser | null>(null)
     const isUserMenuOpen = ref(false)
+    const assignments = ref<AssignmentItem[]>([])
+    const attendances = ref<AttendanceItem[]>([])
+    const routesList = ref<RouteItem[]>([])
+
+    const today = new Date().toISOString().slice(0, 10)
 
     const displayName = computed(() => {
         return (
@@ -223,6 +275,72 @@
         return `https://ui-avatars.com/api/?name=${name}&background=EAF0FF&color=183A8F&bold=true`
     })
 
+    const asistenciaResumen = computed(() => {
+        const absentToday = attendances.value.filter(x => {
+            const dateOnly = String(x.attendanceDate).slice(0, 10)
+            return dateOnly === today && String(x.status).toLowerCase() === 'absent'
+        }).length
+
+        if (asistencia.value === 0 && absentToday === 0) return 'Sin registros hoy'
+        return `${asistencia.value} presentes · ${absentToday} ausentes`
+    })
+
+    const recentActivity = computed<RecentActivityItem | null>(() => {
+        const lastAttendance = [...attendances.value]
+            .filter(x => x.markedAt || x.attendanceDate)
+            .sort((a, b) => {
+                const da = new Date(a.markedAt || a.attendanceDate).getTime()
+                const db = new Date(b.markedAt || b.attendanceDate).getTime()
+                return db - da
+            })[0]
+
+        const lastAssignment = [...assignments.value]
+            .filter(x => x.assignedDate)
+            .sort((a, b) => {
+                const da = new Date(a.assignedDate).getTime()
+                const db = new Date(b.assignedDate).getTime()
+                return db - da
+            })[0]
+
+        const attendanceDate = lastAttendance ? new Date(lastAttendance.markedAt || lastAttendance.attendanceDate) : null
+        const assignmentDate = lastAssignment ? new Date(lastAssignment.assignedDate) : null
+
+        if (attendanceDate && (!assignmentDate || attendanceDate >= assignmentDate)) {
+            const routeItem = routesList.value.find(x => String(x.id) === String(lastAttendance.routeId))
+            const routeName = routeItem
+                ? `${routeItem.origin} → ${routeItem.destination}`
+                : `Ruta #${lastAttendance.routeId}`
+
+            return {
+                type: 'attendance',
+                title: 'Asistencia registrada',
+                description: `en ${routeName}`,
+                meta: `${capitalizeStatus(lastAttendance.status)} · ${formatRelativeTime(attendanceDate)}`
+                    .replace(/^/, '')
+                    .trim(),
+                when: attendanceDate
+            }
+        }
+
+        if (assignmentDate && lastAssignment) {
+            return {
+                type: 'assignment',
+                title: lastAssignment.employeeName,
+                description: `asignado a ${lastAssignment.routeName}`,
+                meta: `${formatRelativeTime(assignmentDate)}`,
+                when: assignmentDate
+            }
+        }
+
+        return null
+    })
+
+    const activityAvatarUrl = computed(() => {
+        if (!recentActivity.value) return avatarUrl.value
+        const name = encodeURIComponent(recentActivity.value.title)
+        return `https://ui-avatars.com/api/?name=${name}&background=EAF0FF&color=183A8F&bold=true`
+    })
+
     const isActive = (path: string) => route.path === path
 
     const toggleUserMenu = () => {
@@ -233,9 +351,8 @@
         isUserMenuOpen.value = false
     }
 
-    const logout = () => {
-        localStorage.removeItem('rf_token')
-        localStorage.removeItem('rf_user')
+    const handleLogout = () => {
+        logout()
         closeUserMenu()
         router.push('/login')
     }
@@ -244,34 +361,151 @@
         router.push('/routes')
     }
 
+    const goToAttendance = () => {
+        router.push('/attendance')
+    }
+
+    const normalizeRoutes = (data: any): RouteItem[] => {
+        const list = Array.isArray(data)
+            ? data
+            : Array.isArray(data?.items)
+                ? data.items
+                : Array.isArray(data?.data)
+                    ? data.data
+                    : []
+
+        return list.map((item: any, index: number) => ({
+            id: item.id ?? item.routeId ?? item.Id ?? item.IdRoute ?? index + 1,
+            origin: item.origin ?? item.Origin ?? 'Sin origen',
+            destination: item.destination ?? item.Destination ?? 'Sin destino',
+            schedule: item.schedule ?? item.departureTime ?? item.DepartureTime ?? ''
+        }))
+    }
+
+    const normalizeAssignments = (data: any): AssignmentItem[] => {
+        const list = Array.isArray(data)
+            ? data
+            : Array.isArray(data?.items)
+                ? data.items
+                : Array.isArray(data?.data)
+                    ? data.data
+                    : []
+
+        return list.map((item: any, index: number) => ({
+            id: item.id ?? item.assignmentId ?? item.Id ?? index + 1,
+            employeeId: item.employeeId ?? item.EmployeeId ?? '',
+            employeeName: item.employeeName ?? item.EmployeeName ?? 'Sin colaborador',
+            routeId: item.routeId ?? item.RouteId ?? '',
+            routeName: item.routeName ?? item.RouteName ?? 'Sin ruta',
+            assignedDate: item.assignedDate ?? item.AssignedDate ?? '',
+            isActive: item.isActive ?? item.IsActive ?? true
+        }))
+    }
+
+    const normalizeAttendances = (data: any): AttendanceItem[] => {
+        const list = Array.isArray(data)
+            ? data
+            : Array.isArray(data?.items)
+                ? data.items
+                : Array.isArray(data?.data)
+                    ? data.data
+                    : []
+
+        return list.map((item: any, index: number) => ({
+            id: item.id ?? item.attendanceId ?? item.Id ?? index + 1,
+            employeeId: item.employeeId ?? item.EmployeeId ?? '',
+            routeId: item.routeId ?? item.RouteId ?? '',
+            attendanceDate: item.attendanceDate ?? item.AttendanceDate ?? '',
+            status: item.status ?? item.Status ?? '',
+            markedAt: item.markedAt ?? item.MarkedAt ?? ''
+        }))
+    }
+
+    const formatRelativeTime = (date: Date) => {
+        const diffMs = Date.now() - date.getTime()
+        const diffMin = Math.max(1, Math.floor(diffMs / 60000))
+
+        if (diffMin < 60) return `hace ${diffMin} min`
+
+        const diffHours = Math.floor(diffMin / 60)
+        if (diffHours < 24) return `hace ${diffHours} h`
+
+        const diffDays = Math.floor(diffHours / 24)
+        return `hace ${diffDays} d`
+    }
+
+    const capitalizeStatus = (status: string) => {
+        const normalized = String(status).toLowerCase()
+        if (normalized === 'present') return 'Presente'
+        if (normalized === 'absent') return 'Ausente'
+        return status
+    }
+
     const loadData = async () => {
         try {
             user.value = getUser()
 
-            const [resRutas, resColab, resAsign] = await Promise.all([
+            const [resRutas, resColab, resAsign, resAttendance] = await Promise.all([
                 apiFetch('/Routes'),
                 apiFetch('/Employees'),
-                apiFetch('/Assignments')
+                apiFetch('/Assignments'),
+                apiFetch('/Attendances')
             ])
 
             if (resRutas?.ok) {
                 const data = await resRutas.json()
-                rutas.value = Array.isArray(data) ? data.length : 0
+                const normalized = normalizeRoutes(data)
+                routesList.value = normalized
+                rutas.value = normalized.length
+            } else {
+                routesList.value = []
+                rutas.value = 0
             }
 
             if (resColab?.ok) {
                 const data = await resColab.json()
-                colaboradores.value = Array.isArray(data) ? data.length : 0
+                colaboradores.value = Array.isArray(data)
+                    ? data.length
+                    : Array.isArray(data?.data)
+                        ? data.data.length
+                        : Array.isArray(data?.items)
+                            ? data.items.length
+                            : 0
+            } else {
+                colaboradores.value = 0
             }
 
             if (resAsign?.ok) {
                 const data = await resAsign.json()
-                asignaciones.value = Array.isArray(data) ? data.length : 0
+                const normalized = normalizeAssignments(data).filter(x => x.isActive)
+                assignments.value = normalized
+                asignaciones.value = normalized.length
+            } else {
+                assignments.value = []
+                asignaciones.value = 0
             }
 
-            asistencia.value = 0
+            if (resAttendance?.ok) {
+                const data = await resAttendance.json()
+                const normalized = normalizeAttendances(data)
+                attendances.value = normalized
+                asistencia.value = normalized.filter(x => {
+                    const dateOnly = String(x.attendanceDate).slice(0, 10)
+                    return dateOnly === today && String(x.status).toLowerCase() === 'present'
+                }).length
+            } else {
+                attendances.value = []
+                asistencia.value = 0
+            }
         } catch (error) {
             console.error('Error cargando dashboard:', error)
+            rutas.value = 0
+            colaboradores.value = 0
+            asignaciones.value = 0
+            asistencia.value = 0
+            assignments.value = []
+            attendances.value = []
+            routesList.value = []
         }
     }
 
@@ -559,10 +793,6 @@
         font-weight: 700;
         color: #5d6d97;
     }
-
-        .stat-trend.transparent {
-            color: transparent;
-        }
 
     .stat-dots {
         font-size: 13px;

@@ -35,11 +35,7 @@ function normalizeRole(role?: string | null): string | null {
 }
 
 function resolveUserRole(user?: StoredUser | null, fallbackRole?: string | null): string | null {
-    const roleFromUser =
-        typeof user?.role === 'string'
-            ? user.role
-            : null
-
+    const roleFromUser = typeof user?.role === 'string' ? user.role : null
     return normalizeRole(roleFromUser) || normalizeRole(fallbackRole)
 }
 
@@ -54,6 +50,102 @@ function persistSession(token: string, user: StoredUser, role?: string | null): 
     } else {
         localStorage.removeItem(ROLE_KEY)
     }
+}
+
+function extractValidationError(errors: unknown): string | null {
+    if (!errors || typeof errors !== 'object') return null
+
+    const entries = Object.entries(errors as Record<string, unknown>)
+
+    for (const [, value] of entries) {
+        if (Array.isArray(value) && value.length > 0) {
+            const first = value[0]
+            if (typeof first === 'string' && first.trim()) {
+                return first
+            }
+        }
+
+        if (typeof value === 'string' && value.trim()) {
+            return value
+        }
+    }
+
+    return null
+}
+
+function mapHttpErrorToMessage(status: number, data: any): string {
+    const validationMessage = extractValidationError(data?.errors)
+    if (validationMessage) return validationMessage
+
+    if (typeof data?.message === 'string' && data.message.trim()) {
+        return data.message
+    }
+
+    if (typeof data?.error === 'string' && data.error.trim()) {
+        return data.error
+    }
+
+    if (status === 400) {
+        return 'Los datos enviados no son válidos.'
+    }
+
+    if (status === 401) {
+        return 'Usuario o contraseña incorrectos.'
+    }
+
+    if (status === 403) {
+        return 'No tienes permiso para acceder.'
+    }
+
+    if (status === 404) {
+        return 'No se encontró el servicio de inicio de sesión.'
+    }
+
+    if (status === 405) {
+        return 'Método no permitido para iniciar sesión.'
+    }
+
+    if (status === 408) {
+        return 'La solicitud tardó demasiado. Intenta de nuevo.'
+    }
+
+    if (status === 409) {
+        return 'No se pudo completar el inicio de sesión por un conflicto en la solicitud.'
+    }
+
+    if (status === 422) {
+        return 'La información enviada no pudo ser procesada.'
+    }
+
+    if (status >= 500) {
+        return 'Ocurrió un error interno del servidor. Intenta de nuevo.'
+    }
+
+    if (typeof data?.title === 'string' && data.title.trim() && data.title.trim().toLowerCase() !== 'unauthorized') {
+        return data.title
+    }
+
+    return 'No se pudo iniciar sesión.'
+}
+
+async function readErrorResponse(response: Response): Promise<string> {
+    try {
+        const contentType = response.headers.get('content-type') || ''
+
+        if (contentType.includes('application/json')) {
+            const errorData = await response.json()
+            return mapHttpErrorToMessage(response.status, errorData)
+        }
+
+        const errorText = await response.text()
+
+        if (errorText?.trim()) {
+            return errorText.trim()
+        }
+    } catch {
+    }
+
+    return mapHttpErrorToMessage(response.status, null)
 }
 
 export async function login(
@@ -76,29 +168,15 @@ export async function login(
         })
 
         if (!response.ok) {
-            let message = 'Error en login'
-
-            try {
-                const contentType = response.headers.get('content-type') || ''
-
-                if (contentType.includes('application/json')) {
-                    const errorData = await response.json()
-                    message =
-                        errorData?.message ||
-                        errorData?.error ||
-                        errorData?.title ||
-                        message
-                } else {
-                    const errorText = await response.text()
-                    message = errorText || message
-                }
-            } catch {
-            }
-
+            const message = await readErrorResponse(response)
             throw new Error(message)
         }
 
         const data: LoginResponse = await response.json()
+
+        if (!data?.token) {
+            throw new Error('La respuesta del servidor no contiene un token válido.')
+        }
 
         persistSession(data.token, data.user, role)
 
@@ -108,7 +186,11 @@ export async function login(
             throw new Error(`No se pudo conectar con la API en ${API_BASE}. Verifica que el backend esté encendido, la URL sea correcta y CORS esté configurado.`)
         }
 
-        throw error
+        if (error instanceof Error) {
+            throw error
+        }
+
+        throw new Error('No se pudo iniciar sesión.')
     }
 }
 

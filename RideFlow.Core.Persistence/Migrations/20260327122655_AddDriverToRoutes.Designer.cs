@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RideFlow.Core.Persistence.Context;
 
@@ -11,9 +12,11 @@ using RideFlow.Core.Persistence.Context;
 namespace RideFlow.Core.Persistence.Migrations
 {
     [DbContext(typeof(RideFlowDbContext))]
-    partial class RideFlowDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260327122655_AddDriverToRoutes")]
+    partial class AddDriverToRoutes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

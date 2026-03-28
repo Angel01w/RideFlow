@@ -2,7 +2,7 @@
     <div class="employees-page" @click="closeUserMenu">
         <header class="topbar">
             <div class="topbar-left">
-                <img src="../assets/images/RF.png" alt="RideFlow" class="brand-logo" />
+                <img src="../assets/images/RF.png" width="110" height="110" />
             </div>
 
             <nav class="topbar-nav">
@@ -64,6 +64,10 @@
                                 <td colspan="5" class="empty-cell">Cargando colaboradores...</td>
                             </tr>
 
+                            <tr v-else-if="errorMessage">
+                                <td colspan="5" class="empty-cell">{{ errorMessage }}</td>
+                            </tr>
+
                             <tr v-else-if="employees.length === 0">
                                 <td colspan="5" class="empty-cell">No hay colaboradores registrados</td>
                             </tr>
@@ -74,11 +78,11 @@
                                 <td>{{ employee.contact }}</td>
                                 <td>{{ employee.email }}</td>
                                 <td class="row-actions">
-                                    <button class="icon-btn edit" type="button" @click="editEmployee(employee)">
+                                    <button class="icon-btn edit" type="button" @click="editEmployee(employee)" :disabled="creating || deletingId === employee.id">
                                         ✎
                                     </button>
-                                    <button class="icon-btn delete" type="button" @click="deleteEmployee(employee)">
-                                        🗑
+                                    <button class="icon-btn delete" type="button" @click="deleteEmployee(employee)" :disabled="creating || deletingId === employee.id">
+                                        {{ deletingId === employee.id ? '...' : '🗑' }}
                                     </button>
                                 </td>
                             </tr>
@@ -93,18 +97,18 @@
                 <div class="employee-modal" @click.stop>
                     <div class="modal-header">
                         <div class="modal-header-top">
-                            <h2><span>Nuevo</span> Colaborador</h2>
+                            <h2><span>{{ isEditing ? 'Editar' : 'Nuevo' }}</span> Colaborador</h2>
                             <button class="modal-close" type="button" @click="closeCreateModal">✕</button>
                         </div>
 
                         <div class="modal-subtitle-row">
                             <span class="header-line"></span>
-                            <p>Complete la información del colaborador</p>
+                            <p>{{ isEditing ? 'Actualiza la información del colaborador' : 'Complete la información del colaborador' }}</p>
                             <span class="header-line"></span>
                         </div>
                     </div>
 
-                    <form class="employee-form" @submit.prevent="createEmployee">
+                    <form class="employee-form" @submit.prevent="saveEmployee">
                         <div class="form-group">
                             <label>Nombre Completo <span>*</span></label>
                             <input v-model.trim="createForm.name"
@@ -140,7 +144,7 @@
                                 Cancelar
                             </button>
                             <button class="btn-create" type="submit" :disabled="creating">
-                                {{ creating ? 'Creando...' : 'Crear' }}
+                                {{ creating ? 'Guardando...' : (isEditing ? 'Actualizar' : 'Crear') }}
                             </button>
                         </div>
                     </form>
@@ -186,6 +190,7 @@
         department: string
         contact: string
         email: string
+        isActive?: boolean
     }
 
     const route = useRoute()
@@ -193,9 +198,13 @@
 
     const loading = ref(false)
     const creating = ref(false)
+    const deletingId = ref<number | string | null>(null)
     const isUserMenuOpen = ref(false)
     const showCreateModal = ref(false)
+    const isEditing = ref(false)
+    const editingId = ref<number | string | null>(null)
     const formError = ref('')
+    const errorMessage = ref('')
     const user = ref<StoredUser | null>(null)
     const employees = ref<EmployeeItem[]>([])
 
@@ -248,10 +257,11 @@
 
         return list.map((item: any, index: number) => ({
             id: item.id ?? item.employeeId ?? item.Id ?? item.IdEmployee ?? index + 1,
-            name: item.name ?? item.nombre ?? item.fullName ?? 'Sin nombre',
-            department: item.department ?? item.departamento ?? item.area ?? 'Sin departamento',
-            contact: item.contact ?? item.phone ?? item.telefono ?? item.celular ?? 'Sin contacto',
-            email: item.email ?? item.correo ?? 'Sin email'
+            name: item.name ?? item.nombre ?? item.fullName ?? item.FullName ?? 'Sin nombre',
+            department: item.department ?? item.departamento ?? item.area ?? item.Department ?? 'Sin departamento',
+            contact: item.contact ?? item.phone ?? item.telefono ?? item.celular ?? item.Phone ?? 'Sin contacto',
+            email: item.email ?? item.correo ?? item.Email ?? 'Sin email',
+            isActive: item.isActive ?? item.IsActive ?? true
         }))
     }
 
@@ -265,16 +275,44 @@
 
     const openCreateModal = () => {
         resetCreateForm()
+        isEditing.value = false
+        editingId.value = null
         showCreateModal.value = true
     }
 
     const closeCreateModal = () => {
         showCreateModal.value = false
+        isEditing.value = false
+        editingId.value = null
         formError.value = ''
+        resetCreateForm()
+    }
+
+    const parseErrorMessage = async (response: Response) => {
+        try {
+            const contentType = response.headers.get('content-type') || ''
+
+            if (contentType.includes('application/json')) {
+                const data = await response.json()
+
+                if (data?.errors) {
+                    const messages = Object.values(data.errors).flat().join(' ')
+                    if (messages) return messages
+                }
+
+                return data?.message || data?.title || data?.error || null
+            }
+
+            const text = await response.text()
+            return text || null
+        } catch {
+            return null
+        }
     }
 
     const loadEmployees = async () => {
         loading.value = true
+        errorMessage.value = ''
 
         try {
             user.value = getUser()
@@ -282,21 +320,23 @@
             const response = await apiFetch('/Employees')
 
             if (!response?.ok) {
+                const serverMessage = response ? await parseErrorMessage(response) : null
+                errorMessage.value = serverMessage || 'No se pudieron cargar los colaboradores.'
                 employees.value = []
                 return
             }
 
             const data = await response.json()
             employees.value = normalizeEmployees(data)
-        } catch (error) {
-            console.error('Error cargando colaboradores:', error)
+        } catch {
+            errorMessage.value = 'No se pudieron cargar los colaboradores.'
             employees.value = []
         } finally {
             loading.value = false
         }
     }
 
-    const createEmployee = async () => {
+    const saveEmployee = async () => {
         formError.value = ''
 
         if (!createForm.name || !createForm.department || !createForm.contact || !createForm.email) {
@@ -306,83 +346,76 @@
 
         creating.value = true
 
-        const payload = {
-            name: createForm.name,
-            department: createForm.department,
-            contact: createForm.contact,
-            email: createForm.email
-        }
-
         try {
-            const response = await apiFetch('/Employees', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(payload)
-            })
+            let response: Response
 
-            if (response?.ok) {
-                const data = await response.json().catch(() => null)
+            if (isEditing.value && editingId.value !== null) {
+                const currentEmployee = employees.value.find(x => String(x.id) === String(editingId.value))
 
-                if (data) {
-                    const created = normalizeEmployees([data])[0]
-                    employees.value = [created, ...employees.value]
-                } else {
-                    employees.value = [
-                        {
-                            id: Date.now(),
-                            name: createForm.name,
-                            department: createForm.department,
-                            contact: createForm.contact,
-                            email: createForm.email
-                        },
-                        ...employees.value
-                    ]
+                const payload = {
+                    fullName: createForm.name.trim(),
+                    department: createForm.department.trim(),
+                    phone: createForm.contact.trim(),
+                    email: createForm.email.trim(),
+                    isActive: currentEmployee?.isActive ?? true
                 }
-            } else {
-                employees.value = [
-                    {
-                        id: Date.now(),
-                        name: createForm.name,
-                        department: createForm.department,
-                        contact: createForm.contact,
-                        email: createForm.email
+
+                response = await apiFetch(`/Employees/${editingId.value}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
                     },
-                    ...employees.value
-                ]
+                    body: JSON.stringify(payload)
+                })
+            } else {
+                const payload = {
+                    fullName: createForm.name.trim(),
+                    department: createForm.department.trim(),
+                    phone: createForm.contact.trim(),
+                    email: createForm.email.trim()
+                }
+
+                response = await apiFetch('/Employees', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                })
             }
 
-            closeCreateModal()
-            resetCreateForm()
-        } catch (error) {
-            console.error('Error creando colaborador:', error)
+            if (!response?.ok) {
+                const serverMessage = response ? await parseErrorMessage(response) : null
+                formError.value = serverMessage || 'No se pudo guardar el colaborador.'
+                return
+            }
 
-            employees.value = [
-                {
-                    id: Date.now(),
-                    name: createForm.name,
-                    department: createForm.department,
-                    contact: createForm.contact,
-                    email: createForm.email
-                },
-                ...employees.value
-            ]
-
+            await loadEmployees()
             closeCreateModal()
-            resetCreateForm()
+        } catch {
+            formError.value = 'No se pudo guardar el colaborador.'
         } finally {
             creating.value = false
         }
     }
 
     const editEmployee = (employee: EmployeeItem) => {
-        router.push(`/employees/edit/${employee.id}`)
+        createForm.name = employee.name
+        createForm.department = employee.department
+        createForm.contact = employee.contact
+        createForm.email = employee.email
+
+        isEditing.value = true
+        editingId.value = employee.id
+        formError.value = ''
+        showCreateModal.value = true
     }
 
     const deleteEmployee = async (employee: EmployeeItem) => {
         const confirmed = window.confirm(`¿Deseas eliminar a ${employee.name}?`)
         if (!confirmed) return
+
+        deletingId.value = employee.id
 
         try {
             const response = await apiFetch(`/Employees/${employee.id}`, {
@@ -394,9 +427,10 @@
             }
 
             employees.value = employees.value.filter(x => x.id !== employee.id)
-        } catch (error) {
-            console.error('Error eliminando colaborador:', error)
+        } catch {
             alert('No se pudo eliminar el colaborador')
+        } finally {
+            deletingId.value = null
         }
     }
 
@@ -741,6 +775,11 @@
             transform: translateY(-1px);
         }
 
+        .icon-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
         .icon-btn.edit {
             background: linear-gradient(180deg, #ffffff 0%, #edf1ff 100%);
             color: #29448e;
@@ -1023,7 +1062,7 @@
     .wave-2 {
         bottom: 70px;
         height: 102px;
-        background: rgba(215, 225, 254, 0.44);
+        background: rgba(215, 225, 254, 0.42);
         clip-path: ellipse(60% 44% at 50% 56%);
     }
 

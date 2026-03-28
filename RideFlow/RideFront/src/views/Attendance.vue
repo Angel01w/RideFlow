@@ -2,7 +2,7 @@
     <div class="attendance-page" @click="closeUserMenu">
         <header class="topbar">
             <div class="topbar-left">
-                <img src="../assets/images/RF.png" alt="RideFlow" class="brand-logo" />
+                <img src="../assets/images/RF.png" width="110" height="110" />
             </div>
 
             <nav class="topbar-nav">
@@ -117,7 +117,7 @@
                                 </div>
                                 <div class="employee-copy">
                                     <h4>{{ employee.name }}</h4>
-                                    <p>{{ employee.department || 'Sin departamento' }}</p>
+                                    <p>{{ employee.department || 'Colaborador asignado' }}</p>
                                 </div>
                             </div>
 
@@ -156,208 +156,366 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
-import { apiFetch } from '../services/api'
-import { getUser, logout } from '../services/auth.service'
+    import { computed, onMounted, ref, watch } from 'vue'
+    import { useRoute, useRouter } from 'vue-router'
+    import { apiFetch } from '../services/api'
+    import { getUser, logout } from '../services/auth.service'
 
-type StoredUser = {
-    name?: string
-    fullName?: string
-    username?: string
-    userName?: string
-}
-
-type RouteItem = {
-    id: number | string
-    origin: string
-    destination: string
-    schedule?: string
-    driver?: string
-}
-
-type EmployeeItem = {
-    id: number | string
-    name: string
-    department?: string
-    routeId?: number | string | null
-}
-
-const route = useRoute()
-const router = useRouter()
-
-const isUserMenuOpen = ref(false)
-const user = ref<StoredUser | null>(null)
-const loading = ref(false)
-
-const routes = ref<RouteItem[]>([])
-const employees = ref<EmployeeItem[]>([])
-
-const selectedRouteId = ref('')
-const selectedDate = ref(new Date().toISOString().slice(0, 10))
-const attendanceMap = ref<Record<string | number, boolean>>({})
-
-const displayName = computed(() => {
-    return (
-        user.value?.name ||
-        user.value?.fullName ||
-        user.value?.username ||
-        user.value?.userName ||
-        'Usuario'
-    )
-})
-
-const avatarUrl = computed(() => {
-    const name = encodeURIComponent(displayName.value)
-    return `https://ui-avatars.com/api/?name=${name}&background=EAF0FF&color=183A8F&bold=true`
-})
-
-const infoText = computed(() => {
-    if (!selectedRouteId.value) {
-        return 'Seleccione una ruta para ver detalles'
+    type StoredUser = {
+        name?: string
+        fullName?: string
+        username?: string
+        userName?: string
     }
 
-    return `Fecha seleccionada: ${formattedDateLabel.value}`
-})
+    type RouteItem = {
+        id: number | string
+        origin: string
+        destination: string
+        schedule?: string
+    }
 
-const selectedRoute = computed(() => {
-    return routes.value.find(x => String(x.id) === String(selectedRouteId.value)) || null
-})
+    type EmployeeItem = {
+        id: number | string
+        name: string
+        department?: string
+    }
 
-const selectedRouteLabel = computed(() => {
-    if (!selectedRoute.value) return ''
-    return `${selectedRoute.value.origin} → ${selectedRoute.value.destination}`
-})
+    type AssignmentItem = {
+        id: number | string
+        employeeId: number | string
+        employeeName: string
+        routeId: number | string
+        routeName: string
+        assignedDate?: string
+        isActive: boolean
+    }
 
-const employeesForSelectedRoute = computed(() => {
-    if (!selectedRouteId.value) return []
-    return employees.value.filter(x => String(x.routeId ?? '') === String(selectedRouteId.value))
-})
+    type AttendanceItem = {
+        id: number | string
+        employeeId: number | string
+        routeId: number | string
+        attendanceDate: string
+        status: string
+        markedAt?: string
+    }
 
-const formattedDateLabel = computed(() => {
-    if (!selectedDate.value) return ''
-    const [year, month, day] = selectedDate.value.split('-')
-    return `${day}/${month}/${year}`
-})
+    const route = useRoute()
+    const router = useRouter()
 
-const isActive = (path: string) => route.path === path
+    const isUserMenuOpen = ref(false)
+    const user = ref<StoredUser | null>(null)
+    const loading = ref(false)
 
-const toggleUserMenu = () => {
-    isUserMenuOpen.value = !isUserMenuOpen.value
-}
+    const routes = ref<RouteItem[]>([])
+    const employees = ref<EmployeeItem[]>([])
+    const assignments = ref<AssignmentItem[]>([])
+    const attendances = ref<AttendanceItem[]>([])
 
-const closeUserMenu = () => {
-    isUserMenuOpen.value = false
-}
+    const selectedRouteId = ref('')
+    const selectedDate = ref(new Date().toISOString().slice(0, 10))
+    const attendanceMap = ref<Record<string | number, boolean>>({})
 
-const handleLogout = () => {
-    logout()
-    closeUserMenu()
-    router.push('/login')
-}
+    const displayName = computed(() => {
+        return (
+            user.value?.name ||
+            user.value?.fullName ||
+            user.value?.username ||
+            user.value?.userName ||
+            'Usuario'
+        )
+    })
 
-const initials = (name: string) => {
-    return name
-        .split(' ')
-        .filter(Boolean)
-        .slice(0, 2)
-        .map(part => part[0]?.toUpperCase() || '')
-        .join('')
-}
+    const avatarUrl = computed(() => {
+        const name = encodeURIComponent(displayName.value)
+        return `https://ui-avatars.com/api/?name=${name}&background=EAF0FF&color=183A8F&bold=true`
+    })
 
-const normalizeRoutes = (data: any): RouteItem[] => {
-    const list = Array.isArray(data)
-        ? data
-        : Array.isArray(data?.items)
-            ? data.items
-            : Array.isArray(data?.data)
-                ? data.data
-                : []
+    const infoText = computed(() => {
+        if (!selectedRouteId.value) {
+            return 'Seleccione una ruta para ver detalles'
+        }
 
-    return list.map((item: any, index: number) => ({
-        id: item.id ?? item.routeId ?? item.Id ?? item.IdRoute ?? index + 1,
-        origin: item.origin ?? item.origen ?? item.startLocation ?? item.from ?? 'Sin origen',
-        destination: item.destination ?? item.destino ?? item.endLocation ?? item.to ?? 'Sin destino',
-        schedule: item.schedule ?? item.horario ?? item.time ?? item.departureTime ?? '',
-        driver: item.driverName ?? item.driver ?? item.conductor ?? item.employeeName ?? ''
-    }))
-}
+        return `Fecha seleccionada: ${formattedDateLabel.value}`
+    })
 
-const normalizeEmployees = (data: any): EmployeeItem[] => {
-    const list = Array.isArray(data)
-        ? data
-        : Array.isArray(data?.items)
-            ? data.items
-            : Array.isArray(data?.data)
-                ? data.data
-                : []
+    const selectedRoute = computed(() => {
+        return routes.value.find(x => String(x.id) === String(selectedRouteId.value)) || null
+    })
 
-    return list.map((item: any, index: number) => ({
-        id: item.id ?? item.employeeId ?? item.Id ?? item.IdEmployee ?? index + 1,
-        name: item.name ?? item.nombre ?? item.fullName ?? 'Sin nombre',
-        department: item.department ?? item.departamento ?? item.area ?? '',
-        routeId: item.routeId ?? item.idRoute ?? item.IdRoute ?? item.assignedRouteId ?? null
-    }))
-}
+    const selectedRouteLabel = computed(() => {
+        if (!selectedRoute.value) return ''
+        return `${selectedRoute.value.origin} → ${selectedRoute.value.destination}`
+    })
 
-const loadData = async () => {
-    loading.value = true
+    const employeesForSelectedRoute = computed(() => {
+        if (!selectedRouteId.value) return []
 
-    try {
-        user.value = getUser()
+        const assigned = assignments.value.filter(
+            x => String(x.routeId) === String(selectedRouteId.value) && x.isActive
+        )
 
-        const [routesResponse, employeesResponse] = await Promise.all([
-            apiFetch('/Routes'),
-            apiFetch('/Employees')
-        ])
+        return assigned.map(assignment => {
+            const fullEmployee = employees.value.find(
+                employee => String(employee.id) === String(assignment.employeeId)
+            )
 
-        if (routesResponse?.ok) {
-            const routesData = await routesResponse.json()
-            routes.value = normalizeRoutes(routesData)
-        } else {
+            return {
+                id: assignment.employeeId,
+                name: assignment.employeeName,
+                department: fullEmployee?.department || ''
+            }
+        })
+    })
+
+    const formattedDateLabel = computed(() => {
+        if (!selectedDate.value) return ''
+        const [year, month, day] = selectedDate.value.split('-')
+        return `${day}/${month}/${year}`
+    })
+
+    const isActive = (path: string) => route.path === path
+
+    const toggleUserMenu = () => {
+        isUserMenuOpen.value = !isUserMenuOpen.value
+    }
+
+    const closeUserMenu = () => {
+        isUserMenuOpen.value = false
+    }
+
+    const handleLogout = () => {
+        logout()
+        closeUserMenu()
+        router.push('/login')
+    }
+
+    const initials = (name: string) => {
+        return name
+            .split(' ')
+            .filter(Boolean)
+            .slice(0, 2)
+            .map(part => part[0]?.toUpperCase() || '')
+            .join('')
+    }
+
+    const normalizeRoutes = (data: any): RouteItem[] => {
+        const list = Array.isArray(data)
+            ? data
+            : Array.isArray(data?.items)
+                ? data.items
+                : Array.isArray(data?.data)
+                    ? data.data
+                    : []
+
+        return list.map((item: any, index: number) => ({
+            id: item.id ?? item.routeId ?? item.Id ?? item.IdRoute ?? index + 1,
+            origin: item.origin ?? item.origen ?? item.startLocation ?? item.from ?? item.Origin ?? 'Sin origen',
+            destination: item.destination ?? item.destino ?? item.endLocation ?? item.to ?? item.Destination ?? 'Sin destino',
+            schedule: item.schedule ?? item.horario ?? item.time ?? item.departureTime ?? item.DepartureTime ?? ''
+        }))
+    }
+
+    const normalizeEmployees = (data: any): EmployeeItem[] => {
+        const list = Array.isArray(data)
+            ? data
+            : Array.isArray(data?.items)
+                ? data.items
+                : Array.isArray(data?.data)
+                    ? data.data
+                    : []
+
+        return list.map((item: any, index: number) => ({
+            id: item.id ?? item.employeeId ?? item.Id ?? item.IdEmployee ?? index + 1,
+            name: item.name ?? item.nombre ?? item.fullName ?? item.FullName ?? 'Sin nombre',
+            department: item.department ?? item.departamento ?? item.area ?? item.Department ?? ''
+        }))
+    }
+
+    const normalizeAssignments = (data: any): AssignmentItem[] => {
+        const list = Array.isArray(data)
+            ? data
+            : Array.isArray(data?.items)
+                ? data.items
+                : Array.isArray(data?.data)
+                    ? data.data
+                    : []
+
+        return list.map((item: any, index: number) => ({
+            id: item.id ?? item.assignmentId ?? item.Id ?? index + 1,
+            employeeId: item.employeeId ?? item.EmployeeId ?? '',
+            employeeName: item.employeeName ?? item.EmployeeName ?? 'Sin nombre',
+            routeId: item.routeId ?? item.RouteId ?? '',
+            routeName: item.routeName ?? item.RouteName ?? '',
+            assignedDate: item.assignedDate ?? item.AssignedDate ?? '',
+            isActive: item.isActive ?? item.IsActive ?? true
+        }))
+    }
+
+    const normalizeAttendances = (data: any): AttendanceItem[] => {
+        const list = Array.isArray(data)
+            ? data
+            : Array.isArray(data?.items)
+                ? data.items
+                : Array.isArray(data?.data)
+                    ? data.data
+                    : []
+
+        return list.map((item: any, index: number) => ({
+            id: item.id ?? item.attendanceId ?? item.Id ?? index + 1,
+            employeeId: item.employeeId ?? item.EmployeeId ?? '',
+            routeId: item.routeId ?? item.RouteId ?? '',
+            attendanceDate: item.attendanceDate ?? item.AttendanceDate ?? '',
+            status: item.status ?? item.Status ?? '',
+            markedAt: item.markedAt ?? item.MarkedAt ?? ''
+        }))
+    }
+
+    const refreshAttendanceMap = () => {
+        const map: Record<string | number, boolean> = {}
+
+        if (!selectedRouteId.value || !selectedDate.value) {
+            attendanceMap.value = map
+            return
+        }
+
+        const selectedDateOnly = selectedDate.value
+
+        for (const attendance of attendances.value) {
+            const attendanceDateOnly = String(attendance.attendanceDate).slice(0, 10)
+
+            if (
+                String(attendance.routeId) === String(selectedRouteId.value) &&
+                attendanceDateOnly === selectedDateOnly
+            ) {
+                map[attendance.employeeId] = String(attendance.status).toLowerCase() === 'present'
+            }
+        }
+
+        attendanceMap.value = map
+    }
+
+    const loadData = async () => {
+        loading.value = true
+
+        try {
+            user.value = getUser()
+
+            const [routesResponse, employeesResponse, assignmentsResponse, attendancesResponse] = await Promise.all([
+                apiFetch('/Routes'),
+                apiFetch('/Employees'),
+                apiFetch('/Assignments'),
+                apiFetch('/Attendances')
+            ])
+
+            if (routesResponse?.ok) {
+                const routesData = await routesResponse.json()
+                routes.value = normalizeRoutes(routesData)
+            } else {
+                routes.value = []
+            }
+
+            if (employeesResponse?.ok) {
+                const employeesData = await employeesResponse.json()
+                employees.value = normalizeEmployees(employeesData)
+            } else {
+                employees.value = []
+            }
+
+            if (assignmentsResponse?.ok) {
+                const assignmentsData = await assignmentsResponse.json()
+                assignments.value = normalizeAssignments(assignmentsData)
+            } else {
+                assignments.value = []
+            }
+
+            if (attendancesResponse?.ok) {
+                const attendancesData = await attendancesResponse.json()
+                attendances.value = normalizeAttendances(attendancesData)
+            } else {
+                attendances.value = []
+            }
+
+            refreshAttendanceMap()
+        } catch (error) {
+            console.error('Error cargando asistencia:', error)
             routes.value = []
-        }
-
-        if (employeesResponse?.ok) {
-            const employeesData = await employeesResponse.json()
-            employees.value = normalizeEmployees(employeesData)
-        } else {
             employees.value = []
+            assignments.value = []
+            attendances.value = []
+            attendanceMap.value = {}
+        } finally {
+            loading.value = false
         }
-    } catch (error) {
-        console.error('Error cargando asistencia:', error)
-        routes.value = []
-        employees.value = []
-    } finally {
-        loading.value = false
-    }
-}
-
-const toggleAttendance = async (employeeId: number | string, checked: boolean) => {
-    attendanceMap.value = {
-        ...attendanceMap.value,
-        [employeeId]: checked
     }
 
-    try {
-        await apiFetch('/Attendance', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                employeeId,
-                routeId: selectedRouteId.value ? Number(selectedRouteId.value) : null,
-                date: selectedDate.value,
-                present: checked
-            })
-        }).catch(() => null)
-    } catch (error) {
-        console.error('Error registrando asistencia:', error)
-    }
-}
+    const toggleAttendance = async (employeeId: number | string, checked: boolean) => {
+        const previousValue = attendanceMap.value[employeeId]
 
-onMounted(loadData)
+        attendanceMap.value = {
+            ...attendanceMap.value,
+            [employeeId]: checked
+        }
+
+        try {
+            const existingAttendance = attendances.value.find(x =>
+                String(x.employeeId) === String(employeeId) &&
+                String(x.routeId) === String(selectedRouteId.value) &&
+                String(x.attendanceDate).slice(0, 10) === selectedDate.value
+            )
+
+            if (existingAttendance) {
+                const response = await apiFetch(`/Attendances/${existingAttendance.id}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        employeeId: Number(employeeId),
+                        routeId: Number(selectedRouteId.value),
+                        attendanceDate: selectedDate.value,
+                        status: checked ? 'Present' : 'Absent'
+                    })
+                })
+
+                if (!response?.ok) {
+                    throw new Error('No se pudo actualizar la asistencia')
+                }
+            } else {
+                const response = await apiFetch('/Attendances', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        employeeId: Number(employeeId),
+                        routeId: Number(selectedRouteId.value),
+                        attendanceDate: selectedDate.value,
+                        status: checked ? 'Present' : 'Absent'
+                    })
+                })
+
+                if (!response?.ok) {
+                    throw new Error('No se pudo registrar la asistencia')
+                }
+            }
+
+            await loadData()
+        } catch (error) {
+            console.error('Error registrando asistencia:', error)
+
+            attendanceMap.value = {
+                ...attendanceMap.value,
+                [employeeId]: previousValue ?? false
+            }
+        }
+    }
+
+    watch([selectedRouteId, selectedDate], () => {
+        refreshAttendanceMap()
+    })
+
+    onMounted(loadData)
 </script>
 
 <style scoped>

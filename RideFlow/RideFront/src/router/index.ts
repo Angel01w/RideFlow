@@ -1,4 +1,5 @@
 ﻿import { createRouter, createWebHistory } from 'vue-router'
+import PublicHome from '../views/PublicHome.vue'
 import Login from '../views/Login.vue'
 import Dashboard from '../views/Dashboard.vue'
 import Routes from '../views/Routes.vue'
@@ -11,7 +12,7 @@ import { isAuthenticated } from '../services/auth.service'
 const routes = [
     {
         path: '/',
-        redirect: '/login'
+        component: PublicHome
     },
     {
         path: '/login',
@@ -57,6 +58,11 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
     if (to.meta.requiresAuth && !isAuthenticated()) {
         next('/login')
+        return
+    }
+
+    if (to.path === '/login' && isAuthenticated()) {
+        next('/dashboard')
         return
     }
 

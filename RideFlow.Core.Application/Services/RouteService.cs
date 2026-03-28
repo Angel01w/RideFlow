@@ -19,6 +19,7 @@ public class RouteService : IRouteService
     {
         return await _context.Routes
             .Where(x => x.IsActive)
+            .Include(x => x.Driver)
             .Select(x => new RouteResponseDto
             {
                 Id = x.Id,
@@ -26,6 +27,8 @@ public class RouteService : IRouteService
                 Stops = x.Stops,
                 Destination = x.Destination,
                 DepartureTime = x.DepartureTime,
+                DriverId = x.DriverId,
+                DriverName = x.Driver.FullName,
                 IsActive = x.IsActive
             })
             .ToListAsync();
@@ -35,6 +38,7 @@ public class RouteService : IRouteService
     {
         return await _context.Routes
             .Where(x => x.Id == id && x.IsActive)
+            .Include(x => x.Driver)
             .Select(x => new RouteResponseDto
             {
                 Id = x.Id,
@@ -42,6 +46,8 @@ public class RouteService : IRouteService
                 Stops = x.Stops,
                 Destination = x.Destination,
                 DepartureTime = x.DepartureTime,
+                DriverId = x.DriverId,
+                DriverName = x.Driver.FullName,
                 IsActive = x.IsActive
             })
             .FirstOrDefaultAsync();
@@ -49,12 +55,25 @@ public class RouteService : IRouteService
 
     public async Task<RouteResponseDto> CreateAsync(RouteCreateDto dto)
     {
+        var driver = await _context.Drivers.FirstOrDefaultAsync(x => x.Id == dto.DriverId && x.IsActive);
+        if (driver == null)
+            throw new ArgumentException("Invalid or inactive driver");
+
+        var exists = await _context.Routes.AnyAsync(x =>
+            x.DriverId == dto.DriverId &&
+            x.DepartureTime == dto.DepartureTime &&
+            x.IsActive);
+
+        if (exists)
+            throw new ArgumentException("El conductor ya tiene una ruta asignada en ese horario");
+
         var entity = new Route
         {
             Origin = dto.Origin.Trim(),
             Stops = string.IsNullOrWhiteSpace(dto.Stops) ? null : dto.Stops.Trim(),
             Destination = dto.Destination.Trim(),
             DepartureTime = dto.DepartureTime,
+            DriverId = dto.DriverId,
             IsActive = true
         };
 
@@ -68,6 +87,8 @@ public class RouteService : IRouteService
             Stops = entity.Stops,
             Destination = entity.Destination,
             DepartureTime = entity.DepartureTime,
+            DriverId = entity.DriverId,
+            DriverName = driver.FullName,
             IsActive = entity.IsActive
         };
     }
@@ -78,10 +99,25 @@ public class RouteService : IRouteService
         if (entity is null)
             return false;
 
+        var driver = await _context.Drivers.FirstOrDefaultAsync(x => x.Id == dto.DriverId && x.IsActive);
+        if (driver == null)
+            throw new ArgumentException("Invalid or inactive driver");
+
+        var exists = await _context.Routes.AnyAsync(x =>
+            x.Id != id &&
+            x.DriverId == dto.DriverId &&
+            x.DepartureTime == dto.DepartureTime &&
+            x.IsActive);
+
+        if (exists)
+            throw new ArgumentException("El conductor ya tiene una ruta asignada en ese horario");
+
         entity.Origin = dto.Origin.Trim();
         entity.Stops = string.IsNullOrWhiteSpace(dto.Stops) ? null : dto.Stops.Trim();
         entity.Destination = dto.Destination.Trim();
         entity.DepartureTime = dto.DepartureTime;
+        entity.DriverId = dto.DriverId;
+        entity.IsActive = dto.IsActive;
 
         await _context.SaveChangesAsync();
         return true;

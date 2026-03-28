@@ -3,8 +3,137 @@
   "WorkspaceRootPath": "C:\\Users\\penaa\\source\\repos\\RideFlow\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|c:\\users\\penaa\\source\\repos\\rideflow\\ridefront\\src\\views\\login.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|solutionrelative:ridefront\\src\\views\\login.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|c:\\users\\penaa\\source\\repos\\rideflow\\ridefront\\src\\services\\auth.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|solutionrelative:ridefront\\src\\services\\auth.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|c:\\users\\penaa\\source\\repos\\rideflow\\ridefront\\src\\views\\assignments.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|solutionrelative:ridefront\\src\\views\\assignments.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|c:\\users\\penaa\\source\\repos\\rideflow\\controllers\\routeassignmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|solutionrelative:controllers\\routeassignmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|c:\\users\\penaa\\source\\repos\\rideflow\\rideflow.core.presentation.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|solutionrelative:rideflow.core.presentation.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|c:\\users\\penaa\\source\\repos\\rideflow\\ridefront\\src\\views\\publichome.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|solutionrelative:ridefront\\src\\views\\publichome.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|c:\\users\\penaa\\source\\repos\\rideflow\\ridefront\\src\\views\\reports.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|solutionrelative:ridefront\\src\\views\\reports.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|c:\\users\\penaa\\source\\repos\\rideflow\\ridefront\\src\\router\\index.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|solutionrelative:ridefront\\src\\router\\index.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|c:\\users\\penaa\\source\\repos\\rideflow\\ridefront\\src\\views\\routes.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|solutionrelative:ridefront\\src\\views\\routes.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|c:\\users\\penaa\\source\\repos\\rideflow\\ridefront\\src\\views\\dashboard.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|solutionrelative:ridefront\\src\\views\\dashboard.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\services\\routeassignmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|c:\\users\\penaa\\source\\repos\\rideflow\\ridefront\\src\\views\\employees.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|solutionrelative:ridefront\\src\\views\\employees.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|c:\\users\\penaa\\source\\repos\\rideflow\\ridefront\\src\\views\\attendance.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|solutionrelative:ridefront\\src\\views\\attendance.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\services\\reportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\services\\routeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DCC7DAA7-60AF-5C2B-35CE-4F10AA2D1659}|..\\RideFlow.Core.Persistence\\RideFlow.Core.Persistence.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.persistence\\migrations\\20260327122655_adddrivertoroutes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{336CFCD0-011C-40DE-8CEC-6098CCC714EC}|..\\RideFlow.Core.Domain\\RideFlow.Core.Domain.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.domain\\entities\\route.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\dtos\\routes\\routeresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\dtos\\routes\\routeupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\dtos\\routes\\routecreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|c:\\users\\penaa\\source\\repos\\rideflow\\controllers\\routescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|solutionrelative:controllers\\routescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{336CFCD0-011C-40DE-8CEC-6098CCC714EC}|..\\RideFlow.Core.Domain\\RideFlow.Core.Domain.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.domain\\entities\\driver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\services\\attendanceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\dtos\\attendance\\attendanceupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|c:\\users\\penaa\\source\\repos\\rideflow\\controllers\\attendancescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|solutionrelative:controllers\\attendancescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\dtos\\attendance\\attendancecreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\dtos\\assignments\\routeassignmentcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\dtos\\assignments\\routeassignmentresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\dtos\\assignments\\routeassignmentupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|c:\\users\\penaa\\source\\repos\\rideflow\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|solutionrelative:controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\dtos\\employees\\employeeupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\dtos\\employees\\employeecreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DCC7DAA7-60AF-5C2B-35CE-4F10AA2D1659}|..\\RideFlow.Core.Persistence\\RideFlow.Core.Persistence.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.persistence\\migrations\\20260326201420_updateroutesremovedriveraddstops.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\validators\\routes\\routecreatedtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DCC7DAA7-60AF-5C2B-35CE-4F10AA2D1659}|..\\RideFlow.Core.Persistence\\RideFlow.Core.Persistence.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.persistence\\context\\rideflowdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{336CFCD0-011C-40DE-8CEC-6098CCC714EC}|..\\RideFlow.Core.Domain\\RideFlow.Core.Domain.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.domain\\entities\\routeassignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|c:\\users\\penaa\\source\\repos\\rideflow\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\interfaces\\iemployeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|c:\\users\\penaa\\source\\repos\\rideflow\\ridefront\\src\\services\\api.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
@@ -13,45 +142,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|c:\\users\\penaa\\source\\repos\\rideflow\\ridefront\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|solutionrelative:ridefront\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|c:\\users\\penaa\\source\\repos\\rideflow\\ridefront\\src\\router\\index.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|solutionrelative:ridefront\\src\\router\\index.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|c:\\users\\penaa\\source\\repos\\rideflow\\ridefront\\src\\views\\reports.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|solutionrelative:ridefront\\src\\views\\reports.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|c:\\users\\penaa\\source\\repos\\rideflow\\ridefront\\src\\views\\attendance.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|solutionrelative:ridefront\\src\\views\\attendance.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|c:\\users\\penaa\\source\\repos\\rideflow\\ridefront\\src\\views\\assignments.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|solutionrelative:ridefront\\src\\views\\assignments.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|c:\\users\\penaa\\source\\repos\\rideflow\\ridefront\\src\\views\\employees.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|solutionrelative:ridefront\\src\\views\\employees.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|c:\\users\\penaa\\source\\repos\\rideflow\\ridefront\\src\\views\\dashboard.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|solutionrelative:ridefront\\src\\views\\dashboard.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|c:\\users\\penaa\\source\\repos\\rideflow\\ridefront\\src\\services\\auth.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|solutionrelative:ridefront\\src\\services\\auth.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|c:\\users\\penaa\\source\\repos\\rideflow\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DCC7DAA7-60AF-5C2B-35CE-4F10AA2D1659}|..\\RideFlow.Core.Persistence\\RideFlow.Core.Persistence.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.persistence\\context\\rideflowdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|c:\\users\\penaa\\source\\repos\\rideflow\\ridefront\\src\\views\\login.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|solutionrelative:ridefront\\src\\views\\login.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|c:\\users\\penaa\\source\\repos\\rideflow\\ridefront\\src\\app.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -82,31 +172,8 @@
       "RelativeMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|solutionrelative:ridefront\\tsconfig.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|c:\\users\\penaa\\source\\repos\\rideflow\\rideflow.core.presentation.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|solutionrelative:rideflow.core.presentation.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|c:\\users\\penaa\\source\\repos\\rideflow\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|solutionrelative:controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|c:\\users\\penaa\\source\\repos\\rideflow\\controllers\\attendancescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|solutionrelative:controllers\\attendancescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|c:\\users\\penaa\\source\\repos\\rideflow\\controllers\\routescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|solutionrelative:controllers\\routescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|c:\\users\\penaa\\source\\repos\\rideflow\\controllers\\routeassignmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|solutionrelative:controllers\\routeassignmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|c:\\users\\penaa\\source\\repos\\rideflow\\controllers\\driverscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|solutionrelative:controllers\\driverscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\dtos\\auth\\loginrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -121,31 +188,13 @@
       "AbsoluteMoniker": "D:0:0:{336CFCD0-011C-40DE-8CEC-6098CCC714EC}|..\\RideFlow.Core.Domain\\RideFlow.Core.Domain.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\services\\routeassignmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\services\\routeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\services\\driverservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\dtos\\assignments\\routeassignmentresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{336CFCD0-011C-40DE-8CEC-6098CCC714EC}|..\\RideFlow.Core.Domain\\RideFlow.Core.Domain.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.domain\\entities\\routeassignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{336CFCD0-011C-40DE-8CEC-6098CCC714EC}|..\\RideFlow.Core.Domain\\RideFlow.Core.Domain.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.domain\\entities\\route.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{336CFCD0-011C-40DE-8CEC-6098CCC714EC}|..\\RideFlow.Core.Domain\\RideFlow.Core.Domain.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.domain\\entities\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{336CFCD0-011C-40DE-8CEC-6098CCC714EC}|..\\RideFlow.Core.Domain\\RideFlow.Core.Domain.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.domain\\entities\\driver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\validators\\attendance\\attendancecreatedtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -155,12 +204,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\rideflow.core.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\dtos\\attendance\\attendancecreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\validators\\routes\\routecreatedtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\validators\\employees\\employeecreatedtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -179,9 +222,6 @@
       "RelativeMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|solutionrelative:controllers\\reportscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\services\\reportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\interfaces\\ireportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -194,13 +234,7 @@
       "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\dtos\\reports\\routeusagereportdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\services\\attendanceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\interfaces\\iattendanceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\dtos\\attendance\\attendanceupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\dtos\\attendance\\attendanceresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -212,34 +246,10 @@
       "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\interfaces\\irouteassignmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\dtos\\assignments\\routeassignmentupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\dtos\\assignments\\routeassignmentcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\interfaces\\irouteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\dtos\\routes\\routeresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\dtos\\routes\\routeupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\dtos\\routes\\routecreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\interfaces\\iemployeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\dtos\\employees\\employeeresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\dtos\\employees\\employeeupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\dtos\\employees\\employeecreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\dtos\\drivers\\driverupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -304,756 +314,354 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Reports.vue",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\views\\Reports.vue",
-              "RelativeDocumentMoniker": "RideFront\\src\\views\\Reports.vue",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\views\\Reports.vue",
-              "RelativeToolTip": "RideFront\\src\\views\\Reports.vue",
-              "ViewState": "AgIAAPACAAAAAAAAAAAmwBADAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003491|",
-              "WhenOpened": "2026-03-25T17:36:53.731Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Attendance.vue",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\views\\Attendance.vue",
-              "RelativeDocumentMoniker": "RideFront\\src\\views\\Attendance.vue",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\views\\Attendance.vue",
-              "RelativeToolTip": "RideFront\\src\\views\\Attendance.vue",
-              "ViewState": "AgIAAAUDAAAAAAAAAAAmwMgDAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003491|",
-              "WhenOpened": "2026-03-25T17:21:09.933Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Assignments.vue",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\views\\Assignments.vue",
-              "RelativeDocumentMoniker": "RideFront\\src\\views\\Assignments.vue",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\views\\Assignments.vue",
-              "RelativeToolTip": "RideFront\\src\\views\\Assignments.vue",
-              "ViewState": "AgIAACgEAAAAAAAAAAAQwDUEAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003491|",
-              "WhenOpened": "2026-03-25T15:50:22.646Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Routes.vue",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\views\\Routes.vue",
-              "RelativeDocumentMoniker": "RideFront\\src\\views\\Routes.vue",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\views\\Routes.vue",
-              "RelativeToolTip": "RideFront\\src\\views\\Routes.vue",
-              "ViewState": "AgIAAEEFAAAAAAAAAAAgwFAFAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003491|",
-              "WhenOpened": "2026-03-25T13:37:46.771Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "auth.service.ts",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\services\\auth.service.ts",
-              "RelativeDocumentMoniker": "RideFront\\src\\services\\auth.service.ts",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\services\\auth.service.ts",
-              "RelativeToolTip": "RideFront\\src\\services\\auth.service.ts",
-              "ViewState": "AgIAAIkAAAAAAAAAAADwv5kAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2026-03-24T14:40:00.175Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "vite-env.d.ts",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\vite-env.d.ts",
-              "RelativeDocumentMoniker": "RideFront\\src\\vite-env.d.ts",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\vite-env.d.ts",
-              "RelativeToolTip": "RideFront\\src\\vite-env.d.ts",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2026-03-24T14:39:45.24Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "App.vue",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\App.vue",
-              "RelativeDocumentMoniker": "RideFront\\src\\App.vue",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\App.vue",
-              "RelativeToolTip": "RideFront\\src\\App.vue",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003491|",
-              "WhenOpened": "2026-03-24T14:37:25.5Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Dashboard.vue",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\views\\Dashboard.vue",
-              "RelativeDocumentMoniker": "RideFront\\src\\views\\Dashboard.vue",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\views\\Dashboard.vue",
-              "RelativeToolTip": "RideFront\\src\\views\\Dashboard.vue",
-              "ViewState": "AgIAAHMDAAAAAAAAAAAmwJMDAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003491|",
-              "WhenOpened": "2026-03-24T14:35:06.966Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Login.vue",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\views\\Login.vue",
-              "RelativeDocumentMoniker": "RideFront\\src\\views\\Login.vue",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\views\\Login.vue",
-              "RelativeToolTip": "RideFront\\src\\views\\Login.vue",
-              "ViewState": "AgIAAGMBAAAAAAAAAAAgwIMBAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003491|",
-              "WhenOpened": "2026-03-24T14:34:50.391Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "index.ts",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\router\\index.ts",
-              "RelativeDocumentMoniker": "RideFront\\src\\router\\index.ts",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\router\\index.ts",
-              "RelativeToolTip": "RideFront\\src\\router\\index.ts",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEEAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2026-03-24T14:33:32.134Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "main.ts",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\main.ts",
-              "RelativeDocumentMoniker": "RideFront\\src\\main.ts",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\main.ts",
-              "RelativeToolTip": "RideFront\\src\\main.ts",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2026-03-24T14:31:27.522Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "auth.service.ts",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\services\\auth.service.ts",
-              "RelativeDocumentMoniker": "RideFront\\src\\services\\auth.service.ts",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\services\\auth.service.ts",
-              "RelativeToolTip": "RideFront\\src\\services\\auth.service.ts",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAowC0AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2026-03-24T14:26:01.035Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "AuthService.cs",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Services\\AuthService.cs",
-              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\Services\\AuthService.cs",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Services\\AuthService.cs",
-              "RelativeToolTip": "..\\RideFlow.Core.Application\\Services\\AuthService.cs",
-              "ViewState": "AgIAAC8AAAAAAAAAAAAwwE4AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-22T22:21:20.708Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAEwAAAAAAAAAAAAwwGsAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-20T14:12:07.323Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "index.html",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\index.html",
-              "RelativeDocumentMoniker": "RideFront\\index.html",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\index.html",
-              "RelativeToolTip": "RideFront\\index.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2026-03-22T22:57:02.145Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "api.ts",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\services\\api.ts",
-              "RelativeDocumentMoniker": "RideFront\\src\\services\\api.ts",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\services\\api.ts",
-              "RelativeToolTip": "RideFront\\src\\services\\api.ts",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAswB4AAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2026-03-24T20:18:20.009Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Employees.vue",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\views\\Employees.vue",
-              "RelativeDocumentMoniker": "RideFront\\src\\views\\Employees.vue",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\views\\Employees.vue",
-              "RelativeToolTip": "RideFront\\src\\views\\Employees.vue",
-              "ViewState": "AgIAAEgEAAAAAAAAAAAgwGgEAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003491|",
-              "WhenOpened": "2026-03-25T14:31:44.517Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "RideFlowDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Persistence\\Context\\RideFlowDbContext.cs",
-              "RelativeDocumentMoniker": "..\\RideFlow.Core.Persistence\\Context\\RideFlowDbContext.cs",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Persistence\\Context\\RideFlowDbContext.cs",
-              "RelativeToolTip": "..\\RideFlow.Core.Persistence\\Context\\RideFlowDbContext.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAzwCgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-22T23:29:08.562Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "base.css",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\assets\\styles\\base.css",
-              "RelativeDocumentMoniker": "RideFront\\src\\assets\\styles\\base.css",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\assets\\styles\\base.css",
-              "RelativeToolTip": "RideFront\\src\\assets\\styles\\base.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-03-24T14:46:48.707Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "DriversController.cs",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\Controllers\\DriversController.cs",
-              "RelativeDocumentMoniker": "Controllers\\DriversController.cs",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\Controllers\\DriversController.cs",
-              "RelativeToolTip": "Controllers\\DriversController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEEAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T13:43:59.323Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "main.css",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\assets\\styles\\main.css",
-              "RelativeDocumentMoniker": "RideFront\\src\\assets\\styles\\main.css",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\assets\\styles\\main.css",
-              "RelativeToolTip": "RideFront\\src\\assets\\styles\\main.css",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAYwCUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-03-24T14:46:06.812Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "EmployeesController.cs",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\Controllers\\EmployeesController.cs",
-              "RelativeDocumentMoniker": "Controllers\\EmployeesController.cs",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\Controllers\\EmployeesController.cs",
-              "RelativeToolTip": "Controllers\\EmployeesController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T15:21:11.386Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "RideFlow.Core.Presentation.csproj",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFlow.Core.Presentation.csproj",
-              "RelativeDocumentMoniker": "RideFlow.Core.Presentation.csproj",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFlow.Core.Presentation.csproj",
-              "RelativeToolTip": "RideFlow.Core.Presentation.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAwwAcAAAA7AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-03-20T14:12:13.744Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "tsconfig.json",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\tsconfig.json",
-              "RelativeDocumentMoniker": "RideFront\\tsconfig.json",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\tsconfig.json",
-              "RelativeToolTip": "RideFront\\tsconfig.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-03-22T22:57:05.541Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "LoginRequestDto.cs",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Auth\\LoginRequestDto.cs",
-              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\DTOs\\Auth\\LoginRequestDto.cs",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Auth\\LoginRequestDto.cs",
-              "RelativeToolTip": "..\\RideFlow.Core.Application\\DTOs\\Auth\\LoginRequestDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-22T22:10:36.591Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "EmployeeService.cs",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Services\\EmployeeService.cs",
-              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\Services\\EmployeeService.cs",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Services\\EmployeeService.cs",
-              "RelativeToolTip": "..\\RideFlow.Core.Application\\Services\\EmployeeService.cs",
-              "ViewState": "AgIAAEgAAAAAAAAAAAAIwGgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T15:12:54.397Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
               "Title": "RouteAssignmentsController.cs",
               "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\Controllers\\RouteAssignmentsController.cs",
               "RelativeDocumentMoniker": "Controllers\\RouteAssignmentsController.cs",
               "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\Controllers\\RouteAssignmentsController.cs",
               "RelativeToolTip": "Controllers\\RouteAssignmentsController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAGMAAAAAAAAAAADwv20AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T18:58:40.991Z"
+              "WhenOpened": "2026-03-23T18:58:40.991Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "AttendancesController.cs",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\Controllers\\AttendancesController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AttendancesController.cs",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\Controllers\\AttendancesController.cs",
-              "RelativeToolTip": "Controllers\\AttendancesController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T19:43:57.659Z"
+              "DocumentIndex": 1,
+              "Title": "auth.service.ts",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\services\\auth.service.ts",
+              "RelativeDocumentMoniker": "RideFront\\src\\services\\auth.service.ts",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\services\\auth.service.ts",
+              "RelativeToolTip": "RideFront\\src\\services\\auth.service.ts",
+              "ViewState": "AgIAAOAAAAAAAAAAAAAwwOYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2026-03-24T14:40:00.175Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "RoutesController.cs",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\Controllers\\RoutesController.cs",
-              "RelativeDocumentMoniker": "Controllers\\RoutesController.cs",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\Controllers\\RoutesController.cs",
-              "RelativeToolTip": "Controllers\\RoutesController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T18:05:53.521Z"
+              "DocumentIndex": 6,
+              "Title": "Reports.vue",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\views\\Reports.vue",
+              "RelativeDocumentMoniker": "RideFront\\src\\views\\Reports.vue",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\views\\Reports.vue",
+              "RelativeToolTip": "RideFront\\src\\views\\Reports.vue",
+              "ViewState": "AgIAALkEAAAAAAAAAAAqwNUEAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003491|",
+              "WhenOpened": "2026-03-25T17:36:53.731Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "DriverService.cs",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Services\\DriverService.cs",
-              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\Services\\DriverService.cs",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Services\\DriverService.cs",
-              "RelativeToolTip": "..\\RideFlow.Core.Application\\Services\\DriverService.cs",
-              "ViewState": "AgIAAFEAAAAAAAAAAAAcwGMAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T13:15:10.354Z"
+              "DocumentIndex": 5,
+              "Title": "PublicHome.vue",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\views\\PublicHome.vue",
+              "RelativeDocumentMoniker": "RideFront\\src\\views\\PublicHome.vue",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\views\\PublicHome.vue",
+              "RelativeToolTip": "RideFront\\src\\views\\PublicHome.vue",
+              "ViewState": "AgIAAJoBAAAAAAAAAAAkwKYBAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003491|",
+              "WhenOpened": "2026-03-27T14:03:41.385Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "RouteAssignmentService.cs",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Services\\RouteAssignmentService.cs",
-              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\Services\\RouteAssignmentService.cs",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Services\\RouteAssignmentService.cs",
-              "RelativeToolTip": "..\\RideFlow.Core.Application\\Services\\RouteAssignmentService.cs",
-              "ViewState": "AgIAAGsAAAAAAAAAAAAIwIsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T18:36:30.554Z"
+              "DocumentIndex": 2,
+              "Title": "Assignments.vue",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\views\\Assignments.vue",
+              "RelativeDocumentMoniker": "RideFront\\src\\views\\Assignments.vue",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\views\\Assignments.vue",
+              "RelativeToolTip": "RideFront\\src\\views\\Assignments.vue",
+              "ViewState": "AgIAAIgFAAAAAAAAAAAowJQFAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003491|",
+              "WhenOpened": "2026-03-25T15:50:22.646Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Domain\\Entities\\User.cs",
-              "RelativeDocumentMoniker": "..\\RideFlow.Core.Domain\\Entities\\User.cs",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Domain\\Entities\\User.cs",
-              "RelativeToolTip": "..\\RideFlow.Core.Domain\\Entities\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T12:48:29.379Z"
+              "DocumentIndex": 0,
+              "Title": "Login.vue",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\views\\Login.vue",
+              "RelativeDocumentMoniker": "RideFront\\src\\views\\Login.vue",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\views\\Login.vue",
+              "RelativeToolTip": "RideFront\\src\\views\\Login.vue",
+              "ViewState": "AgIAAPQBAAAAAAAAAAAowPoBAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003491|",
+              "WhenOpened": "2026-03-24T14:34:50.391Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "20260324125638_AddUsers.cs",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Persistence\\Migrations\\20260324125638_AddUsers.cs",
-              "RelativeDocumentMoniker": "..\\RideFlow.Core.Persistence\\Migrations\\20260324125638_AddUsers.cs",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Persistence\\Migrations\\20260324125638_AddUsers.cs",
-              "RelativeToolTip": "..\\RideFlow.Core.Persistence\\Migrations\\20260324125638_AddUsers.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAIwCQAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T12:58:45.886Z"
+              "DocumentIndex": 4,
+              "Title": "RideFlow.Core.Presentation.csproj",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFlow.Core.Presentation.csproj",
+              "RelativeDocumentMoniker": "RideFlow.Core.Presentation.csproj",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFlow.Core.Presentation.csproj",
+              "RelativeToolTip": "RideFlow.Core.Presentation.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-03-20T14:12:13.744Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "20260323124640_InitialCreate.cs",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Persistence\\Migrations\\20260323124640_InitialCreate.cs",
-              "RelativeDocumentMoniker": "..\\RideFlow.Core.Persistence\\Migrations\\20260323124640_InitialCreate.cs",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Persistence\\Migrations\\20260323124640_InitialCreate.cs",
-              "RelativeToolTip": "..\\RideFlow.Core.Persistence\\Migrations\\20260323124640_InitialCreate.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAYwB4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T13:06:57.327Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "RouteAssignmentResponseDto.cs",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Assignments\\RouteAssignmentResponseDto.cs",
-              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\DTOs\\Assignments\\RouteAssignmentResponseDto.cs",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Assignments\\RouteAssignmentResponseDto.cs",
-              "RelativeToolTip": "..\\RideFlow.Core.Application\\DTOs\\Assignments\\RouteAssignmentResponseDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T18:20:10.359Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 38,
-              "Title": "Employee.cs",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Domain\\Entities\\Employee.cs",
-              "RelativeDocumentMoniker": "..\\RideFlow.Core.Domain\\Entities\\Employee.cs",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Domain\\Entities\\Employee.cs",
-              "RelativeToolTip": "..\\RideFlow.Core.Domain\\Entities\\Employee.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T14:36:38.529Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 14,
               "Title": "RouteService.cs",
               "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Services\\RouteService.cs",
               "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\Services\\RouteService.cs",
               "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Services\\RouteService.cs",
               "RelativeToolTip": "..\\RideFlow.Core.Application\\Services\\RouteService.cs",
-              "ViewState": "AgIAAEgAAAAAAAAAAAAIwGgAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAQwIcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-23T17:31:59.368Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
-              "Title": "AssemblyMarker.cs",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Common\\AssemblyMarker.cs",
-              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\Common\\AssemblyMarker.cs",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Common\\AssemblyMarker.cs",
-              "RelativeToolTip": "..\\RideFlow.Core.Application\\Common\\AssemblyMarker.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAABAAAAAAAAAA==",
+              "DocumentIndex": 10,
+              "Title": "RouteAssignmentService.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Services\\RouteAssignmentService.cs",
+              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\Services\\RouteAssignmentService.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Services\\RouteAssignmentService.cs",
+              "RelativeToolTip": "..\\RideFlow.Core.Application\\Services\\RouteAssignmentService.cs",
+              "ViewState": "AgIAAHEAAAAAAAAAAAAUwIgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T20:20:34.663Z"
+              "WhenOpened": "2026-03-23T18:36:30.554Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
-              "Title": "Driver.cs",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Domain\\Entities\\Driver.cs",
-              "RelativeDocumentMoniker": "..\\RideFlow.Core.Domain\\Entities\\Driver.cs",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Domain\\Entities\\Driver.cs",
-              "RelativeToolTip": "..\\RideFlow.Core.Domain\\Entities\\Driver.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "DocumentIndex": 18,
+              "Title": "RouteUpdateDto.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Routes\\RouteUpdateDto.cs",
+              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\DTOs\\Routes\\RouteUpdateDto.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Routes\\RouteUpdateDto.cs",
+              "RelativeToolTip": "..\\RideFlow.Core.Application\\DTOs\\Routes\\RouteUpdateDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-22T22:30:38.257Z"
+              "WhenOpened": "2026-03-23T15:50:28.821Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "RouteAssignment.cs",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Domain\\Entities\\RouteAssignment.cs",
-              "RelativeDocumentMoniker": "..\\RideFlow.Core.Domain\\Entities\\RouteAssignment.cs",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Domain\\Entities\\RouteAssignment.cs",
-              "RelativeToolTip": "..\\RideFlow.Core.Domain\\Entities\\RouteAssignment.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T18:15:03.918Z"
+              "DocumentIndex": 7,
+              "Title": "index.ts",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\router\\index.ts",
+              "RelativeDocumentMoniker": "RideFront\\src\\router\\index.ts",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\router\\index.ts",
+              "RelativeToolTip": "RideFront\\src\\router\\index.ts",
+              "ViewState": "AgIAACwAAAAAAAAAAAAwwEcAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2026-03-24T14:33:32.134Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 8,
+              "Title": "Routes.vue",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\views\\Routes.vue",
+              "RelativeDocumentMoniker": "RideFront\\src\\views\\Routes.vue",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\views\\Routes.vue",
+              "RelativeToolTip": "RideFront\\src\\views\\Routes.vue",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003491|",
+              "WhenOpened": "2026-03-25T13:37:46.771Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "Route.cs",
               "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Domain\\Entities\\Route.cs",
               "RelativeDocumentMoniker": "..\\RideFlow.Core.Domain\\Entities\\Route.cs",
               "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Domain\\Entities\\Route.cs",
               "RelativeToolTip": "..\\RideFlow.Core.Domain\\Entities\\Route.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-23T15:43:54.151Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
-              "Title": "RideFlow.Core.Application.csproj",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj",
-              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj",
-              "RelativeToolTip": "..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-03-20T15:14:46.027Z"
+              "DocumentIndex": 9,
+              "Title": "Dashboard.vue",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\views\\Dashboard.vue",
+              "RelativeDocumentMoniker": "RideFront\\src\\views\\Dashboard.vue",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\views\\Dashboard.vue",
+              "RelativeToolTip": "RideFront\\src\\views\\Dashboard.vue",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003491|",
+              "WhenOpened": "2026-03-24T14:35:06.966Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
-              "Title": "AttendanceCreateDto.cs",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Attendance\\AttendanceCreateDto.cs",
-              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\DTOs\\Attendance\\AttendanceCreateDto.cs",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Attendance\\AttendanceCreateDto.cs",
-              "RelativeToolTip": "..\\RideFlow.Core.Application\\DTOs\\Attendance\\AttendanceCreateDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T19:30:21.318Z"
+              "DocumentIndex": 11,
+              "Title": "Employees.vue",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\views\\Employees.vue",
+              "RelativeDocumentMoniker": "RideFront\\src\\views\\Employees.vue",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\views\\Employees.vue",
+              "RelativeToolTip": "RideFront\\src\\views\\Employees.vue",
+              "ViewState": "AgIAACIAAAAAAAAAAAAAAAQAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003491|",
+              "WhenOpened": "2026-03-25T14:31:44.517Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
-              "Title": "AttendanceCreateDtoValidator.cs",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Validators\\Attendance\\AttendanceCreateDtoValidator.cs",
-              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\Validators\\Attendance\\AttendanceCreateDtoValidator.cs",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Validators\\Attendance\\AttendanceCreateDtoValidator.cs",
-              "RelativeToolTip": "..\\RideFlow.Core.Application\\Validators\\Attendance\\AttendanceCreateDtoValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T12:07:23.919Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 49,
-              "Title": "ReportsController.cs",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\Controllers\\ReportsController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ReportsController.cs",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\Controllers\\ReportsController.cs",
-              "RelativeToolTip": "Controllers\\ReportsController.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAABQwCYAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T20:07:43.426Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 46,
-              "Title": "CreateDriverDtoValidator.cs",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Validators\\Drivers\\CreateDriverDtoValidator.cs",
-              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\Validators\\Drivers\\CreateDriverDtoValidator.cs",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Validators\\Drivers\\CreateDriverDtoValidator.cs",
-              "RelativeToolTip": "..\\RideFlow.Core.Application\\Validators\\Drivers\\CreateDriverDtoValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T20:24:36.318Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 41,
-              "Title": "RouteAssignmentCreateDtoValidator.cs",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Validators\\RouteAssignments\\RouteAssignmentCreateDtoValidator.cs",
-              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\Validators\\RouteAssignments\\RouteAssignmentCreateDtoValidator.cs",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Validators\\RouteAssignments\\RouteAssignmentCreateDtoValidator.cs",
-              "RelativeToolTip": "..\\RideFlow.Core.Application\\Validators\\RouteAssignments\\RouteAssignmentCreateDtoValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T12:03:48.584Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 45,
-              "Title": "EmployeeCreateDtoValidator.cs",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Validators\\Employees\\EmployeeCreateDtoValidator.cs",
-              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\Validators\\Employees\\EmployeeCreateDtoValidator.cs",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Validators\\Employees\\EmployeeCreateDtoValidator.cs",
-              "RelativeToolTip": "..\\RideFlow.Core.Application\\Validators\\Employees\\EmployeeCreateDtoValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T11:54:52.421Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 44,
-              "Title": "RouteCreateDtoValidator.cs",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Validators\\Routes\\RouteCreateDtoValidator.cs",
-              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\Validators\\Routes\\RouteCreateDtoValidator.cs",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Validators\\Routes\\RouteCreateDtoValidator.cs",
-              "RelativeToolTip": "..\\RideFlow.Core.Application\\Validators\\Routes\\RouteCreateDtoValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T11:59:09.015Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 54,
-              "Title": "RouteUsageReportDto.cs",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Reports\\RouteUsageReportDto.cs",
-              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\DTOs\\Reports\\RouteUsageReportDto.cs",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Reports\\RouteUsageReportDto.cs",
-              "RelativeToolTip": "..\\RideFlow.Core.Application\\DTOs\\Reports\\RouteUsageReportDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T19:51:58.074Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 57,
-              "Title": "AttendanceUpdateDto.cs",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Attendance\\AttendanceUpdateDto.cs",
-              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\DTOs\\Attendance\\AttendanceUpdateDto.cs",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Attendance\\AttendanceUpdateDto.cs",
-              "RelativeToolTip": "..\\RideFlow.Core.Application\\DTOs\\Attendance\\AttendanceUpdateDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T19:30:42.232Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 47,
-              "Title": "DriverCreateDto.cs",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Drivers\\DriverCreateDto.cs",
-              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\DTOs\\Drivers\\DriverCreateDto.cs",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Drivers\\DriverCreateDto.cs",
-              "RelativeToolTip": "..\\RideFlow.Core.Application\\DTOs\\Drivers\\DriverCreateDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T13:00:27.47Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 53,
-              "Title": "AttendanceSummaryDto.cs",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Reports\\AttendanceSummaryDto.cs",
-              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\DTOs\\Reports\\AttendanceSummaryDto.cs",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Reports\\AttendanceSummaryDto.cs",
-              "RelativeToolTip": "..\\RideFlow.Core.Application\\DTOs\\Reports\\AttendanceSummaryDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T19:52:11.112Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 52,
-              "Title": "TopEmployeesDto.cs",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Reports\\TopEmployeesDto.cs",
-              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\DTOs\\Reports\\TopEmployeesDto.cs",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Reports\\TopEmployeesDto.cs",
-              "RelativeToolTip": "..\\RideFlow.Core.Application\\DTOs\\Reports\\TopEmployeesDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T19:52:24.797Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 51,
-              "Title": "IReportService.cs",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Interfaces\\IReportService.cs",
-              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\Interfaces\\IReportService.cs",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Interfaces\\IReportService.cs",
-              "RelativeToolTip": "..\\RideFlow.Core.Application\\Interfaces\\IReportService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T19:54:30.867Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 13,
               "Title": "ReportService.cs",
               "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Services\\ReportService.cs",
               "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\Services\\ReportService.cs",
               "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Services\\ReportService.cs",
               "RelativeToolTip": "..\\RideFlow.Core.Application\\Services\\ReportService.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAQwDcAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAgwDsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-23T19:58:18.906Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
-              "Title": "AttendanceResponseDto.cs",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Attendance\\AttendanceResponseDto.cs",
-              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\DTOs\\Attendance\\AttendanceResponseDto.cs",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Attendance\\AttendanceResponseDto.cs",
-              "RelativeToolTip": "..\\RideFlow.Core.Application\\DTOs\\Attendance\\AttendanceResponseDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "DocumentIndex": 15,
+              "Title": "20260327122655_AddDriverToRoutes.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Persistence\\Migrations\\20260327122655_AddDriverToRoutes.cs",
+              "RelativeDocumentMoniker": "..\\RideFlow.Core.Persistence\\Migrations\\20260327122655_AddDriverToRoutes.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Persistence\\Migrations\\20260327122655_AddDriverToRoutes.cs",
+              "RelativeToolTip": "..\\RideFlow.Core.Persistence\\Migrations\\20260327122655_AddDriverToRoutes.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAgwCcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T19:30:59.502Z"
+              "WhenOpened": "2026-03-27T12:32:17.851Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
-              "Title": "IAttendanceService.cs",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Interfaces\\IAttendanceService.cs",
-              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\Interfaces\\IAttendanceService.cs",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Interfaces\\IAttendanceService.cs",
-              "RelativeToolTip": "..\\RideFlow.Core.Application\\Interfaces\\IAttendanceService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T19:34:08.273Z"
+              "DocumentIndex": 12,
+              "Title": "Attendance.vue",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\views\\Attendance.vue",
+              "RelativeDocumentMoniker": "RideFront\\src\\views\\Attendance.vue",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\views\\Attendance.vue",
+              "RelativeToolTip": "RideFront\\src\\views\\Attendance.vue",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003491|",
+              "WhenOpened": "2026-03-25T17:21:09.933Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 20,
+              "Title": "RoutesController.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\Controllers\\RoutesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\RoutesController.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\Controllers\\RoutesController.cs",
+              "RelativeToolTip": "Controllers\\RoutesController.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAAswEEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T18:05:53.521Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "RouteResponseDto.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Routes\\RouteResponseDto.cs",
+              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\DTOs\\Routes\\RouteResponseDto.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Routes\\RouteResponseDto.cs",
+              "RelativeToolTip": "..\\RideFlow.Core.Application\\DTOs\\Routes\\RouteResponseDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T15:50:47.284Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "RouteCreateDto.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Routes\\RouteCreateDto.cs",
+              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\DTOs\\Routes\\RouteCreateDto.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Routes\\RouteCreateDto.cs",
+              "RelativeToolTip": "..\\RideFlow.Core.Application\\DTOs\\Routes\\RouteCreateDto.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAA7wAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T15:50:14.508Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Driver.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Domain\\Entities\\Driver.cs",
+              "RelativeDocumentMoniker": "..\\RideFlow.Core.Domain\\Entities\\Driver.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Domain\\Entities\\Driver.cs",
+              "RelativeToolTip": "..\\RideFlow.Core.Domain\\Entities\\Driver.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAmwAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T22:30:38.257Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "RouteAssignmentResponseDto.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Assignments\\RouteAssignmentResponseDto.cs",
+              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\DTOs\\Assignments\\RouteAssignmentResponseDto.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Assignments\\RouteAssignmentResponseDto.cs",
+              "RelativeToolTip": "..\\RideFlow.Core.Application\\DTOs\\Assignments\\RouteAssignmentResponseDto.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAmwAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T18:20:10.359Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
               "Title": "AttendanceService.cs",
               "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Services\\AttendanceService.cs",
               "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\Services\\AttendanceService.cs",
               "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Services\\AttendanceService.cs",
               "RelativeToolTip": "..\\RideFlow.Core.Application\\Services\\AttendanceService.cs",
-              "ViewState": "AgIAAEoAAAAAAAAAAAAgwGQAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAFkAAAAAAAAAAAAUwGQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-23T19:37:36.353Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
-              "Title": "Attendance.cs",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Domain\\Entities\\Attendance.cs",
-              "RelativeDocumentMoniker": "..\\RideFlow.Core.Domain\\Entities\\Attendance.cs",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Domain\\Entities\\Attendance.cs",
-              "RelativeToolTip": "..\\RideFlow.Core.Domain\\Entities\\Attendance.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "DocumentIndex": 23,
+              "Title": "AttendanceUpdateDto.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Attendance\\AttendanceUpdateDto.cs",
+              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\DTOs\\Attendance\\AttendanceUpdateDto.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Attendance\\AttendanceUpdateDto.cs",
+              "RelativeToolTip": "..\\RideFlow.Core.Application\\DTOs\\Attendance\\AttendanceUpdateDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAYwAgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T19:26:34.682Z"
+              "WhenOpened": "2026-03-23T19:30:42.232Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
-              "Title": "IRouteAssignmentService.cs",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Interfaces\\IRouteAssignmentService.cs",
-              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\Interfaces\\IRouteAssignmentService.cs",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Interfaces\\IRouteAssignmentService.cs",
-              "RelativeToolTip": "..\\RideFlow.Core.Application\\Interfaces\\IRouteAssignmentService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "DocumentIndex": 24,
+              "Title": "AttendancesController.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\Controllers\\AttendancesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AttendancesController.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\Controllers\\AttendancesController.cs",
+              "RelativeToolTip": "Controllers\\AttendancesController.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAUwEEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T18:32:14.024Z"
+              "WhenOpened": "2026-03-23T19:43:57.659Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 61,
+              "DocumentIndex": 25,
+              "Title": "AttendanceCreateDto.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Attendance\\AttendanceCreateDto.cs",
+              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\DTOs\\Attendance\\AttendanceCreateDto.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Attendance\\AttendanceCreateDto.cs",
+              "RelativeToolTip": "..\\RideFlow.Core.Application\\DTOs\\Attendance\\AttendanceCreateDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAYwAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T19:30:21.318Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
               "Title": "RouteAssignmentUpdateDto.cs",
               "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Assignments\\RouteAssignmentUpdateDto.cs",
               "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\DTOs\\Assignments\\RouteAssignmentUpdateDto.cs",
               "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Assignments\\RouteAssignmentUpdateDto.cs",
               "RelativeToolTip": "..\\RideFlow.Core.Application\\DTOs\\Assignments\\RouteAssignmentUpdateDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAwAcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-23T18:19:55.662Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 62,
+              "DocumentIndex": 26,
               "Title": "RouteAssignmentCreateDto.cs",
               "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Assignments\\RouteAssignmentCreateDto.cs",
               "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\DTOs\\Assignments\\RouteAssignmentCreateDto.cs",
@@ -1065,31 +673,523 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 66,
-              "Title": "RouteCreateDto.cs",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Routes\\RouteCreateDto.cs",
-              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\DTOs\\Routes\\RouteCreateDto.cs",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Routes\\RouteCreateDto.cs",
-              "RelativeToolTip": "..\\RideFlow.Core.Application\\DTOs\\Routes\\RouteCreateDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "DocumentIndex": 29,
+              "Title": "EmployeesController.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\Controllers\\EmployeesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\EmployeesController.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\Controllers\\EmployeesController.cs",
+              "RelativeToolTip": "Controllers\\EmployeesController.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAUwEEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T15:50:14.508Z"
+              "WhenOpened": "2026-03-23T15:21:11.386Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 64,
-              "Title": "RouteResponseDto.cs",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Routes\\RouteResponseDto.cs",
-              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\DTOs\\Routes\\RouteResponseDto.cs",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Routes\\RouteResponseDto.cs",
-              "RelativeToolTip": "..\\RideFlow.Core.Application\\DTOs\\Routes\\RouteResponseDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "DocumentIndex": 30,
+              "Title": "EmployeeUpdateDto.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Employees\\EmployeeUpdateDto.cs",
+              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\DTOs\\Employees\\EmployeeUpdateDto.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Employees\\EmployeeUpdateDto.cs",
+              "RelativeToolTip": "..\\RideFlow.Core.Application\\DTOs\\Employees\\EmployeeUpdateDto.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAwAkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T15:50:47.284Z"
+              "WhenOpened": "2026-03-23T14:41:49.399Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "EmployeeCreateDto.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Employees\\EmployeeCreateDto.cs",
+              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\DTOs\\Employees\\EmployeeCreateDto.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Employees\\EmployeeCreateDto.cs",
+              "RelativeToolTip": "..\\RideFlow.Core.Application\\DTOs\\Employees\\EmployeeCreateDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAYwAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T14:41:34.354Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "20260326201420_UpdateRoutesRemoveDriverAddStops.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Persistence\\Migrations\\20260326201420_UpdateRoutesRemoveDriverAddStops.cs",
+              "RelativeDocumentMoniker": "..\\RideFlow.Core.Persistence\\Migrations\\20260326201420_UpdateRoutesRemoveDriverAddStops.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Persistence\\Migrations\\20260326201420_UpdateRoutesRemoveDriverAddStops.cs",
+              "RelativeToolTip": "..\\RideFlow.Core.Persistence\\Migrations\\20260326201420_UpdateRoutesRemoveDriverAddStops.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-26T20:19:11.651Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "RouteCreateDtoValidator.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Validators\\Routes\\RouteCreateDtoValidator.cs",
+              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\Validators\\Routes\\RouteCreateDtoValidator.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Validators\\Routes\\RouteCreateDtoValidator.cs",
+              "RelativeToolTip": "..\\RideFlow.Core.Application\\Validators\\Routes\\RouteCreateDtoValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T11:59:09.015Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "RideFlowDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Persistence\\Context\\RideFlowDbContext.cs",
+              "RelativeDocumentMoniker": "..\\RideFlow.Core.Persistence\\Context\\RideFlowDbContext.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Persistence\\Context\\RideFlowDbContext.cs",
+              "RelativeToolTip": "..\\RideFlow.Core.Persistence\\Context\\RideFlowDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T23:29:08.562Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "RouteAssignment.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Domain\\Entities\\RouteAssignment.cs",
+              "RelativeDocumentMoniker": "..\\RideFlow.Core.Domain\\Entities\\RouteAssignment.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Domain\\Entities\\RouteAssignment.cs",
+              "RelativeToolTip": "..\\RideFlow.Core.Domain\\Entities\\RouteAssignment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T18:15:03.918Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAowHAAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-20T14:12:07.323Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "main.ts",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\main.ts",
+              "RelativeDocumentMoniker": "RideFront\\src\\main.ts",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\main.ts",
+              "RelativeToolTip": "RideFront\\src\\main.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2026-03-24T14:31:27.522Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "vite-env.d.ts",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\vite-env.d.ts",
+              "RelativeDocumentMoniker": "RideFront\\src\\vite-env.d.ts",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\vite-env.d.ts",
+              "RelativeToolTip": "RideFront\\src\\vite-env.d.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2026-03-24T14:39:45.24Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "App.vue",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\App.vue",
+              "RelativeDocumentMoniker": "RideFront\\src\\App.vue",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\App.vue",
+              "RelativeToolTip": "RideFront\\src\\App.vue",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003491|",
+              "WhenOpened": "2026-03-24T14:37:25.5Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\Services\\AuthService.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Services\\AuthService.cs",
+              "RelativeToolTip": "..\\RideFlow.Core.Application\\Services\\AuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T22:21:20.708Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "IEmployeeService.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Interfaces\\IEmployeeService.cs",
+              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\Interfaces\\IEmployeeService.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Interfaces\\IEmployeeService.cs",
+              "RelativeToolTip": "..\\RideFlow.Core.Application\\Interfaces\\IEmployeeService.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAQwAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T14:45:21.883Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "auth.service.ts",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\services\\auth.service.ts",
+              "RelativeDocumentMoniker": "RideFront\\src\\services\\auth.service.ts",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\services\\auth.service.ts",
+              "RelativeToolTip": "RideFront\\src\\services\\auth.service.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAowC0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2026-03-24T14:26:01.035Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "index.html",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\index.html",
+              "RelativeDocumentMoniker": "RideFront\\index.html",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\index.html",
+              "RelativeToolTip": "RideFront\\index.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-03-22T22:57:02.145Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "api.ts",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\services\\api.ts",
+              "RelativeDocumentMoniker": "RideFront\\src\\services\\api.ts",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\services\\api.ts",
+              "RelativeToolTip": "RideFront\\src\\services\\api.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAswB4AAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2026-03-24T20:18:20.009Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "base.css",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\assets\\styles\\base.css",
+              "RelativeDocumentMoniker": "RideFront\\src\\assets\\styles\\base.css",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\assets\\styles\\base.css",
+              "RelativeToolTip": "RideFront\\src\\assets\\styles\\base.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-03-24T14:46:48.707Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "DriversController.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\Controllers\\DriversController.cs",
+              "RelativeDocumentMoniker": "Controllers\\DriversController.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\Controllers\\DriversController.cs",
+              "RelativeToolTip": "Controllers\\DriversController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T13:43:59.323Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "main.css",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\assets\\styles\\main.css",
+              "RelativeDocumentMoniker": "RideFront\\src\\assets\\styles\\main.css",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\assets\\styles\\main.css",
+              "RelativeToolTip": "RideFront\\src\\assets\\styles\\main.css",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAYwCUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-03-24T14:46:06.812Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "tsconfig.json",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\tsconfig.json",
+              "RelativeDocumentMoniker": "RideFront\\tsconfig.json",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\tsconfig.json",
+              "RelativeToolTip": "RideFront\\tsconfig.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-22T22:57:05.541Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "LoginRequestDto.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Auth\\LoginRequestDto.cs",
+              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\DTOs\\Auth\\LoginRequestDto.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Auth\\LoginRequestDto.cs",
+              "RelativeToolTip": "..\\RideFlow.Core.Application\\DTOs\\Auth\\LoginRequestDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T22:10:36.591Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "EmployeeService.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Services\\EmployeeService.cs",
+              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\Services\\EmployeeService.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Services\\EmployeeService.cs",
+              "RelativeToolTip": "..\\RideFlow.Core.Application\\Services\\EmployeeService.cs",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAIwGgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T15:12:54.397Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "DriverService.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Services\\DriverService.cs",
+              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\Services\\DriverService.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Services\\DriverService.cs",
+              "RelativeToolTip": "..\\RideFlow.Core.Application\\Services\\DriverService.cs",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAcwGMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T13:15:10.354Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Domain\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "..\\RideFlow.Core.Domain\\Entities\\User.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Domain\\Entities\\User.cs",
+              "RelativeToolTip": "..\\RideFlow.Core.Domain\\Entities\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T12:48:29.379Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "20260324125638_AddUsers.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Persistence\\Migrations\\20260324125638_AddUsers.cs",
+              "RelativeDocumentMoniker": "..\\RideFlow.Core.Persistence\\Migrations\\20260324125638_AddUsers.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Persistence\\Migrations\\20260324125638_AddUsers.cs",
+              "RelativeToolTip": "..\\RideFlow.Core.Persistence\\Migrations\\20260324125638_AddUsers.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAIwCQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T12:58:45.886Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "20260323124640_InitialCreate.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Persistence\\Migrations\\20260323124640_InitialCreate.cs",
+              "RelativeDocumentMoniker": "..\\RideFlow.Core.Persistence\\Migrations\\20260323124640_InitialCreate.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Persistence\\Migrations\\20260323124640_InitialCreate.cs",
+              "RelativeToolTip": "..\\RideFlow.Core.Persistence\\Migrations\\20260323124640_InitialCreate.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAYwB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T13:06:57.327Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "Employee.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Domain\\Entities\\Employee.cs",
+              "RelativeDocumentMoniker": "..\\RideFlow.Core.Domain\\Entities\\Employee.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Domain\\Entities\\Employee.cs",
+              "RelativeToolTip": "..\\RideFlow.Core.Domain\\Entities\\Employee.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T14:36:38.529Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 62,
+              "Title": "AssemblyMarker.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Common\\AssemblyMarker.cs",
+              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\Common\\AssemblyMarker.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Common\\AssemblyMarker.cs",
+              "RelativeToolTip": "..\\RideFlow.Core.Application\\Common\\AssemblyMarker.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T20:20:34.663Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "RideFlow.Core.Application.csproj",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj",
+              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj",
+              "RelativeToolTip": "..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-03-20T15:14:46.027Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "AttendanceCreateDtoValidator.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Validators\\Attendance\\AttendanceCreateDtoValidator.cs",
+              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\Validators\\Attendance\\AttendanceCreateDtoValidator.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Validators\\Attendance\\AttendanceCreateDtoValidator.cs",
+              "RelativeToolTip": "..\\RideFlow.Core.Application\\Validators\\Attendance\\AttendanceCreateDtoValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T12:07:23.919Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 63,
+              "Title": "ReportsController.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\Controllers\\ReportsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ReportsController.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\Controllers\\ReportsController.cs",
+              "RelativeToolTip": "Controllers\\ReportsController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAABQwCYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T20:07:43.426Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "CreateDriverDtoValidator.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Validators\\Drivers\\CreateDriverDtoValidator.cs",
+              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\Validators\\Drivers\\CreateDriverDtoValidator.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Validators\\Drivers\\CreateDriverDtoValidator.cs",
+              "RelativeToolTip": "..\\RideFlow.Core.Application\\Validators\\Drivers\\CreateDriverDtoValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T20:24:36.318Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "RouteAssignmentCreateDtoValidator.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Validators\\RouteAssignments\\RouteAssignmentCreateDtoValidator.cs",
+              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\Validators\\RouteAssignments\\RouteAssignmentCreateDtoValidator.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Validators\\RouteAssignments\\RouteAssignmentCreateDtoValidator.cs",
+              "RelativeToolTip": "..\\RideFlow.Core.Application\\Validators\\RouteAssignments\\RouteAssignmentCreateDtoValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T12:03:48.584Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "EmployeeCreateDtoValidator.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Validators\\Employees\\EmployeeCreateDtoValidator.cs",
+              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\Validators\\Employees\\EmployeeCreateDtoValidator.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Validators\\Employees\\EmployeeCreateDtoValidator.cs",
+              "RelativeToolTip": "..\\RideFlow.Core.Application\\Validators\\Employees\\EmployeeCreateDtoValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T11:54:52.421Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 67,
+              "Title": "RouteUsageReportDto.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Reports\\RouteUsageReportDto.cs",
+              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\DTOs\\Reports\\RouteUsageReportDto.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Reports\\RouteUsageReportDto.cs",
+              "RelativeToolTip": "..\\RideFlow.Core.Application\\DTOs\\Reports\\RouteUsageReportDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T19:51:58.074Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 61,
+              "Title": "DriverCreateDto.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Drivers\\DriverCreateDto.cs",
+              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\DTOs\\Drivers\\DriverCreateDto.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Drivers\\DriverCreateDto.cs",
+              "RelativeToolTip": "..\\RideFlow.Core.Application\\DTOs\\Drivers\\DriverCreateDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T13:00:27.47Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 66,
+              "Title": "AttendanceSummaryDto.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Reports\\AttendanceSummaryDto.cs",
+              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\DTOs\\Reports\\AttendanceSummaryDto.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Reports\\AttendanceSummaryDto.cs",
+              "RelativeToolTip": "..\\RideFlow.Core.Application\\DTOs\\Reports\\AttendanceSummaryDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T19:52:11.112Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 65,
+              "Title": "TopEmployeesDto.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Reports\\TopEmployeesDto.cs",
+              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\DTOs\\Reports\\TopEmployeesDto.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Reports\\TopEmployeesDto.cs",
+              "RelativeToolTip": "..\\RideFlow.Core.Application\\DTOs\\Reports\\TopEmployeesDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T19:52:24.797Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 64,
+              "Title": "IReportService.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Interfaces\\IReportService.cs",
+              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\Interfaces\\IReportService.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Interfaces\\IReportService.cs",
+              "RelativeToolTip": "..\\RideFlow.Core.Application\\Interfaces\\IReportService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T19:54:30.867Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 69,
+              "Title": "AttendanceResponseDto.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Attendance\\AttendanceResponseDto.cs",
+              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\DTOs\\Attendance\\AttendanceResponseDto.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Attendance\\AttendanceResponseDto.cs",
+              "RelativeToolTip": "..\\RideFlow.Core.Application\\DTOs\\Attendance\\AttendanceResponseDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T19:30:59.502Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 68,
+              "Title": "IAttendanceService.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Interfaces\\IAttendanceService.cs",
+              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\Interfaces\\IAttendanceService.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Interfaces\\IAttendanceService.cs",
+              "RelativeToolTip": "..\\RideFlow.Core.Application\\Interfaces\\IAttendanceService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T19:34:08.273Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 70,
+              "Title": "Attendance.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Domain\\Entities\\Attendance.cs",
+              "RelativeDocumentMoniker": "..\\RideFlow.Core.Domain\\Entities\\Attendance.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Domain\\Entities\\Attendance.cs",
+              "RelativeToolTip": "..\\RideFlow.Core.Domain\\Entities\\Attendance.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T19:26:34.682Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 71,
+              "Title": "IRouteAssignmentService.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Interfaces\\IRouteAssignmentService.cs",
+              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\Interfaces\\IRouteAssignmentService.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Interfaces\\IRouteAssignmentService.cs",
+              "RelativeToolTip": "..\\RideFlow.Core.Application\\Interfaces\\IRouteAssignmentService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T18:32:14.024Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 72,
               "Title": "IRouteService.cs",
               "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Interfaces\\IRouteService.cs",
               "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\Interfaces\\IRouteService.cs",
@@ -1101,7 +1201,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 68,
+              "DocumentIndex": 73,
               "Title": "EmployeeResponseDto.cs",
               "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Employees\\EmployeeResponseDto.cs",
               "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\DTOs\\Employees\\EmployeeResponseDto.cs",
@@ -1113,55 +1213,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 69,
-              "Title": "EmployeeUpdateDto.cs",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Employees\\EmployeeUpdateDto.cs",
-              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\DTOs\\Employees\\EmployeeUpdateDto.cs",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Employees\\EmployeeUpdateDto.cs",
-              "RelativeToolTip": "..\\RideFlow.Core.Application\\DTOs\\Employees\\EmployeeUpdateDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T14:41:49.399Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 65,
-              "Title": "RouteUpdateDto.cs",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Routes\\RouteUpdateDto.cs",
-              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\DTOs\\Routes\\RouteUpdateDto.cs",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Routes\\RouteUpdateDto.cs",
-              "RelativeToolTip": "..\\RideFlow.Core.Application\\DTOs\\Routes\\RouteUpdateDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T15:50:28.821Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 70,
-              "Title": "EmployeeCreateDto.cs",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Employees\\EmployeeCreateDto.cs",
-              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\DTOs\\Employees\\EmployeeCreateDto.cs",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Employees\\EmployeeCreateDto.cs",
-              "RelativeToolTip": "..\\RideFlow.Core.Application\\DTOs\\Employees\\EmployeeCreateDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T14:41:34.354Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 67,
-              "Title": "IEmployeeService.cs",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Interfaces\\IEmployeeService.cs",
-              "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\Interfaces\\IEmployeeService.cs",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Interfaces\\IEmployeeService.cs",
-              "RelativeToolTip": "..\\RideFlow.Core.Application\\Interfaces\\IEmployeeService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T14:45:21.883Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 72,
+              "DocumentIndex": 75,
               "Title": "DriverResponseDto.cs",
               "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Drivers\\DriverResponseDto.cs",
               "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\DTOs\\Drivers\\DriverResponseDto.cs",
@@ -1173,7 +1225,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 73,
+              "DocumentIndex": 76,
               "Title": "IDriverService.cs",
               "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Interfaces\\IDriverService.cs",
               "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\Interfaces\\IDriverService.cs",
@@ -1185,7 +1237,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 71,
+              "DocumentIndex": 74,
               "Title": "DriverUpdateDto.cs",
               "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Drivers\\DriverUpdateDto.cs",
               "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\DTOs\\Drivers\\DriverUpdateDto.cs",
@@ -1197,7 +1249,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 75,
+              "DocumentIndex": 78,
               "Title": "appsettings.Development.json",
               "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\appsettings.Development.json",
               "RelativeDocumentMoniker": "appsettings.Development.json",
@@ -1209,7 +1261,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 76,
+              "DocumentIndex": 79,
               "Title": "README.md",
               "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\README.md",
               "RelativeDocumentMoniker": "RideFront\\README.md",
@@ -1221,7 +1273,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 74,
+              "DocumentIndex": 77,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -1233,7 +1285,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 79,
+              "DocumentIndex": 82,
               "Title": "tsconfig.app.json",
               "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\tsconfig.app.json",
               "RelativeDocumentMoniker": "RideFront\\tsconfig.app.json",
@@ -1245,7 +1297,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 80,
+              "DocumentIndex": 83,
               "Title": "package.json",
               "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\package.json",
               "RelativeDocumentMoniker": "RideFront\\package.json",
@@ -1257,7 +1309,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 78,
+              "DocumentIndex": 81,
               "Title": "tsconfig.node.json",
               "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\tsconfig.node.json",
               "RelativeDocumentMoniker": "RideFront\\tsconfig.node.json",
@@ -1269,7 +1321,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 77,
+              "DocumentIndex": 80,
               "Title": "vite.config.ts",
               "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\vite.config.ts",
               "RelativeDocumentMoniker": "RideFront\\vite.config.ts",
@@ -1281,7 +1333,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 81,
+              "DocumentIndex": 84,
               "Title": "env.d.ts",
               "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\env.d.ts",
               "RelativeDocumentMoniker": "RideFront\\env.d.ts",
@@ -1293,7 +1345,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 82,
+              "DocumentIndex": 85,
               "Title": ".gitignore",
               "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\.gitignore",
               "RelativeDocumentMoniker": "RideFront\\.gitignore",
@@ -1305,7 +1357,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 85,
+              "DocumentIndex": 88,
               "Title": "LoginResponseDto.cs",
               "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\DTOs\\Auth\\LoginResponseDto.cs",
               "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\DTOs\\Auth\\LoginResponseDto.cs",
@@ -1317,7 +1369,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 84,
+              "DocumentIndex": 87,
               "Title": "IAuthService.cs",
               "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow.Core.Application\\Interfaces\\IAuthService.cs",
               "RelativeDocumentMoniker": "..\\RideFlow.Core.Application\\Interfaces\\IAuthService.cs",
@@ -1329,7 +1381,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 83,
+              "DocumentIndex": 86,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "Controllers\\AuthController.cs",

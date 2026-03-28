@@ -46,6 +46,14 @@
                 </button>
             </section>
 
+            <section v-if="errorMessage" class="feedback-banner error-banner">
+                {{ errorMessage }}
+            </section>
+
+            <section v-if="successMessage" class="feedback-banner success-banner">
+                {{ successMessage }}
+            </section>
+
             <section class="assignments-list">
                 <article v-if="loading" class="route-card loading-card">
                     <p>Cargando asignaciones...</p>
@@ -57,17 +65,16 @@
                     <div class="route-card-header">
                         <div class="route-card-info">
                             <h3>{{ routeItem.origin }} → {{ routeItem.destination }}</h3>
-                            <p>Horario: {{ routeItem.schedule }} | Conductor: {{ routeItem.driver }}</p>
+                            <p>Horario: {{ routeItem.schedule }}</p>
                         </div>
 
                         <div class="route-badges">
-                            <span class="occupied-badge">0/{{ routeItem.capacityNumber }} ocupados</span>
-                            <span class="available-badge">{{ routeItem.capacityNumber }} disponibles</span>
+                            <span class="occupied-badge">{{ routeItem.assignedEmployees.length }} asignados</span>
                         </div>
                     </div>
 
                     <div class="route-card-body">
-                        <div class="empty-state">
+                        <div v-if="routeItem.assignedEmployees.length === 0" class="empty-state">
                             <div class="empty-icon">
                                 <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
                                     <rect x="10" y="18" width="38" height="18" rx="4" stroke="currentColor" stroke-width="3" />
@@ -78,6 +85,38 @@
                                 </svg>
                             </div>
                             <p>No hay colaboradores asignados a esta ruta</p>
+                        </div>
+
+                        <div v-else class="assigned-list">
+                            <div v-for="assignment in routeItem.assignedEmployees"
+                                 :key="assignment.id"
+                                 class="assigned-item">
+                                <div class="assigned-main">
+                                    <div class="assigned-avatar">
+                                        {{ getInitials(assignment.employeeName) }}
+                                    </div>
+
+                                    <div class="assigned-info">
+                                        <strong>{{ assignment.employeeName }}</strong>
+                                        <span>Asignado: {{ formatDate(assignment.assignedDate) }}</span>
+                                    </div>
+                                </div>
+
+                                <div class="assigned-actions">
+                                    <button class="mini-action edit"
+                                            type="button"
+                                            @click="editAssignment(assignment)"
+                                            :disabled="saving || deletingId === assignment.id">
+                                        ✎
+                                    </button>
+                                    <button class="mini-action delete"
+                                            type="button"
+                                            @click="deleteAssignment(assignment)"
+                                            :disabled="saving || deletingId === assignment.id">
+                                        {{ deletingId === assignment.id ? '...' : '🗑' }}
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </article>
@@ -93,14 +132,16 @@
                 <div class="assignment-modal" @click.stop>
                     <div class="modal-header">
                         <div class="modal-header-top">
-                            <h2>Nueva Asignación</h2>
+                            <h2>{{ isEditing ? 'Editar Asignación' : 'Nueva Asignación' }}</h2>
                             <button class="modal-close" type="button" @click="closeCreateModal">✕</button>
                         </div>
 
-                        <p class="modal-subtitle">Asigne un colaborador a una ruta de transporte</p>
+                        <p class="modal-subtitle">
+                            {{ isEditing ? 'Actualice la asignación del colaborador' : 'Asigne un colaborador a una ruta de transporte' }}
+                        </p>
                     </div>
 
-                    <form class="assignment-form" @submit.prevent="createAssignment">
+                    <form class="assignment-form" @submit.prevent="saveAssignment">
                         <div class="form-group">
                             <label>Colaborador <span>*</span></label>
                             <div class="select-wrap">
@@ -137,8 +178,8 @@
                             <button class="btn-cancel" type="button" @click="closeCreateModal">
                                 Cancelar
                             </button>
-                            <button class="btn-create" type="submit" :disabled="creating">
-                                {{ creating ? 'Asignando...' : 'Asignar' }}
+                            <button class="btn-create" type="submit" :disabled="saving">
+                                {{ saving ? 'Guardando...' : (isEditing ? 'Actualizar' : 'Asignar') }}
                             </button>
                         </div>
                     </form>
@@ -166,201 +207,396 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, reactive, ref } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
-import { apiFetch } from '../services/api'
-import { getUser, logout } from '../services/auth.service'
+    import { computed, onMounted, reactive, ref } from 'vue'
+    import { useRoute, useRouter } from 'vue-router'
+    import { apiFetch } from '../services/api'
+    import { getUser, logout } from '../services/auth.service'
 
-type StoredUser = {
-    name?: string
-    fullName?: string
-    username?: string
-    userName?: string
-}
+    type StoredUser = {
+        name?: string
+        fullName?: string
+        username?: string
+        userName?: string
+    }
 
-type RouteItem = {
-    id: number | string
-    origin: string
-    destination: string
-    schedule: string
-    driver: string
-    capacityNumber: number
-}
+    type RouteItem = {
+        id: number | string
+        origin: string
+        destination: string
+        schedule: string
+    }
 
-type EmployeeItem = {
-    id: number | string
-    name: string
-}
+    type EmployeeItem = {
+        id: number | string
+        name: string
+    }
 
-const route = useRoute()
-const router = useRouter()
+    type AssignmentItem = {
+        id: number | string
+        employeeId: number | string
+        employeeName: string
+        routeId: number | string
+        routeName: string
+        assignedDate: string
+        isActive: boolean
+    }
 
-const loading = ref(false)
-const creating = ref(false)
-const isUserMenuOpen = ref(false)
-const showCreateModal = ref(false)
-const formError = ref('')
-const user = ref<StoredUser | null>(null)
-const routes = ref<RouteItem[]>([])
-const employees = ref<EmployeeItem[]>([])
+    const route = useRoute()
+    const router = useRouter()
 
-const createForm = reactive({
-    employeeId: '',
-    routeId: ''
-})
+    const loading = ref(false)
+    const saving = ref(false)
+    const deletingId = ref<number | string | null>(null)
+    const isUserMenuOpen = ref(false)
+    const showCreateModal = ref(false)
+    const isEditing = ref(false)
+    const editingId = ref<number | string | null>(null)
+    const formError = ref('')
+    const errorMessage = ref('')
+    const successMessage = ref('')
+    const user = ref<StoredUser | null>(null)
+    const routes = ref<RouteItem[]>([])
+    const employees = ref<EmployeeItem[]>([])
+    const assignments = ref<AssignmentItem[]>([])
 
-const displayName = computed(() => {
-    return (
-        user.value?.name ||
-        user.value?.fullName ||
-        user.value?.username ||
-        user.value?.userName ||
-        'Usuario'
-    )
-})
+    const createForm = reactive({
+        employeeId: '',
+        routeId: ''
+    })
 
-const avatarUrl = computed(() => {
-    const name = encodeURIComponent(displayName.value)
-    return `https://ui-avatars.com/api/?name=${name}&background=EAF0FF&color=183A8F&bold=true`
-})
+    const displayName = computed(() => {
+        return (
+            user.value?.name ||
+            user.value?.fullName ||
+            user.value?.username ||
+            user.value?.userName ||
+            'Usuario'
+        )
+    })
 
-const routeCards = computed(() => routes.value)
+    const avatarUrl = computed(() => {
+        const name = encodeURIComponent(displayName.value)
+        return `https://ui-avatars.com/api/?name=${name}&background=EAF0FF&color=183A8F&bold=true`
+    })
 
-const isActive = (path: string) => route.path === path
+    const routeCards = computed(() => {
+        return routes.value.map(routeItem => {
+            const assignedEmployees = assignments.value.filter(
+                x => String(x.routeId) === String(routeItem.id) && x.isActive
+            )
 
-const toggleUserMenu = () => {
-    isUserMenuOpen.value = !isUserMenuOpen.value
-}
+            return {
+                ...routeItem,
+                assignedEmployees
+            }
+        })
+    })
 
-const closeUserMenu = () => {
-    isUserMenuOpen.value = false
-}
+    const isActive = (path: string) => route.path === path
 
-const handleLogout = () => {
-    logout()
-    closeUserMenu()
-    router.push('/login')
-}
+    const toggleUserMenu = () => {
+        isUserMenuOpen.value = !isUserMenuOpen.value
+    }
 
-const normalizeRoutes = (data: any): RouteItem[] => {
-    const list = Array.isArray(data)
-        ? data
-        : Array.isArray(data?.items)
-            ? data.items
-            : Array.isArray(data?.data)
-                ? data.data
-                : []
+    const closeUserMenu = () => {
+        isUserMenuOpen.value = false
+    }
 
-    return list.map((item: any, index: number) => ({
-        id: item.id ?? item.routeId ?? item.Id ?? item.IdRoute ?? index + 1,
-        origin: item.origin ?? item.origen ?? item.startLocation ?? item.from ?? 'Sin origen',
-        destination: item.destination ?? item.destino ?? item.endLocation ?? item.to ?? 'Sin destino',
-        schedule: item.schedule ?? item.horario ?? item.time ?? item.departureTime ?? '00:00',
-        driver: item.driverName ?? item.driver ?? item.conductor ?? item.employeeName ?? 'Sin conductor',
-        capacityNumber: Number(item.capacity ?? item.capacidad ?? item.seats ?? 0)
-    }))
-}
+    const clearMessages = () => {
+        errorMessage.value = ''
+        successMessage.value = ''
+    }
 
-const normalizeEmployees = (data: any): EmployeeItem[] => {
-    const list = Array.isArray(data)
-        ? data
-        : Array.isArray(data?.items)
-            ? data.items
-            : Array.isArray(data?.data)
-                ? data.data
-                : []
+    const handleLogout = () => {
+        logout()
+        closeUserMenu()
+        router.push('/login')
+    }
 
-    return list.map((item: any, index: number) => ({
-        id: item.id ?? item.employeeId ?? item.Id ?? item.IdEmployee ?? index + 1,
-        name: item.name ?? item.nombre ?? item.fullName ?? 'Sin nombre'
-    }))
-}
+    const normalizeRoutes = (data: any): RouteItem[] => {
+        const list = Array.isArray(data)
+            ? data
+            : Array.isArray(data?.items)
+                ? data.items
+                : Array.isArray(data?.data)
+                    ? data.data
+                    : []
 
-const resetCreateForm = () => {
-    createForm.employeeId = ''
-    createForm.routeId = ''
-    formError.value = ''
-}
+        return list.map((item: any, index: number) => ({
+            id: item.id ?? item.routeId ?? item.Id ?? item.IdRoute ?? index + 1,
+            origin: item.origin ?? item.origen ?? item.startLocation ?? item.from ?? item.Origin ?? 'Sin origen',
+            destination: item.destination ?? item.destino ?? item.endLocation ?? item.to ?? item.Destination ?? 'Sin destino',
+            schedule: formatSchedule(item.schedule ?? item.horario ?? item.time ?? item.departureTime ?? item.DepartureTime)
+        }))
+    }
 
-const openCreateModal = () => {
-    resetCreateForm()
-    showCreateModal.value = true
-}
+    const normalizeEmployees = (data: any): EmployeeItem[] => {
+        const list = Array.isArray(data)
+            ? data
+            : Array.isArray(data?.items)
+                ? data.items
+                : Array.isArray(data?.data)
+                    ? data.data
+                    : []
 
-const closeCreateModal = () => {
-    showCreateModal.value = false
-    formError.value = ''
-}
+        return list.map((item: any, index: number) => ({
+            id: item.id ?? item.employeeId ?? item.Id ?? item.IdEmployee ?? index + 1,
+            name: item.name ?? item.nombre ?? item.fullName ?? item.FullName ?? 'Sin nombre'
+        }))
+    }
 
-const loadData = async () => {
-    loading.value = true
+    const normalizeAssignments = (data: any): AssignmentItem[] => {
+        const list = Array.isArray(data)
+            ? data
+            : Array.isArray(data?.items)
+                ? data.items
+                : Array.isArray(data?.data)
+                    ? data.data
+                    : []
 
-    try {
-        user.value = getUser()
+        return list.map((item: any, index: number) => ({
+            id: item.id ?? item.assignmentId ?? item.Id ?? index + 1,
+            employeeId: item.employeeId ?? item.EmployeeId ?? '',
+            employeeName: item.employeeName ?? item.EmployeeName ?? 'Sin colaborador',
+            routeId: item.routeId ?? item.RouteId ?? '',
+            routeName: item.routeName ?? item.RouteName ?? 'Sin ruta',
+            assignedDate: item.assignedDate ?? item.AssignedDate ?? '',
+            isActive: item.isActive ?? item.IsActive ?? true
+        }))
+    }
 
-        const [routesResponse, employeesResponse] = await Promise.all([
-            apiFetch('/Routes'),
-            apiFetch('/Employees')
-        ])
+    const formatSchedule = (value: unknown) => {
+        if (!value) return '00:00'
 
-        if (routesResponse?.ok) {
-            const routesData = await routesResponse.json()
-            routes.value = normalizeRoutes(routesData)
-        } else {
+        if (typeof value === 'string') {
+            const hhmmss = value.match(/^(\d{2}):(\d{2}):(\d{2})$/)
+            if (hhmmss) return `${hhmmss[1]}:${hhmmss[2]}`
+
+            const hhmm = value.match(/^(\d{2}):(\d{2})$/)
+            if (hhmm) return `${hhmm[1]}:${hhmm[2]}`
+        }
+
+        return String(value)
+    }
+
+    const formatDate = (value: string) => {
+        if (!value) return 'Sin fecha'
+
+        const date = new Date(value)
+
+        if (Number.isNaN(date.getTime())) {
+            return value
+        }
+
+        return date.toLocaleDateString('es-DO', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit'
+        })
+    }
+
+    const getInitials = (name: string) => {
+        return name
+            .split(' ')
+            .filter(Boolean)
+            .slice(0, 2)
+            .map(part => part[0]?.toUpperCase() ?? '')
+            .join('')
+    }
+
+    const parseErrorMessage = async (response: Response) => {
+        try {
+            const contentType = response.headers.get('content-type') || ''
+
+            if (contentType.includes('application/json')) {
+                const data = await response.json()
+
+                if (data?.errors) {
+                    const messages = Object.values(data.errors).flat().join(' ')
+                    if (messages) return messages
+                }
+
+                return data?.message || data?.title || data?.error || null
+            }
+
+            const text = await response.text()
+            return text || null
+        } catch {
+            return null
+        }
+    }
+
+    const resetCreateForm = () => {
+        createForm.employeeId = ''
+        createForm.routeId = ''
+        formError.value = ''
+    }
+
+    const openCreateModal = () => {
+        resetCreateForm()
+        clearMessages()
+        isEditing.value = false
+        editingId.value = null
+        showCreateModal.value = true
+    }
+
+    const closeCreateModal = () => {
+        showCreateModal.value = false
+        isEditing.value = false
+        editingId.value = null
+        formError.value = ''
+        resetCreateForm()
+    }
+
+    const loadData = async () => {
+        loading.value = true
+        errorMessage.value = ''
+
+        try {
+            user.value = getUser()
+
+            const [routesResponse, employeesResponse, assignmentsResponse] = await Promise.all([
+                apiFetch('/Routes'),
+                apiFetch('/Employees'),
+                apiFetch('/Assignments')
+            ])
+
+            if (routesResponse?.ok) {
+                const routesData = await routesResponse.json()
+                routes.value = normalizeRoutes(routesData)
+            } else {
+                routes.value = []
+            }
+
+            if (employeesResponse?.ok) {
+                const employeesData = await employeesResponse.json()
+                employees.value = normalizeEmployees(employeesData)
+            } else {
+                employees.value = []
+            }
+
+            if (assignmentsResponse?.ok) {
+                const assignmentsData = await assignmentsResponse.json()
+                assignments.value = normalizeAssignments(assignmentsData)
+            } else {
+                assignments.value = []
+            }
+        } catch {
+            errorMessage.value = 'No se pudieron cargar las asignaciones.'
             routes.value = []
-        }
-
-        if (employeesResponse?.ok) {
-            const employeesData = await employeesResponse.json()
-            employees.value = normalizeEmployees(employeesData)
-        } else {
             employees.value = []
+            assignments.value = []
+        } finally {
+            loading.value = false
         }
-    } catch (error) {
-        console.error('Error cargando asignaciones:', error)
-        routes.value = []
-        employees.value = []
-    } finally {
-        loading.value = false
-    }
-}
-
-const createAssignment = async () => {
-    formError.value = ''
-
-    if (!createForm.employeeId || !createForm.routeId) {
-        formError.value = 'Completa todos los campos obligatorios.'
-        return
     }
 
-    creating.value = true
+    const saveAssignment = async () => {
+        formError.value = ''
+        clearMessages()
 
-    const payload = {
-        employeeId: Number(createForm.employeeId),
-        routeId: Number(createForm.routeId)
+        if (!createForm.employeeId || !createForm.routeId) {
+            formError.value = 'Completa todos los campos obligatorios.'
+            return
+        }
+
+        saving.value = true
+
+        const exists = assignments.value.some(x =>
+            String(x.employeeId) === String(createForm.employeeId) &&
+            String(x.routeId) === String(createForm.routeId) &&
+            x.isActive &&
+            (!isEditing.value || String(x.id) !== String(editingId.value))
+        )
+
+        if (exists) {
+            formError.value = 'Este colaborador ya está asignado a esta ruta.'
+            saving.value = false
+            return
+        }
+
+        try {
+            let response: Response
+
+            if (isEditing.value && editingId.value !== null) {
+                response = await apiFetch(`/Assignments/${editingId.value}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        employeeId: Number(createForm.employeeId),
+                        routeId: Number(createForm.routeId),
+                        isActive: true
+                    })
+                })
+            } else {
+                response = await apiFetch('/Assignments', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        employeeId: Number(createForm.employeeId),
+                        routeId: Number(createForm.routeId)
+                    })
+                })
+            }
+
+            if (!response?.ok) {
+                const serverMessage = response ? await parseErrorMessage(response) : null
+                formError.value = serverMessage || 'No se pudo guardar la asignación.'
+                return
+            }
+
+            await loadData()
+            closeCreateModal()
+            successMessage.value = isEditing.value
+                ? 'La asignación fue actualizada correctamente.'
+                : 'La asignación fue creada correctamente.'
+        } catch {
+            formError.value = 'No se pudo guardar la asignación.'
+        } finally {
+            saving.value = false
+        }
     }
 
-    try {
-        await apiFetch('/Assignments', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(payload)
-        }).catch(() => null)
-
-        closeCreateModal()
-        resetCreateForm()
-    } catch (error) {
-        console.error('Error creando asignación:', error)
-        closeCreateModal()
-        resetCreateForm()
-    } finally {
-        creating.value = false
+    const editAssignment = (assignment: AssignmentItem) => {
+        clearMessages()
+        createForm.employeeId = String(assignment.employeeId)
+        createForm.routeId = String(assignment.routeId)
+        isEditing.value = true
+        editingId.value = assignment.id
+        formError.value = ''
+        showCreateModal.value = true
     }
-}
 
-onMounted(loadData)
+    const deleteAssignment = async (assignment: AssignmentItem) => {
+        clearMessages()
+        deletingId.value = assignment.id
+
+        try {
+            const response = await apiFetch(`/Assignments/${assignment.id}`, {
+                method: 'DELETE'
+            })
+
+            if (!response?.ok) {
+                const serverMessage = response ? await parseErrorMessage(response) : null
+                errorMessage.value = serverMessage || 'No se pudo eliminar la asignación.'
+                return
+            }
+
+            assignments.value = assignments.value.filter(x => String(x.id) !== String(assignment.id))
+            await loadData()
+            successMessage.value = 'La asignación fue eliminada correctamente.'
+        } catch {
+            errorMessage.value = 'No se pudo eliminar la asignación.'
+        } finally {
+            deletingId.value = null
+        }
+    }
+
+    onMounted(loadData)
 </script>
 
 <style scoped>
@@ -583,6 +819,28 @@ onMounted(loadData)
         font-weight: 600;
     }
 
+    .feedback-banner {
+        margin-bottom: 16px;
+        padding: 14px 16px;
+        border-radius: 12px;
+        font-size: 14px;
+        font-weight: 700;
+        border: 1px solid;
+        box-shadow: 0 10px 20px rgba(56, 74, 131, 0.08);
+    }
+
+    .error-banner {
+        color: #a53b4c;
+        background: #fff4f6;
+        border-color: #f1c7cf;
+    }
+
+    .success-banner {
+        color: #226347;
+        background: #f1fff7;
+        border-color: #bfe7cf;
+    }
+
     .new-assignment-btn {
         height: 50px;
         min-width: 190px;
@@ -667,19 +925,6 @@ onMounted(loadData)
         font-weight: 800;
     }
 
-    .available-badge {
-        display: inline-flex;
-        align-items: center;
-        height: 20px;
-        padding: 0 8px;
-        border-radius: 6px;
-        background: #edf7e8;
-        color: #7ea86a;
-        font-size: 11px;
-        font-weight: 700;
-        border: 1px solid rgba(185, 217, 167, 0.8);
-    }
-
     .route-card-body {
         min-height: 112px;
         display: flex;
@@ -715,6 +960,102 @@ onMounted(loadData)
         font-size: 14px;
         color: #56678f;
     }
+
+    .assigned-list {
+        width: 100%;
+        display: grid;
+        gap: 10px;
+    }
+
+    .assigned-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 10px 12px;
+        border-radius: 10px;
+        background: rgba(243, 246, 255, 0.92);
+        border: 1px solid rgba(212, 220, 245, 0.9);
+    }
+
+    .assigned-main {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 0;
+    }
+
+    .assigned-avatar {
+        width: 36px;
+        height: 36px;
+        border-radius: 999px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(180deg, #1d49cf 0%, #1a7ef0 100%);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 800;
+        flex-shrink: 0;
+    }
+
+    .assigned-info {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+    }
+
+        .assigned-info strong {
+            color: #283d75;
+            font-size: 14px;
+            font-weight: 800;
+        }
+
+        .assigned-info span {
+            color: #667596;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+    .assigned-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 0;
+    }
+
+    .mini-action {
+        width: 32px;
+        height: 32px;
+        border: none;
+        border-radius: 8px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 14px;
+        box-shadow: 0 6px 12px rgba(61, 79, 133, 0.18);
+        transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+        .mini-action:hover {
+            transform: translateY(-1px);
+        }
+
+        .mini-action:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .mini-action.edit {
+            background: linear-gradient(180deg, #ffffff 0%, #edf1ff 100%);
+            color: #29448e;
+        }
+
+        .mini-action.delete {
+            background: linear-gradient(180deg, #ef6172 0%, #d9485e 100%);
+            color: #fff;
+        }
 
     .loading-card {
         min-height: 84px;
@@ -1059,6 +1400,16 @@ onMounted(loadData)
 
         .new-assignment-btn {
             width: 100%;
+        }
+
+        .assigned-item {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .assigned-actions {
+            width: 100%;
+            justify-content: flex-end;
         }
 
         .modal-overlay {

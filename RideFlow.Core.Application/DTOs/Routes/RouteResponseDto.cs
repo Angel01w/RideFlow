@@ -7,5 +7,7 @@ public class RouteResponseDto
     public string? Stops { get; set; }
     public string Destination { get; set; } = null!;
     public TimeSpan DepartureTime { get; set; }
+    public int DriverId { get; set; }
+    public string DriverName { get; set; } = null!;
     public bool IsActive { get; set; }
 }

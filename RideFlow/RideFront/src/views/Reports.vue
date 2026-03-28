@@ -2,7 +2,7 @@
 	<div class="reports-page" @click="closeUserMenu">
 		<header class="topbar">
 			<div class="topbar-left">
-				<img src="../assets/images/RF.png" alt="RideFlow" class="brand-logo" />
+				<img src="../assets/images/RF.png" width="110" height="110" />
 			</div>
 
 			<nav class="topbar-nav">
@@ -52,6 +52,26 @@
 				</button>
 			</section>
 
+			<section class="filters-card">
+				<div class="filters-grid">
+					<div class="filter-field">
+						<label>Desde</label>
+						<input v-model="dateFrom" type="date" />
+					</div>
+
+					<div class="filter-field">
+						<label>Hasta</label>
+						<input v-model="dateTo" type="date" />
+					</div>
+
+					<div class="filter-actions">
+						<button type="button" class="secondary-btn" @click="clearDateFilters">
+							Limpiar filtros
+						</button>
+					</div>
+				</div>
+			</section>
+
 			<section class="report-card">
 				<div class="report-card-header">
 					<div class="report-title-wrap">
@@ -73,10 +93,53 @@
 							<tr>
 								<th>Ruta</th>
 								<th>Horario</th>
-								<th>Conductor</th>
 								<th>Asignados</th>
-								<th>Capacidad</th>
 								<th>Ocupación</th>
+								<th>Estado</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<tr v-if="loading">
+								<td colspan="5" class="empty-cell">Cargando reporte...</td>
+							</tr>
+
+							<tr v-else-if="occupancyRows.length === 0">
+								<td colspan="5" class="empty-cell">No hay datos para mostrar</td>
+							</tr>
+
+							<tr v-for="row in occupancyRows" :key="row.id">
+								<td>{{ row.route }}</td>
+								<td>{{ row.schedule }}</td>
+								<td>{{ row.assigned }}</td>
+								<td>
+									<div class="occupancy-cell">
+										<div class="occupancy-bar">
+											<span class="occupancy-fill" :style="{ width: row.occupancyPercent + '%' }"></span>
+										</div>
+										<span>{{ row.occupancyPercent }}%</span>
+									</div>
+								</td>
+								<td>
+									<span class="status-badge">
+										{{ row.status }}
+									</span>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="table-wrap" v-else-if="activeTab === 'asistencia'">
+					<table class="reports-table">
+						<thead>
+							<tr>
+								<th>Ruta</th>
+								<th>Asignados</th>
+								<th>Presentes</th>
+								<th>Ausentes</th>
+								<th>Total Marcados</th>
+								<th>% Asistencia</th>
 							</tr>
 						</thead>
 
@@ -85,33 +148,82 @@
 								<td colspan="6" class="empty-cell">Cargando reporte...</td>
 							</tr>
 
-							<tr v-else-if="reportRows.length === 0">
+							<tr v-else-if="attendanceRows.length === 0">
 								<td colspan="6" class="empty-cell">No hay datos para mostrar</td>
 							</tr>
 
-							<tr v-for="row in reportRows" :key="row.id">
+							<tr v-for="row in attendanceRows" :key="row.id">
 								<td>{{ row.route }}</td>
-								<td>{{ row.schedule }}</td>
-								<td>{{ row.driver }}</td>
 								<td>{{ row.assigned }}</td>
-								<td>{{ row.capacity }}</td>
-								<td>
-									<div class="occupancy-cell">
-										<div class="occupancy-bar">
-											<span class="occupancy-fill" :style="{ width: row.occupancyPercent + '%' }"></span>
-										</div>
-										<span class="status-badge">
-											{{ row.status }}
-										</span>
-									</div>
-								</td>
+								<td>{{ row.present }}</td>
+								<td>{{ row.absent }}</td>
+								<td>{{ row.total }}</td>
+								<td>{{ row.percent }}%</td>
 							</tr>
 						</tbody>
 					</table>
 				</div>
 
-				<div v-else class="placeholder-panel">
-					<p>{{ placeholderText }}</p>
+				<div class="table-wrap" v-else-if="activeTab === 'mas-utilizadas'">
+					<table class="reports-table">
+						<thead>
+							<tr>
+								<th>Ruta</th>
+								<th>Asignaciones</th>
+								<th>Ranking</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<tr v-if="loading">
+								<td colspan="3" class="empty-cell">Cargando reporte...</td>
+							</tr>
+
+							<tr v-else-if="mostUsedRows.length === 0">
+								<td colspan="3" class="empty-cell">No hay datos para mostrar</td>
+							</tr>
+
+							<tr v-for="row in mostUsedRows" :key="row.id">
+								<td>{{ row.route }}</td>
+								<td>{{ row.count }}</td>
+								<td>#{{ row.rank }}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="table-wrap" v-else>
+					<table class="reports-table">
+						<thead>
+							<tr>
+								<th>Fecha</th>
+								<th>Asignados</th>
+								<th>Presentes</th>
+								<th>Ausentes</th>
+								<th>Total Marcados</th>
+								<th>% Asistencia</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<tr v-if="loading">
+								<td colspan="6" class="empty-cell">Cargando reporte...</td>
+							</tr>
+
+							<tr v-else-if="dailyRows.length === 0">
+								<td colspan="6" class="empty-cell">No hay datos para mostrar</td>
+							</tr>
+
+							<tr v-for="row in dailyRows" :key="row.date">
+								<td>{{ row.date }}</td>
+								<td>{{ row.assigned }}</td>
+								<td>{{ row.present }}</td>
+								<td>{{ row.absent }}</td>
+								<td>{{ row.total }}</td>
+								<td>{{ row.percent }}%</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 			</section>
 		</main>
@@ -136,140 +248,426 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
-import { apiFetch } from '../services/api'
-import { getUser, logout } from '../services/auth.service'
+	import { computed, onMounted, ref } from 'vue'
+	import { useRoute, useRouter } from 'vue-router'
+	import { apiFetch } from '../services/api'
+	import { getUser, logout } from '../services/auth.service'
 
-type StoredUser = {
-    name?: string
-    fullName?: string
-    username?: string
-    userName?: string
-}
+	type StoredUser = {
+		name?: string
+		fullName?: string
+		username?: string
+		userName?: string
+	}
 
-type RouteReportRow = {
-    id: number | string
-    route: string
-    schedule: string
-    driver: string
-    assigned: number
-    capacity: number
-    occupancyPercent: number
-    status: string
-}
+	type RouteItem = {
+		id: number | string
+		origin: string
+		destination: string
+		schedule: string
+	}
 
-const route = useRoute()
-const router = useRouter()
+	type AssignmentItem = {
+		id: number | string
+		employeeId: number | string
+		employeeName: string
+		routeId: number | string
+		routeName: string
+		assignedDate: string
+		isActive: boolean
+	}
 
-const isUserMenuOpen = ref(false)
-const user = ref<StoredUser | null>(null)
-const loading = ref(false)
-const activeTab = ref('ocupacion')
-const reportRows = ref<RouteReportRow[]>([])
+	type AttendanceItem = {
+		id: number | string
+		employeeId: number | string
+		routeId: number | string
+		attendanceDate: string
+		status: string
+		markedAt?: string
+	}
 
-const tabs = [
-    { key: 'ocupacion', label: 'Ocupación de Rutas' },
-    { key: 'asistencia', label: 'Asistencia' },
-    { key: 'mas-utilizadas', label: 'Rutas Más Utilizadas' },
-    { key: 'asistencia-diaria', label: 'Asistencia Diaria' }
-]
+	type OccupancyRow = {
+		id: number | string
+		route: string
+		schedule: string
+		assigned: number
+		occupancyPercent: number
+		status: string
+	}
 
-const displayName = computed(() => {
-    return (
-        user.value?.name ||
-        user.value?.fullName ||
-        user.value?.username ||
-        user.value?.userName ||
-        'Usuario'
-    )
-})
+	const route = useRoute()
+	const router = useRouter()
 
-const avatarUrl = computed(() => {
-    const name = encodeURIComponent(displayName.value)
-    return `https://ui-avatars.com/api/?name=${name}&background=EAF0FF&color=183A8F&bold=true`
-})
+	const isUserMenuOpen = ref(false)
+	const user = ref<StoredUser | null>(null)
+	const loading = ref(false)
+	const activeTab = ref('ocupacion')
+	const dateFrom = ref('')
+	const dateTo = ref('')
 
-const reportTitle = computed(() => {
-    if (activeTab.value === 'ocupacion') return 'Reporte de Ocupación por Ruta'
-    if (activeTab.value === 'asistencia') return 'Reporte de Asistencia'
-    if (activeTab.value === 'mas-utilizadas') return 'Reporte de Rutas Más Utilizadas'
-    return 'Reporte de Asistencia Diaria'
-})
+	const routes = ref<RouteItem[]>([])
+	const assignments = ref<AssignmentItem[]>([])
+	const attendances = ref<AttendanceItem[]>([])
 
-const placeholderText = computed(() => {
-    if (activeTab.value === 'asistencia') return 'Aquí se mostrará el análisis de asistencia.'
-    if (activeTab.value === 'mas-utilizadas') return 'Aquí se mostrarán las rutas más utilizadas.'
-    return 'Aquí se mostrará el resumen de asistencia diaria.'
-})
+	const tabs = [
+		{ key: 'ocupacion', label: 'Ocupación de Rutas' },
+		{ key: 'asistencia', label: 'Asistencia' },
+		{ key: 'mas-utilizadas', label: 'Rutas Más Utilizadas' },
+		{ key: 'asistencia-diaria', label: 'Asistencia Diaria' }
+	]
 
-const isActive = (path: string) => route.path === path
+	const displayName = computed(() => {
+		return (
+			user.value?.name ||
+			user.value?.fullName ||
+			user.value?.username ||
+			user.value?.userName ||
+			'Usuario'
+		)
+	})
 
-const toggleUserMenu = () => {
-    isUserMenuOpen.value = !isUserMenuOpen.value
-}
+	const avatarUrl = computed(() => {
+		const name = encodeURIComponent(displayName.value)
+		return `https://ui-avatars.com/api/?name=${name}&background=EAF0FF&color=183A8F&bold=true`
+	})
 
-const closeUserMenu = () => {
-    isUserMenuOpen.value = false
-}
+	const reportTitle = computed(() => {
+		if (activeTab.value === 'ocupacion') return 'Reporte de Ocupación por Ruta'
+		if (activeTab.value === 'asistencia') return 'Reporte de Asistencia por Ruta'
+		if (activeTab.value === 'mas-utilizadas') return 'Reporte de Rutas Más Utilizadas'
+		return 'Reporte de Asistencia Diaria'
+	})
 
-const handleLogout = () => {
-    logout()
-    closeUserMenu()
-    router.push('/login')
-}
+	const isPresentStatus = (value: unknown) => {
+		const status = String(value ?? '').trim().toLowerCase()
+		return status === 'present' || status === 'presente'
+	}
 
-const normalizeRoutesToReport = (data: any): RouteReportRow[] => {
-    const list = Array.isArray(data)
-        ? data
-        : Array.isArray(data?.items)
-            ? data.items
-            : Array.isArray(data?.data)
-                ? data.data
-                : []
+	const isAbsentStatus = (value: unknown) => {
+		const status = String(value ?? '').trim().toLowerCase()
+		return status === 'absent' || status === 'ausente'
+	}
 
-    return list.map((item: any, index: number) => {
-        const assigned = Number(item.assigned ?? item.asignados ?? item.assignedCount ?? 0)
-        const capacity = Number(item.capacity ?? item.capacidad ?? item.seats ?? 0)
-        const occupancyPercent = capacity > 0 ? Math.min((assigned / capacity) * 100, 100) : 0
+	const normalizeDate = (value: unknown) => {
+		const raw = String(value ?? '').trim()
+		if (!raw) return ''
+		return raw.slice(0, 10)
+	}
 
-        return {
-            id: item.id ?? item.routeId ?? item.Id ?? item.IdRoute ?? index + 1,
-            route: `${item.origin ?? item.origen ?? item.startLocation ?? item.from ?? 'Sin origen'} → ${item.destination ?? item.destino ?? item.endLocation ?? item.to ?? 'Sin destino'}`,
-            schedule: item.schedule ?? item.horario ?? item.time ?? item.departureTime ?? '00:00',
-            driver: item.driverName ?? item.driver ?? item.conductor ?? item.employeeName ?? 'Sin conductor',
-            assigned,
-            capacity,
-            occupancyPercent,
-            status: assigned < capacity ? 'Disponible' : 'Completa'
-        }
-    })
-}
+	const isDateInRange = (date: string) => {
+		if (!date) return false
+		if (dateFrom.value && date < dateFrom.value) return false
+		if (dateTo.value && date > dateTo.value) return false
+		return true
+	}
 
-const loadReport = async () => {
-    loading.value = true
+	const clearDateFilters = () => {
+		dateFrom.value = ''
+		dateTo.value = ''
+	}
 
-    try {
-        user.value = getUser()
+	const filteredAttendances = computed(() => {
+		return attendances.value.filter(item => {
+			const date = normalizeDate(item.attendanceDate)
+			const validStatus = isPresentStatus(item.status) || isAbsentStatus(item.status)
+			return !!date && validStatus && isDateInRange(date)
+		})
+	})
 
-        const response = await apiFetch('/Routes')
+	const activeAssignmentsForRange = computed(() => {
+		if (!dateFrom.value && !dateTo.value) {
+			return assignments.value.filter(x => x.isActive)
+		}
 
-        if (!response?.ok) {
-            reportRows.value = []
-            return
-        }
+		return assignments.value.filter(item => {
+			if (!item.isActive) return false
 
-        const data = await response.json()
-        reportRows.value = normalizeRoutesToReport(data)
-    } catch (error) {
-        console.error('Error cargando reportes:', error)
-        reportRows.value = []
-    } finally {
-        loading.value = false
-    }
-}
+			const assignedDate = normalizeDate(item.assignedDate) || '0000-00-00'
 
-onMounted(loadReport)
+			if (dateTo.value && assignedDate > dateTo.value) return false
+
+			return true
+		})
+	})
+
+	const occupancyRows = computed<OccupancyRow[]>(() => {
+		return routes.value.map(routeItem => {
+			const assigned = activeAssignmentsForRange.value.filter(
+				x => String(x.routeId) === String(routeItem.id)
+			).length
+
+			const occupancyPercent = assigned > 0 ? 100 : 0
+
+			return {
+				id: routeItem.id,
+				route: `${routeItem.origin} → ${routeItem.destination}`,
+				schedule: routeItem.schedule,
+				assigned,
+				occupancyPercent,
+				status: assigned > 0 ? 'Con asignaciones' : 'Sin asignaciones'
+			}
+		})
+	})
+
+	const attendanceRows = computed(() => {
+		return routes.value
+			.map(routeItem => {
+				const assignedEmployees = activeAssignmentsForRange.value.filter(
+					x => String(x.routeId) === String(routeItem.id)
+				)
+
+				const assignedEmployeeIds = new Set(
+					assignedEmployees.map(x => String(x.employeeId))
+				)
+
+				const presentKeys = new Set<string>()
+				const markedKeys = new Set<string>()
+
+				for (const item of filteredAttendances.value) {
+					const routeId = String(item.routeId ?? '').trim()
+					const employeeId = String(item.employeeId ?? '').trim()
+					const key = `${routeId}|${employeeId}`
+
+					if (routeId !== String(routeItem.id)) continue
+					if (!assignedEmployeeIds.has(employeeId)) continue
+
+					markedKeys.add(key)
+
+					if (isPresentStatus(item.status)) {
+						presentKeys.add(key)
+					}
+				}
+
+				const assigned = assignedEmployees.length
+				const present = presentKeys.size
+				const absent = assigned > present ? assigned - present : 0
+				const total = markedKeys.size
+				const percent = assigned > 0 ? Math.round((present / assigned) * 100) : 0
+
+				return {
+					id: routeItem.id,
+					route: `${routeItem.origin} → ${routeItem.destination}`,
+					assigned,
+					present,
+					absent,
+					total,
+					percent
+				}
+			})
+			.filter(x => x.assigned > 0 || x.total > 0)
+	})
+
+	const mostUsedRows = computed(() => {
+		return [...routes.value]
+			.map(routeItem => {
+				const count = activeAssignmentsForRange.value.filter(
+					x => String(x.routeId) === String(routeItem.id)
+				).length
+
+				return {
+					id: routeItem.id,
+					route: `${routeItem.origin} → ${routeItem.destination}`,
+					count
+				}
+			})
+			.filter(x => x.count > 0)
+			.sort((a, b) => b.count - a.count)
+			.map((item, index) => ({
+				...item,
+				rank: index + 1
+			}))
+	})
+
+	const dailyRows = computed(() => {
+		const dates = [...new Set(filteredAttendances.value.map(x => normalizeDate(x.attendanceDate)))]
+			.filter(Boolean)
+			.sort((a, b) => a.localeCompare(b))
+
+		return dates
+			.map(date => {
+				const assignmentsForDate = assignments.value.filter(item => {
+					if (!item.isActive) return false
+					const assignedDate = normalizeDate(item.assignedDate) || '0000-00-00'
+					return assignedDate <= date
+				})
+
+				const assignedKeys = new Set(
+					assignmentsForDate.map(x => `${String(x.routeId)}|${String(x.employeeId)}`)
+				)
+
+				const presentKeys = new Set<string>()
+				const markedKeys = new Set<string>()
+
+				for (const item of filteredAttendances.value) {
+					const itemDate = normalizeDate(item.attendanceDate)
+					if (itemDate !== date) continue
+
+					const routeId = String(item.routeId ?? '').trim()
+					const employeeId = String(item.employeeId ?? '').trim()
+					const key = `${routeId}|${employeeId}`
+
+					if (!assignedKeys.has(key)) continue
+
+					markedKeys.add(key)
+
+					if (isPresentStatus(item.status)) {
+						presentKeys.add(key)
+					}
+				}
+
+				const assigned = assignedKeys.size
+				const present = presentKeys.size
+				const absent = assigned > present ? assigned - present : 0
+				const total = markedKeys.size
+				const percent = assigned > 0 ? Math.round((present / assigned) * 100) : 0
+
+				return {
+					date,
+					assigned,
+					present,
+					absent,
+					total,
+					percent
+				}
+			})
+			.filter(x => x.assigned > 0 || x.total > 0)
+	})
+
+	const isActive = (path: string) => route.path === path
+
+	const toggleUserMenu = () => {
+		isUserMenuOpen.value = !isUserMenuOpen.value
+	}
+
+	const closeUserMenu = () => {
+		isUserMenuOpen.value = false
+	}
+
+	const handleLogout = () => {
+		logout()
+		closeUserMenu()
+		router.push('/login')
+	}
+
+	const normalizeRoutes = (data: any): RouteItem[] => {
+		const list = Array.isArray(data)
+			? data
+			: Array.isArray(data?.items)
+				? data.items
+				: Array.isArray(data?.data)
+					? data.data
+					: []
+
+		return list.map((item: any, index: number) => ({
+			id: item.id ?? item.routeId ?? item.Id ?? item.IdRoute ?? index + 1,
+			origin: item.origin ?? item.origen ?? item.startLocation ?? item.from ?? item.Origin ?? 'Sin origen',
+			destination: item.destination ?? item.destino ?? item.endLocation ?? item.to ?? item.Destination ?? 'Sin destino',
+			schedule: formatSchedule(item.schedule ?? item.horario ?? item.time ?? item.departureTime ?? item.DepartureTime)
+		}))
+	}
+
+	const normalizeAssignments = (data: any): AssignmentItem[] => {
+		const list = Array.isArray(data)
+			? data
+			: Array.isArray(data?.items)
+				? data.items
+				: Array.isArray(data?.data)
+					? data.data
+					: []
+
+		return list.map((item: any, index: number) => ({
+			id: item.id ?? item.assignmentId ?? item.Id ?? index + 1,
+			employeeId: item.employeeId ?? item.EmployeeId ?? '',
+			employeeName: item.employeeName ?? item.EmployeeName ?? 'Sin colaborador',
+			routeId: item.routeId ?? item.RouteId ?? '',
+			routeName: item.routeName ?? item.RouteName ?? '',
+			assignedDate: item.assignedDate ?? item.AssignedDate ?? '',
+			isActive: Boolean(item.isActive ?? item.IsActive ?? true)
+		}))
+	}
+
+	const normalizeAttendances = (data: any): AttendanceItem[] => {
+		const list = Array.isArray(data)
+			? data
+			: Array.isArray(data?.items)
+				? data.items
+				: Array.isArray(data?.data)
+					? data.data
+					: []
+
+		return list
+			.map((item: any, index: number) => ({
+				id: item.id ?? item.attendanceId ?? item.Id ?? index + 1,
+				employeeId: item.employeeId ?? item.EmployeeId ?? '',
+				routeId: item.routeId ?? item.RouteId ?? '',
+				attendanceDate: item.attendanceDate ?? item.AttendanceDate ?? '',
+				status: item.status ?? item.Status ?? '',
+				markedAt: item.markedAt ?? item.MarkedAt ?? ''
+			}))
+			.filter(item => {
+				const hasDate = normalizeDate(item.attendanceDate).length > 0
+				const validStatus = isPresentStatus(item.status) || isAbsentStatus(item.status)
+				return hasDate && validStatus
+			})
+	}
+
+	const formatSchedule = (value: unknown) => {
+		if (!value) return '00:00'
+
+		if (typeof value === 'string') {
+			const hhmmss = value.match(/^(\d{2}):(\d{2}):(\d{2})$/)
+			if (hhmmss) return `${hhmmss[1]}:${hhmmss[2]}`
+
+			const hhmm = value.match(/^(\d{2}):(\d{2})$/)
+			if (hhmm) return `${hhmm[1]}:${hhmm[2]}`
+		}
+
+		return String(value)
+	}
+
+	const loadReport = async () => {
+		loading.value = true
+
+		try {
+			user.value = getUser()
+
+			const [routesResponse, assignmentsResponse, attendancesResponse] = await Promise.all([
+				apiFetch('/Routes'),
+				apiFetch('/Assignments'),
+				apiFetch('/Attendances')
+			])
+
+			if (routesResponse?.ok) {
+				const data = await routesResponse.json()
+				routes.value = normalizeRoutes(data)
+			} else {
+				routes.value = []
+			}
+
+			if (assignmentsResponse?.ok) {
+				const data = await assignmentsResponse.json()
+				assignments.value = normalizeAssignments(data)
+			} else {
+				assignments.value = []
+			}
+
+			if (attendancesResponse?.ok) {
+				const data = await attendancesResponse.json()
+				attendances.value = normalizeAttendances(data)
+			} else {
+				attendances.value = []
+			}
+		} catch (error) {
+			console.error('Error cargando reportes:', error)
+			routes.value = []
+			assignments.value = []
+			attendances.value = []
+		} finally {
+			loading.value = false
+		}
+	}
+
+	onMounted(loadReport)
 </script>
 
 <style scoped>
@@ -299,12 +697,6 @@ onMounted(loadReport)
 		display: flex;
 		align-items: center;
 		min-width: 140px;
-	}
-
-	.brand-logo {
-		height: 42px;
-		object-fit: contain;
-		display: block;
 	}
 
 	.topbar-nav {
@@ -517,6 +909,73 @@ onMounted(loadReport)
 			box-shadow: 0 4px 12px rgba(88, 103, 149, 0.08);
 		}
 
+	.filters-card {
+		margin-bottom: 14px;
+		padding: 16px 18px;
+		border-radius: 16px;
+		border: 1px solid rgba(205, 213, 239, 0.88);
+		background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(246, 248, 255, 0.9) 100%);
+		box-shadow: 0 12px 24px rgba(59, 76, 132, 0.08);
+	}
+
+	.filters-grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 14px;
+		align-items: end;
+	}
+
+	.filter-field {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+	}
+
+		.filter-field label {
+			font-size: 13px;
+			font-weight: 800;
+			color: #2d4177;
+		}
+
+		.filter-field input {
+			height: 44px;
+			border: 1px solid rgba(205, 213, 239, 0.95);
+			border-radius: 12px;
+			padding: 0 12px;
+			font-size: 14px;
+			color: #34497d;
+			background: #fff;
+			outline: none;
+		}
+
+			.filter-field input:focus {
+				border-color: #4f8ef7;
+				box-shadow: 0 0 0 4px rgba(79, 142, 247, 0.12);
+			}
+
+	.filter-actions {
+		display: flex;
+		align-items: end;
+	}
+
+	.secondary-btn {
+		height: 44px;
+		padding: 0 16px;
+		border: 1px solid rgba(205, 213, 239, 0.95);
+		border-radius: 12px;
+		background: #fff;
+		color: #2d4177;
+		font-size: 14px;
+		font-weight: 800;
+		cursor: pointer;
+		transition: all 0.2s ease;
+	}
+
+		.secondary-btn:hover {
+			background: #f6f8ff;
+			border-color: #b9c8f3;
+		}
+
 	.report-card {
 		border-radius: 16px;
 		border: 1px solid rgba(205, 213, 239, 0.88);
@@ -563,7 +1022,7 @@ onMounted(loadReport)
 		width: 100%;
 		border-collapse: separate;
 		border-spacing: 0;
-		min-width: 760px;
+		min-width: 900px;
 	}
 
 		.reports-table thead th {
@@ -626,16 +1085,6 @@ onMounted(loadReport)
 		color: #667596;
 		font-weight: 700;
 		padding: 22px 16px !important;
-	}
-
-	.placeholder-panel {
-		min-height: 220px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		color: #6d7a9d;
-		font-weight: 700;
-		text-align: center;
 	}
 
 	.background-overlay {
@@ -761,6 +1210,10 @@ onMounted(loadReport)
 			width: 100%;
 			overflow-x: auto;
 			display: flex;
+		}
+
+		.filters-grid {
+			grid-template-columns: 1fr;
 		}
 	}
 

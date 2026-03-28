@@ -55,12 +55,12 @@ public class RouteAssignmentService : IRouteAssignmentService
 
     public async Task<RouteAssignmentResponseDto> CreateAsync(RouteAssignmentCreateDto dto)
     {
-        var route = await _context.Routes.FirstOrDefaultAsync(x => x.Id == dto.RouteId);
-        if (route == null || !route.IsActive)
+        var route = await _context.Routes.FirstOrDefaultAsync(x => x.Id == dto.RouteId && x.IsActive);
+        if (route == null)
             throw new ArgumentException("Invalid or inactive route");
 
-        var employee = await _context.Employees.FirstOrDefaultAsync(x => x.Id == dto.EmployeeId);
-        if (employee == null || !employee.IsActive)
+        var employee = await _context.Employees.FirstOrDefaultAsync(x => x.Id == dto.EmployeeId && x.IsActive);
+        if (employee == null)
             throw new ArgumentException("Invalid or inactive employee");
 
         var exists = await _context.RouteAssignments
@@ -95,16 +95,15 @@ public class RouteAssignmentService : IRouteAssignmentService
     public async Task<bool> UpdateAsync(int id, RouteAssignmentUpdateDto dto)
     {
         var entity = await _context.RouteAssignments.FirstOrDefaultAsync(x => x.Id == id && x.IsActive);
-
         if (entity == null)
             return false;
 
-        var route = await _context.Routes.FirstOrDefaultAsync(x => x.Id == dto.RouteId);
-        if (route == null || !route.IsActive)
+        var route = await _context.Routes.FirstOrDefaultAsync(x => x.Id == dto.RouteId && x.IsActive);
+        if (route == null)
             throw new ArgumentException("Invalid or inactive route");
 
-        var employee = await _context.Employees.FirstOrDefaultAsync(x => x.Id == dto.EmployeeId);
-        if (employee == null || !employee.IsActive)
+        var employee = await _context.Employees.FirstOrDefaultAsync(x => x.Id == dto.EmployeeId && x.IsActive);
+        if (employee == null)
             throw new ArgumentException("Invalid or inactive employee");
 
         var exists = await _context.RouteAssignments
@@ -127,13 +126,11 @@ public class RouteAssignmentService : IRouteAssignmentService
 
     public async Task<bool> DeleteAsync(int id)
     {
-        var entity = await _context.RouteAssignments.FirstOrDefaultAsync(x => x.Id == id && x.IsActive);
-
+        var entity = await _context.RouteAssignments.FirstOrDefaultAsync(x => x.Id == id);
         if (entity == null)
             return false;
 
-        entity.IsActive = false;
-
+        _context.RouteAssignments.Remove(entity);
         await _context.SaveChangesAsync();
         return true;
     }
