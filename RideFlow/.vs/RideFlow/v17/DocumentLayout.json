@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\penaa\\source\\repos\\RideFlow\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|c:\\users\\penaa\\source\\repos\\rideflow\\ridefront\\src\\views\\dashboard.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|solutionrelative:ridefront\\src\\views\\dashboard.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|c:\\users\\penaa\\source\\repos\\rideflow\\ridefront\\src\\views\\login.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|solutionrelative:ridefront\\src\\views\\login.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -37,10 +41,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|c:\\users\\penaa\\source\\repos\\rideflow\\ridefront\\src\\views\\routes.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|solutionrelative:ridefront\\src\\views\\routes.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|c:\\users\\penaa\\source\\repos\\rideflow\\ridefront\\src\\views\\dashboard.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{73A7F1E9-7295-4D1B-A48B-E5048537E356}|RideFlow.Core.Presentation.csproj|solutionrelative:ridefront\\src\\views\\dashboard.vue||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AB31ED76-BD27-4001-A050-130F71E4E62F}|..\\RideFlow.Core.Application\\RideFlow.Core.Application.csproj|c:\\users\\penaa\\source\\repos\\rideflow.core.application\\services\\routeassignmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -318,46 +318,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "RouteAssignmentsController.cs",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\Controllers\\RouteAssignmentsController.cs",
-              "RelativeDocumentMoniker": "Controllers\\RouteAssignmentsController.cs",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\Controllers\\RouteAssignmentsController.cs",
-              "RelativeToolTip": "Controllers\\RouteAssignmentsController.cs",
-              "ViewState": "AgIAAGMAAAAAAAAAAADwv20AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T18:58:40.991Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "auth.service.ts",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\services\\auth.service.ts",
-              "RelativeDocumentMoniker": "RideFront\\src\\services\\auth.service.ts",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\services\\auth.service.ts",
-              "RelativeToolTip": "RideFront\\src\\services\\auth.service.ts",
-              "ViewState": "AgIAAOAAAAAAAAAAAAAwwOYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2026-03-24T14:40:00.175Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "Reports.vue",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\views\\Reports.vue",
-              "RelativeDocumentMoniker": "RideFront\\src\\views\\Reports.vue",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\views\\Reports.vue",
-              "RelativeToolTip": "RideFront\\src\\views\\Reports.vue",
-              "ViewState": "AgIAALkEAAAAAAAAAAAqwNUEAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003491|",
-              "WhenOpened": "2026-03-25T17:36:53.731Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "PublicHome.vue",
               "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\views\\PublicHome.vue",
               "RelativeDocumentMoniker": "RideFront\\src\\views\\PublicHome.vue",
@@ -365,12 +326,11 @@
               "RelativeToolTip": "RideFront\\src\\views\\PublicHome.vue",
               "ViewState": "AgIAAJoBAAAAAAAAAAAkwKYBAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003491|",
-              "WhenOpened": "2026-03-27T14:03:41.385Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-27T14:03:41.385Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Assignments.vue",
               "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\views\\Assignments.vue",
               "RelativeDocumentMoniker": "RideFront\\src\\views\\Assignments.vue",
@@ -378,12 +338,11 @@
               "RelativeToolTip": "RideFront\\src\\views\\Assignments.vue",
               "ViewState": "AgIAAIgFAAAAAAAAAAAowJQFAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003491|",
-              "WhenOpened": "2026-03-25T15:50:22.646Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-25T15:50:22.646Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Login.vue",
               "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\views\\Login.vue",
               "RelativeDocumentMoniker": "RideFront\\src\\views\\Login.vue",
@@ -396,7 +355,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "RideFlow.Core.Presentation.csproj",
               "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFlow.Core.Presentation.csproj",
               "RelativeDocumentMoniker": "RideFlow.Core.Presentation.csproj",
@@ -404,8 +363,7 @@
               "RelativeToolTip": "RideFlow.Core.Presentation.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-03-20T14:12:13.744Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-20T14:12:13.744Z"
             },
             {
               "$type": "Document",
@@ -418,6 +376,55 @@
               "ViewState": "AgIAAGwAAAAAAAAAAAAQwIcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-23T17:31:59.368Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Dashboard.vue",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\views\\Dashboard.vue",
+              "RelativeDocumentMoniker": "RideFront\\src\\views\\Dashboard.vue",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\views\\Dashboard.vue",
+              "RelativeToolTip": "RideFront\\src\\views\\Dashboard.vue",
+              "ViewState": "AgIAAIcEAAAAAAAAAAAgwJAEAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003491|",
+              "WhenOpened": "2026-03-24T14:35:06.966Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Reports.vue",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\views\\Reports.vue",
+              "RelativeDocumentMoniker": "RideFront\\src\\views\\Reports.vue",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\views\\Reports.vue",
+              "RelativeToolTip": "RideFront\\src\\views\\Reports.vue",
+              "ViewState": "AgIAALkEAAAAAAAAAAAqwNUEAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003491|",
+              "WhenOpened": "2026-03-25T17:36:53.731Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "auth.service.ts",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\services\\auth.service.ts",
+              "RelativeDocumentMoniker": "RideFront\\src\\services\\auth.service.ts",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\services\\auth.service.ts",
+              "RelativeToolTip": "RideFront\\src\\services\\auth.service.ts",
+              "ViewState": "AgIAAOAAAAAAAAAAAAAwwOYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2026-03-24T14:40:00.175Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RouteAssignmentsController.cs",
+              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\Controllers\\RouteAssignmentsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\RouteAssignmentsController.cs",
+              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\Controllers\\RouteAssignmentsController.cs",
+              "RelativeToolTip": "Controllers\\RouteAssignmentsController.cs",
+              "ViewState": "AgIAAGMAAAAAAAAAAADwv20AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T18:58:40.991Z"
             },
             {
               "$type": "Document",
@@ -445,7 +452,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "index.ts",
               "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\router\\index.ts",
               "RelativeDocumentMoniker": "RideFront\\src\\router\\index.ts",
@@ -457,7 +464,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "Routes.vue",
               "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\views\\Routes.vue",
               "RelativeDocumentMoniker": "RideFront\\src\\views\\Routes.vue",
@@ -478,18 +485,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-23T15:43:54.151Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Dashboard.vue",
-              "DocumentMoniker": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\views\\Dashboard.vue",
-              "RelativeDocumentMoniker": "RideFront\\src\\views\\Dashboard.vue",
-              "ToolTip": "C:\\Users\\penaa\\source\\repos\\RideFlow\\RideFront\\src\\views\\Dashboard.vue",
-              "RelativeToolTip": "RideFront\\src\\views\\Dashboard.vue",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAABOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003491|",
-              "WhenOpened": "2026-03-24T14:35:06.966Z"
             },
             {
               "$type": "Document",

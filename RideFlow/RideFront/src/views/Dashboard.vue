@@ -47,7 +47,7 @@
                     </div>
 
                     <div class="stat-card-bottom">
-                        <span class="stat-trend">Datos reales</span>
+                        <span class="stat-trend"></span>
                         <span class="stat-dots">••••</span>
                     </div>
 
@@ -66,7 +66,7 @@
                     </div>
 
                     <div class="stat-card-bottom">
-                        <span class="stat-trend">Datos reales</span>
+                        <span class="stat-trend"></span>
                         <span class="stat-dots">••••</span>
                     </div>
 
@@ -85,7 +85,7 @@
                     </div>
 
                     <div class="stat-card-bottom">
-                        <span class="stat-trend">Datos reales</span>
+                        <span class="stat-trend"></span>
                         <span class="stat-dots">••••</span>
                     </div>
 
@@ -258,7 +258,22 @@
     const attendances = ref<AttendanceItem[]>([])
     const routesList = ref<RouteItem[]>([])
 
-    const today = new Date().toISOString().slice(0, 10)
+    const getRDDateOnly = () => {
+        const parts = new Intl.DateTimeFormat('en-US', {
+            timeZone: 'America/Santo_Domingo',
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit'
+        }).formatToParts(new Date())
+
+        const year = parts.find(x => x.type === 'year')?.value ?? ''
+        const month = parts.find(x => x.type === 'month')?.value ?? ''
+        const day = parts.find(x => x.type === 'day')?.value ?? ''
+
+        return `${year}-${month}-${day}`
+    }
+
+    const today = ref(getRDDateOnly())
 
     const displayName = computed(() => {
         return (
@@ -275,14 +290,42 @@
         return `https://ui-avatars.com/api/?name=${name}&background=EAF0FF&color=183A8F&bold=true`
     })
 
-    const asistenciaResumen = computed(() => {
-        const absentToday = attendances.value.filter(x => {
-            const dateOnly = String(x.attendanceDate).slice(0, 10)
-            return dateOnly === today && String(x.status).toLowerCase() === 'absent'
-        }).length
+    const normalizeDateOnly = (value: unknown) => {
+        if (!value) return ''
+        const raw = String(value).trim()
+        if (!raw) return ''
+        if (raw.includes('T')) return raw.slice(0, 10)
+        if (raw.length >= 10) return raw.slice(0, 10)
+        return raw
+    }
 
-        if (asistencia.value === 0 && absentToday === 0) return 'Sin registros hoy'
-        return `${asistencia.value} presentes · ${absentToday} ausentes`
+    const normalizeAttendanceStatus = (value: unknown) => {
+        const status = String(value ?? '')
+            .trim()
+            .toLowerCase()
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+
+        if (['present', 'presente', 'asistio', 'asistio.', 'asistió'].includes(status)) return 'present'
+        if (['absent', 'ausente', 'falto', 'falto.', 'faltó', 'no asistio', 'no asistio.', 'no asistió'].includes(status)) return 'absent'
+        return status
+    }
+
+    const attendancesToday = computed(() => {
+        return attendances.value.filter(x => normalizeDateOnly(x.attendanceDate) === today.value)
+    })
+
+    const presentToday = computed(() => {
+        return attendancesToday.value.filter(x => normalizeAttendanceStatus(x.status) === 'present').length
+    })
+
+    const absentToday = computed(() => {
+        return attendancesToday.value.filter(x => normalizeAttendanceStatus(x.status) === 'absent').length
+    })
+
+    const asistenciaResumen = computed(() => {
+        if (presentToday.value === 0 && absentToday.value === 0) return 'Sin registros hoy'
+        return `${presentToday.value} presentes · ${absentToday.value} ausentes`
     })
 
     const recentActivity = computed<RecentActivityItem | null>(() => {
@@ -315,9 +358,7 @@
                 type: 'attendance',
                 title: 'Asistencia registrada',
                 description: `en ${routeName}`,
-                meta: `${capitalizeStatus(lastAttendance.status)} · ${formatRelativeTime(attendanceDate)}`
-                    .replace(/^/, '')
-                    .trim(),
+                meta: `${capitalizeStatus(lastAttendance.status)} · ${formatRelativeTime(attendanceDate)}`,
                 when: attendanceDate
             }
         }
@@ -327,7 +368,7 @@
                 type: 'assignment',
                 title: lastAssignment.employeeName,
                 description: `asignado a ${lastAssignment.routeName}`,
-                meta: `${formatRelativeTime(assignmentDate)}`,
+                meta: formatRelativeTime(assignmentDate),
                 when: assignmentDate
             }
         }
@@ -435,7 +476,7 @@
     }
 
     const capitalizeStatus = (status: string) => {
-        const normalized = String(status).toLowerCase()
+        const normalized = normalizeAttendanceStatus(status)
         if (normalized === 'present') return 'Presente'
         if (normalized === 'absent') return 'Ausente'
         return status
@@ -443,6 +484,7 @@
 
     const loadData = async () => {
         try {
+            today.value = getRDDateOnly()
             user.value = getUser()
 
             const [resRutas, resColab, resAsign, resAttendance] = await Promise.all([
@@ -490,8 +532,8 @@
                 const normalized = normalizeAttendances(data)
                 attendances.value = normalized
                 asistencia.value = normalized.filter(x => {
-                    const dateOnly = String(x.attendanceDate).slice(0, 10)
-                    return dateOnly === today && String(x.status).toLowerCase() === 'present'
+                    return normalizeDateOnly(x.attendanceDate) === today.value &&
+                        normalizeAttendanceStatus(x.status) === 'present'
                 }).length
             } else {
                 attendances.value = []
@@ -539,12 +581,6 @@
         display: flex;
         align-items: center;
         min-width: 140px;
-    }
-
-    .brand-logo {
-        height: 40px;
-        object-fit: contain;
-        display: block;
     }
 
     .topbar-nav {
@@ -789,6 +825,7 @@
     }
 
     .stat-trend {
+        min-height: 16px;
         font-size: 12px;
         font-weight: 700;
         color: #5d6d97;
@@ -1053,18 +1090,19 @@
         bottom: -148px;
         height: 212px;
         background: linear-gradient(90deg, #0b297a 0%, #123fb0 24%, #2567ea 58%, #d4c11c 86%, #f0c612 100%);
-        clip-path: ellipse(60% 46% at 50% 54%);
+        clip-path: ellipse(58% 44% at 50% 55%);
+        opacity: 0.95;
     }
 
     .layer-4 {
-        bottom: -172px;
-        height: 208px;
-        background: linear-gradient(90deg, #0a246b 0%, #0d3aa0 28%, #1457d6 57%, #6cb96e 78%, #f0c612 100%);
-        clip-path: ellipse(60% 44% at 50% 54%);
-        opacity: 0.98;
+        bottom: -160px;
+        height: 190px;
+        background: linear-gradient(90deg, rgba(9, 34, 104, 0.92) 0%, rgba(34, 97, 220, 0.88) 56%, rgba(241, 196, 25, 0.86) 100%);
+        clip-path: ellipse(52% 40% at 50% 58%);
+        opacity: 0.82;
     }
 
-    @media (max-width: 1150px) {
+    @media (max-width: 1100px) {
         .stats-grid {
             grid-template-columns: repeat(2, minmax(0, 1fr));
         }
@@ -1073,74 +1111,59 @@
             grid-template-columns: 1fr;
         }
 
-        .quick-actions-card {
-            max-width: 100%;
-        }
-
         .activity-card {
-            max-width: 650px;
-        }
-
-        .welcome-content h1 {
-            font-size: 34px;
-        }
-
-        .welcome-content p {
-            font-size: 19px;
+            min-height: auto;
         }
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 860px) {
         .topbar {
             height: auto;
-            padding: 16px 18px;
-            gap: 14px;
+            padding: 16px 20px;
             flex-wrap: wrap;
+            gap: 14px;
         }
 
         .topbar-nav {
             order: 3;
             width: 100%;
+            justify-content: center;
             flex-wrap: wrap;
             gap: 18px;
         }
 
         .dashboard-content {
-            padding: 20px 16px 210px;
+            padding: 24px 16px 180px;
+        }
+
+        .welcome-content h1 {
+            font-size: 32px;
+        }
+
+        .welcome-content p {
+            font-size: 18px;
         }
     }
 
     @media (max-width: 640px) {
         .stats-grid {
             grid-template-columns: 1fr;
-            gap: 14px;
-        }
-
-        .user-name {
-            display: none;
         }
 
         .user-chip {
             min-width: auto;
-            padding-right: 10px;
         }
 
-        .welcome-content h1 {
-            font-size: 28px;
-        }
-
-        .welcome-content p {
-            font-size: 16px;
-            line-height: 1.65;
+        .user-name {
+            max-width: 70px;
         }
 
         .action-btn {
-            min-height: 70px;
-            padding: 0 14px;
+            padding: 14px 16px;
         }
 
-        .activity-card {
-            min-height: auto;
+        .action-arrow {
+            font-size: 28px;
         }
     }
 </style>
